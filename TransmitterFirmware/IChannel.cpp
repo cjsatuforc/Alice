@@ -1,10 +1,8 @@
 #include "IChannel.h"
 
-#include <string>
-
 
 IChannel::IChannel(
-  std::string name,
+  char * name,
   channelid_t id,
   channelvalue_t defaultValue,
   channelvalue_t max,
@@ -22,11 +20,16 @@ IChannel::IChannel(
     m_min = m_max;
     m_max = temp;
   }
-  
+
   if(defaultValue >= m_min && defaultValue <= m_max)
     m_value = defaultValue;
   else
     m_value = m_min;
+}
+
+
+IChannel::~IChannel()
+{
 }
 
 
@@ -35,12 +38,12 @@ bool IChannel::setValue(channelvalue_t value)
   if(value >= m_min && value <= m_max)
   {
     m_value = value;
-    
+
     if(m_callback)
       (*m_callback)(m_id, m_value);
-    
+
     return true;
   }
-  
+
   return false;
 }
