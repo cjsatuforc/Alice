@@ -6,13 +6,17 @@
 #include <M2tk.h>
 
 #include "SerialLog.h"
+#include "Types.h"
 #include "IRadio.h"
 #include "IChannel.h"
 #include "UIManager.h"
 
 
 IChannel channels[] = {
-  IChannel("Test One", 0, 0, 1500, 2500)
+  IChannel("Throttle", 0, 0, 1500, 2500),
+  IChannel("Yaw", 0, 0, 1500, 2500),
+  IChannel("Pitch", 0, 0, 1500, 2500),
+  IChannel("Roll", 0, 0, 1500, 2500)
 };
 
 #define LCD_D0_PIN 38
@@ -31,6 +35,7 @@ IChannel channels[] = {
 
 #define LCD_BL_PIN 4
 
+#define GLCD_ROTATE_180
 U8GLIB_KS0108_128 glcd(
     LCD_D0_PIN, LCD_D1_PIN, LCD_D2_PIN, LCD_D3_PIN,
     LCD_D4_PIN, LCD_D5_PIN, LCD_D6_PIN, LCD_D7_PIN,
@@ -70,6 +75,7 @@ void setup()
 void loop()
 {
   uiButtons.poll();
+  ui.update();
 }
 
 
