@@ -17,9 +17,9 @@
 
 void setup_serial_logger();
 
-void error(char * msg);
-void warn(char * msg);
-void info(char * msg);
-void debug(char * msg);
+void error(const char * msg);
+void warn(const char * msg);
+void info(const char * msg);
+void debug(const char * msg);
 
 #endif

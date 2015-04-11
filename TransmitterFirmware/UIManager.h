@@ -2,23 +2,16 @@
 #define ALICE_UIMANAGER_H
 
 #include "Types.h"
+#include "IChannel.h"
 
 #include <U8glib.h>
 #include <M2tk.h>
 
-class UIManager
-{
-  public:
-    UIManager(U8GLIB & glcd);
-    ~UIManager();
-
-    void update();
-    void handleButtonPress(uibutton_t id);
-
-  private:
-    U8GLIB & m_glcd;
-    M2tk m_m2;
-
-};
+void ui_init(U8GLIB * glcd, IChannel * channels, uint8_t numChannels);
+    
+void ui_update();
+void ui_handleButtonPress(uibutton_t id);
+    
+const char * ui_processChannelMenu(uint8_t idx, uint8_t msg);
 
 #endif

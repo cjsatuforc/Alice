@@ -4,6 +4,7 @@
 #include <UniversalButtons.h>
 #include <U8glib.h>
 #include <M2tk.h>
+#include <utility/m2ghu8g.h>
 
 #include "SerialLog.h"
 #include "Types.h"
@@ -12,11 +13,15 @@
 #include "UIManager.h"
 
 
+#define NUM_CHANNELS 7
 IChannel channels[] = {
   IChannel("Throttle", 0, 0, 1500, 2500),
   IChannel("Yaw", 0, 0, 1500, 2500),
   IChannel("Pitch", 0, 0, 1500, 2500),
-  IChannel("Roll", 0, 0, 1500, 2500)
+  IChannel("Roll", 0, 0, 1500, 2500),
+  IChannel("Camera X", 0, 0, 0, 500),
+  IChannel("Camera Y", 0, 0, 0, 500),
+  IChannel("Mode", 0, 0, 0, 3)
 };
 
 #define LCD_D0_PIN 38
@@ -45,7 +50,6 @@ U8GLIB_KS0108_128 glcd(
     LCD_RW_PIN
   );
 
-UIManager ui(glcd);
 UniversalButtons uiButtons;
 
 
@@ -59,23 +63,25 @@ void setup()
   uiButtons.addButton(BUTTON_UP, 49);
   uiButtons.addButton(BUTTON_DOWN, 45);
   uiButtons.addButton(BUTTON_RIGHT, 43);
-  uiButtons.addButton(BUTTON_MENU_SELECT, 44);  // F1
-  uiButtons.addButton(BUTTON_CHANNELS, 48);     // F2
-  uiButtons.addButton(BUTTON_MACROS, 42);       // F3
-  uiButtons.addButton(BUTTON_EXIT, 46);         // F4
+  uiButtons.addButton(BUTTON_SELECT, 44); // F1
+  uiButtons.addButton(BUTTON_MENU, 48);   // F2
+  uiButtons.addButton(BUTTON_HOME, 42);   // F3
+  uiButtons.addButton(BUTTON_BACK, 46);   // F4
 
   uiButtons.setStateChangeCallback(uiButtonHandle);
 
 #ifdef GLCD_ROTATE_180
   glcd.setRot180();
 #endif
+
+  ui_init(&glcd, channels, NUM_CHANNELS);
 }
 
 
 void loop()
 {
   uiButtons.poll();
-  ui.update();
+  ui_update();
 }
 
 
@@ -85,5 +91,5 @@ void uiButtonHandle(buttonid_t id, uint8_t state)
   if(!state)
     return;
 
-  ui.handleButtonPress((uibutton_t)id);
+  ui_handleButtonPress((uibutton_t)id);
 }

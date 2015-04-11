@@ -12,7 +12,7 @@ void setup_serial_logger()
 }
 
 
-void error(char * msg)
+void error(const char * msg)
 {
 #if ALICE_SERIAL_LOG_LEVEL >= 3
   ALICE_LOG_SERIAL_PORT.print("ERROR: ");
@@ -21,7 +21,7 @@ void error(char * msg)
 }
 
 
-void warn(char * msg)
+void warn(const char * msg)
 {
 #if ALICE_SERIAL_LOG_LEVEL >= 2
   ALICE_LOG_SERIAL_PORT.print("WARN: ");
@@ -30,7 +30,7 @@ void warn(char * msg)
 }
 
 
-void info(char * msg)
+void info(const char * msg)
 {
 #if ALICE_SERIAL_LOG_LEVEL >= 1
   ALICE_LOG_SERIAL_PORT.print("INFO: ");
@@ -39,7 +39,7 @@ void info(char * msg)
 }
 
 
-void debug(char * msg)
+void debug(const char * msg)
 {
 #if ALICE_SERIAL_LOG_LEVEL >= 0
   ALICE_LOG_SERIAL_PORT.print("DEBUG: ");
