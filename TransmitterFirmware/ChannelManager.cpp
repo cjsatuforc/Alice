@@ -22,3 +22,18 @@ IChannel * ChannelManager::getChannel(int index)
   
   return m_channels[index];
 }
+
+
+bool ChannelManager::sendToRadio(IRadio & radio)
+{
+  if(!(radio.isOpen() && radio.isPaired()))
+    return false;
+  
+  for(int i = 0; i < m_numChannels; i++)
+  {
+    IChannel * channel = getChannel(i);
+    radio.setChannel(channel->getID(), channel->getValue());
+  }
+  
+  return radio.tx();
+}

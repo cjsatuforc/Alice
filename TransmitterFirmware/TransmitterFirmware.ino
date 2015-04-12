@@ -13,6 +13,8 @@
 #include "ChannelManager.h"
 #include "UIManager.h"
 
+#include "DebugRadio.h"
+
 
 #define LCD_BL_PIN 4
 #define GLCD_ROTATE_180
@@ -25,11 +27,15 @@ U8GLIB_KS0108_128 glcd(
 );
 
 UniversalButtons uiButtons;
+DebugRadio radio;
 
 
 void setup()
 {
   setup_serial_logger();
+  
+  radio.open();
+  radio.pair();
   
   ChannelManager::Instance().addChannel(new IChannel("Throttle", 0, 0, 1500, 2500));
   ChannelManager::Instance().addChannel(new IChannel("Yaw", 0, 0, 1500, 2500));
@@ -65,6 +71,8 @@ void loop()
 {
   uiButtons.poll();
   ui_update();
+  
+  //ChannelManager::Instance().sendToRadio(radio);
 }
 
 

@@ -2,6 +2,7 @@
 #define ALICE_CHANNELMANAHER_H
 
 #include "IChannel.h"
+#include "IRadio.h"
 
 class ChannelManager
 {
@@ -18,6 +19,8 @@ class ChannelManager
     
     int numChannels() { return m_numChannels; }
     IChannel * getChannel(int index);
+    
+    bool sendToRadio(IRadio & radio);
     
   private:
     ChannelManager() {};

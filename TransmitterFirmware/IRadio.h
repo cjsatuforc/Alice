@@ -6,8 +6,7 @@
 class IRadio
 {
 public:
-  IRadio();
-  ~IRadio();
+  IRadio() {};
 
   virtual bool open() = 0;
   virtual bool close() = 0;

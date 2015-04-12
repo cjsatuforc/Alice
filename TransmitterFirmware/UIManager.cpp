@@ -33,8 +33,8 @@ m2_xmenu_entry g_mainMenuData[] = {
   {"Channels", &align_channelMenu, NULL},
   {"Macros", &align_macroMenu, NULL},
   {"Setup", NULL, NULL},
-  {". Option 1", NULL, NULL},
-  {". Option 2", NULL, NULL},
+  {". Tradio Tx Period", NULL, NULL},
+  {". UI Refresh Period", NULL, NULL},
   {NULL, NULL, NULL}
 };
 
