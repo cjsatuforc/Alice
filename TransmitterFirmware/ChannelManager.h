@@ -23,7 +23,7 @@ class ChannelManager
     bool sendToRadio(IRadio & radio);
     
   private:
-    ChannelManager() {};
+    ChannelManager();
     
     ChannelManager(ChannelManager const&);
     void operator=(ChannelManager const&);

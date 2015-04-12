@@ -1,6 +1,13 @@
 #include "ChannelManager.h"
 
 
+ChannelManager::ChannelManager()
+{
+  for(int i = 0; i < MAX_CHANNELS; i++)
+    m_channels[i] = NULL;
+}
+
+
 bool ChannelManager::addChannel(IChannel * channel)
 {
   if(channel == NULL)
