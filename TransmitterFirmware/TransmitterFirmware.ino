@@ -16,15 +16,14 @@
 #include "DebugRadio.h"
 
 
-#define LCD_BL_PIN 4
-#define GLCD_ROTATE_180
-
 // D0, D1, D2, D3, D4, D5, D6, D7
 // EN, CS1, CS2, DI, RW
 U8GLIB_KS0108_128 glcd(
   38, 41, 40, 37, 36, 35, 34, 33,
   14, 32, 31, 30, 15
 );
+#define LCD_BL_PIN 4
+#define GLCD_ROTATE_180
 
 UniversalButtons uiButtons;
 DebugRadio radio;
