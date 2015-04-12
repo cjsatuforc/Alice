@@ -7,7 +7,7 @@
 #include <U8glib.h>
 #include <M2tk.h>
 
-void ui_init(U8GLIB * glcd, IChannel * channels, uint8_t numChannels);
+void ui_init(U8GLIB * glcd);
     
 void ui_update();
 void ui_handleButtonPress(uibutton_t id);

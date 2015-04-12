@@ -1,7 +1,9 @@
 #include "UIManager.h"
 
 #include "SerialLog.h"
-#include "utility/m2ghu8g.h"
+#include "ChannelManager.h"
+
+#include <utility/m2ghu8g.h>
 
 
 // Home Screen
@@ -10,7 +12,6 @@ M2_ALIGN(align_homeScreen, "-1|1W64H64", &label_homeScreen);
 
 
 // Channel Menu
-IChannel * g_channels;
 uint8_t g_channelMenuFirst = 0;
 uint8_t g_channelCount = 0;
 
@@ -52,11 +53,10 @@ M2tk g_m2tk(&align_homeScreen, m2_es_arduino, m2_eh_6bs, m2_gh_u8g_fb);
 U8GLIB * g_glcd;
 
 
-void ui_init(U8GLIB * glcd, IChannel * channels, uint8_t numChannels)
+void ui_init(U8GLIB * glcd)
 {
   g_glcd = glcd;
-  g_channels = channels;
-  g_channelCount = numChannels;
+  g_channelCount = ChannelManager::Instance().numChannels();
   
   // Connect u8glib with m2tklib
   m2_SetU8g(glcd->getU8g(), m2_u8g_box_icon);
@@ -92,10 +92,12 @@ void ui_handleButtonPress(uibutton_t id)
 
 const char * ui_processChannelMenu(uint8_t idx, uint8_t msg)
 {
-  if(idx >= g_channelCount)
+  IChannel * channel = ChannelManager::Instance().getChannel(idx);
+  
+  if(channel == NULL)
     return "";
   
-  const char * res = g_channels[idx].getName();
+  const char * res = channel->getName();
   
   if(msg == M2_STRLIST_MSG_SELECT)
   {
