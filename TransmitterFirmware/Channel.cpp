@@ -1,7 +1,7 @@
-#include "IChannel.h"
+#include "Channel.h"
 
 
-IChannel::IChannel(
+Channel::Channel(
   char * name,
   channelid_t id,
   channelvalue_t defaultValue,
@@ -28,12 +28,12 @@ IChannel::IChannel(
 }
 
 
-IChannel::~IChannel()
+Channel::~Channel()
 {
 }
 
 
-bool IChannel::setValue(channelvalue_t value)
+bool Channel::setValue(channelvalue_t value)
 {
   if(value >= m_min && value <= m_max)
   {

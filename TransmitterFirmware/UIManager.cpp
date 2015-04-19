@@ -92,7 +92,7 @@ void ui_handleButtonPress(uibutton_t id)
 
 const char * ui_processChannelMenu(uint8_t idx, uint8_t msg)
 {
-  IChannel * channel = ChannelManager::Instance().getChannel(idx);
+  Channel * channel = ChannelManager::Instance().getChannel(idx);
   
   if(channel == NULL)
     return "";

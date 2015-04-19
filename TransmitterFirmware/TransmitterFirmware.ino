@@ -9,7 +9,7 @@
 #include "SerialLog.h"
 #include "Types.h"
 #include "IRadio.h"
-#include "IChannel.h"
+#include "Channel.h"
 #include "ChannelManager.h"
 #include "UIManager.h"
 
@@ -32,18 +32,18 @@ DebugRadio radio;
 void setup()
 {
   setup_serial_logger();
-  
+
   radio.open();
   radio.pair();
-  
-  ChannelManager::Instance().addChannel(new IChannel("Throttle", 0, 0, 1500, 2500));
-  ChannelManager::Instance().addChannel(new IChannel("Yaw", 0, 0, 1500, 2500));
-  ChannelManager::Instance().addChannel(new IChannel("Pitch", 0, 0, 1500, 2500));
-  ChannelManager::Instance().addChannel(new IChannel("Roll", 0, 0, 1500, 2500));
-  ChannelManager::Instance().addChannel(new IChannel("Camera X", 0, 0, 1500, 2500));
-  ChannelManager::Instance().addChannel(new IChannel("Camera Y", 0, 0, 1500, 2500));
-  ChannelManager::Instance().addChannel(new IChannel("Mode", 0, 0, 0, 2));
-  ChannelManager::Instance().addChannel(new IChannel("Mode 2", 0, 0, 0, 2));
+
+  ChannelManager::Instance().addChannel(new Channel("Throttle", 0, 0, 1500, 2500));
+  ChannelManager::Instance().addChannel(new Channel("Yaw", 0, 0, 1500, 2500));
+  ChannelManager::Instance().addChannel(new Channel("Pitch", 0, 0, 1500, 2500));
+  ChannelManager::Instance().addChannel(new Channel("Roll", 0, 0, 1500, 2500));
+  ChannelManager::Instance().addChannel(new Channel("Camera X", 0, 0, 1500, 2500));
+  ChannelManager::Instance().addChannel(new Channel("Camera Y", 0, 0, 1500, 2500));
+  ChannelManager::Instance().addChannel(new Channel("Mode", 0, 0, 0, 2));
+  ChannelManager::Instance().addChannel(new Channel("Mode 2", 0, 0, 0, 2));
 
   uiButtons.setDefaultButtonConfig(1, 1);
 
@@ -70,7 +70,7 @@ void loop()
 {
   uiButtons.poll();
   ui_update();
-  
+
   //ChannelManager::Instance().sendToRadio(radio);
 }
 

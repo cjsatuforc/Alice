@@ -4,18 +4,18 @@
 #include "Types.h"
 
 
-class IChannel
+class Channel
 {
 public:
   typedef void (* channelcallback_t) (channelid_t, channelvalue_t);
 
-  IChannel(char * name,
-           channelid_t id,
-           channelvalue_t defaultValue,
-           channelvalue_t max,
-           channelvalue_t min,
-           channelcallback_t callback = 0);
-  ~IChannel();
+  Channel(char * name,
+          channelid_t id,
+          channelvalue_t defaultValue,
+          channelvalue_t max,
+          channelvalue_t min,
+          channelcallback_t callback = 0);
+  ~Channel();
 
   char * getName() { return m_name; }
   channelid_t getID() { return m_id; }

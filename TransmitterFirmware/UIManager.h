@@ -2,7 +2,7 @@
 #define ALICE_UIMANAGER_H
 
 #include "Types.h"
-#include "IChannel.h"
+#include "Channel.h"
 
 #include <U8glib.h>
 #include <M2tk.h>

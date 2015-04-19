@@ -8,7 +8,7 @@ ChannelManager::ChannelManager()
 }
 
 
-bool ChannelManager::addChannel(IChannel * channel)
+bool ChannelManager::addChannel(Channel * channel)
 {
   if(channel == NULL)
     return false;
@@ -22,7 +22,7 @@ bool ChannelManager::addChannel(IChannel * channel)
 }
 
 
-IChannel * ChannelManager::getChannel(int index)
+Channel * ChannelManager::getChannel(int index)
 {
   if(index >= m_numChannels)
     return NULL;
@@ -38,7 +38,7 @@ bool ChannelManager::sendToRadio(IRadio & radio)
   
   for(int i = 0; i < m_numChannels; i++)
   {
-    IChannel * channel = getChannel(i);
+    Channel * channel = getChannel(i);
     radio.setChannel(channel->getID(), channel->getValue());
   }
   

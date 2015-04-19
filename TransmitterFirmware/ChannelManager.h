@@ -1,7 +1,7 @@
 #ifndef ALICE_CHANNELMANAHER_H
 #define ALICE_CHANNELMANAHER_H
 
-#include "IChannel.h"
+#include "Channel.h"
 #include "IRadio.h"
 
 class ChannelManager
@@ -15,10 +15,10 @@ class ChannelManager
     
     static const int MAX_CHANNELS = 12;
     
-    bool addChannel(IChannel * channel);
+    bool addChannel(Channel * channel);
     
     int numChannels() { return m_numChannels; }
-    IChannel * getChannel(int index);
+    Channel * getChannel(int index);
     
     bool sendToRadio(IRadio & radio);
     
@@ -29,7 +29,7 @@ class ChannelManager
     void operator=(ChannelManager const&);
     
     int m_numChannels;
-    IChannel *m_channels[MAX_CHANNELS];
+    Channel *m_channels[MAX_CHANNELS];
     
 };
 
