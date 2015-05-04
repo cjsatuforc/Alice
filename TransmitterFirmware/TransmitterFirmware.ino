@@ -12,6 +12,7 @@
 #include "Channel.h"
 #include "ChannelManager.h"
 #include "UIManager.h"
+#include "ControlMapping.h"
 
 #include "DebugRadio.h"
 

@@ -22,7 +22,7 @@ public:
 private:
   bool m_open;
   bool m_paired;
-  
+
 };
 
 #endif
