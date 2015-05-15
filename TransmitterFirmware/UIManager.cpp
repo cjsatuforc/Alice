@@ -5,38 +5,12 @@
 
 #include <utility/m2ghu8g.h>
 
-
 // Home Screen
 M2_LABEL(label_homeScreen, "", "Home Screen");
 M2_ALIGN(align_homeScreen, "-1|1W64H64", &label_homeScreen);
 
-
-// Channel Menu
-uint8_t g_channelMenuFirst = 0;
-uint8_t g_channelCount = 0;
-
-M2_STRLIST(strlist_channelMenu, "l4W56", &g_channelMenuFirst, &g_channelCount, ui_processChannelMenu);
-M2_SPACE(space_channelMenuSpace, "W1h1");
-M2_VSB(vsb_channelMenuScrollBar, "l4W2r1", &g_channelMenuFirst, &g_channelCount);
-M2_LIST(list_channelMenu) = {&strlist_channelMenu, &space_channelMenuSpace, &vsb_channelMenuScrollBar};
-M2_HLIST(hlist_channelMenu, NULL, list_channelMenu);
-M2_ALIGN(align_channelMenu, "-1|1W64H64", &hlist_channelMenu);
-
-
-// Macro Menu
-M2_LABEL(label_macroMenu, "", "Macros");
-M2_ALIGN(align_macroMenu, "-1|1W64H64", &label_macroMenu);
-
-
 // Main Menu
-m2_xmenu_entry g_mainMenuData[] = {
-  {"Channels", &align_channelMenu, NULL},
-  {"Macros", &align_macroMenu, NULL},
-  {"Setup", NULL, NULL},
-  {". Tradio Tx Period", NULL, NULL},
-  {". UI Refresh Period", NULL, NULL},
-  {NULL, NULL, NULL}
-};
+m2_xmenu_entry g_mainMenuData[ALICE_MAX_MAIN_MENU_ELEMENTS];
 
 uint8_t g_mainMenuFirst = 0;
 uint8_t g_mainMenuCount = 3;
@@ -55,8 +29,28 @@ U8GLIB * g_glcd;
 
 void ui_init(U8GLIB * glcd)
 {
+  // Create menu structure
+  int i = 0;
+  g_mainMenuData[i++] = (m2_xmenu_entry) {"Channels", NULL, NULL};
+  
+  for(int j = 0; j < ChannelManager::Instance().numChannels(); j++)
+  {
+    Channel * channel = ChannelManager::Instance().getChannel(j);
+    char * name = new char[3 + strlen(channel->getName())];
+    sprintf(name, ". %s\0", channel->getName());
+    g_mainMenuData[i++] = (m2_xmenu_entry) {name, NULL, NULL};
+  }
+  
+  g_mainMenuData[i++] = (m2_xmenu_entry) {"Macros", NULL, NULL};
+  
+  g_mainMenuData[i++] = (m2_xmenu_entry) {"Setup", NULL, NULL};
+  g_mainMenuData[i++] = (m2_xmenu_entry) {". Radio Tx Period", NULL, NULL};
+  g_mainMenuData[i++] = (m2_xmenu_entry) {". UI Frame Rate", NULL, NULL};
+  
+  g_mainMenuData[i++] = (m2_xmenu_entry) {NULL, NULL, NULL};
+
+  
   g_glcd = glcd;
-  g_channelCount = ChannelManager::Instance().numChannels();
   
   // Connect u8glib with m2tklib
   m2_SetU8g(glcd->getU8g(), m2_u8g_box_icon);
