@@ -1,7 +1,8 @@
 #include <inttypes.h>
 
-#include <UniversalInput.h>
-#include <UniversalButtons.h>
+#include <UniversalInputManager.h>
+#include <UniversalInputTypes.h>
+#include <IButton.h>
 #include <U8glib.h>
 #include <M2tk.h>
 #include <utility/m2ghu8g.h>
@@ -26,7 +27,7 @@ U8GLIB_KS0108_128 glcd(
 #define LCD_BL_PIN 4
 #define GLCD_ROTATE_180
 
-UniversalButtons uiButtons;
+UniversalInputManager uiButtons;
 DebugRadio radio;
 
 
@@ -46,18 +47,16 @@ void setup()
   ChannelManager::Instance().addChannel(new Channel("Mode", 0, 0, 0, 2));
   ChannelManager::Instance().addChannel(new Channel("Mode 2", 0, 0, 0, 2));
 
-  uiButtons.setDefaultButtonConfig(1, 1);
+  uiButtons.addNewButton(BUTTON_LEFT, 47);
+  uiButtons.addNewButton(BUTTON_UP, 49);
+  uiButtons.addNewButton(BUTTON_DOWN, 45);
+  uiButtons.addNewButton(BUTTON_RIGHT, 43);
+  uiButtons.addNewButton(BUTTON_SELECT, 44); // F1
+  uiButtons.addNewButton(BUTTON_MENU, 48);   // F2
+  uiButtons.addNewButton(BUTTON_HOME, 42);   // F3
+  uiButtons.addNewButton(BUTTON_BACK, 46);   // F4
 
-  uiButtons.addButton(BUTTON_LEFT, 47);
-  uiButtons.addButton(BUTTON_UP, 49);
-  uiButtons.addButton(BUTTON_DOWN, 45);
-  uiButtons.addButton(BUTTON_RIGHT, 43);
-  uiButtons.addButton(BUTTON_SELECT, 44); // F1
-  uiButtons.addButton(BUTTON_MENU, 48);   // F2
-  uiButtons.addButton(BUTTON_HOME, 42);   // F3
-  uiButtons.addButton(BUTTON_BACK, 46);   // F4
-
-  uiButtons.setStateChangeCallback(uiButtonHandle);
+  uiButtons.setCallback(uiButtonHandle);
 
 #ifdef GLCD_ROTATE_180
   glcd.setRot180();
@@ -76,11 +75,12 @@ void loop()
 }
 
 
-void uiButtonHandle(buttonid_t id, uint8_t state)
+void uiButtonHandle(inputtype_t type, IInputDevice * device)
 {
-  // Ignore button releases
-  if(!state)
-    return;
-
-  ui_handleButtonPress((uibutton_t)id);
+  if(type == UIT_BUTTON)
+  {
+    IButton * button = (IButton *) device;
+    if(button->isActive())
+      ui_handleButtonPress((uibutton_t) button->getID());
+  }  
 }

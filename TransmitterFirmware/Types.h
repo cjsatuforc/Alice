@@ -5,7 +5,6 @@
 #include <inttypes.h>
 
 #include <M2tk.h>
-#include <UniversalInput.h>
 
 typedef uint8_t channelid_t;
 typedef int16_t channelvalue_t;

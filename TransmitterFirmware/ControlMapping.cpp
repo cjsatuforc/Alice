@@ -1,6 +1,6 @@
 #include "ControlMapping.h"
 
-ControlMapping::ControlMapping(UniversalInput::inputtype_t inputType,
+ControlMapping::ControlMapping(inputtype_t inputType,
                                uint16_t inputID, channelid_t channelID,
                                controlmode_t mode) :
   m_inputType(inputType), m_inputID(inputID), m_channelID(channelID),
@@ -8,7 +8,7 @@ ControlMapping::ControlMapping(UniversalInput::inputtype_t inputType,
 {
 }
 
-ControlMapping::ControlMapping(UniversalInput::inputtype_t inputType,
+ControlMapping::ControlMapping(inputtype_t inputType,
                                uint16_t inputID, channelid_t channelID,
                                controlmode_t mode, channelvalue_t value) :
   m_inputType(inputType), m_inputID(inputID), m_channelID(channelID),
