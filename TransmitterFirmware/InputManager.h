@@ -18,6 +18,7 @@ class InputManager
     bool poll(bool ui = true, bool controls = true);
 
     bool addUIButton(uibutton_t id, inputpin_t pin);
+    bool addControl(IInputDevice * device);
 
   private:
     InputManager();

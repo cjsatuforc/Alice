@@ -1,8 +1,10 @@
-#ifndef ALICE_CHANNELMANAHER_H
-#define ALICE_CHANNELMANAHER_H
+#ifndef ALICE_CHANNELMANAGER_H
+#define ALICE_CHANNELMANAGER_H
 
 #include "Channel.h"
+
 #include "IRadio.h"
+
 
 class ChannelManager
 {

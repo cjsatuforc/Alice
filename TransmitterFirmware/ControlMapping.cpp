@@ -1,7 +1,7 @@
 #include "ControlMapping.h"
 
 
-ControlMapping::ControlMapping(uint16_t inputID,
+ControlMapping::ControlMapping(inputid_t inputID,
                                channelid_t channelID,
                                controlmode_t mode) :
   m_inputID(inputID),
@@ -12,7 +12,7 @@ ControlMapping::ControlMapping(uint16_t inputID,
 }
 
 
-ControlMapping::ControlMapping(uint16_t inputID,
+ControlMapping::ControlMapping(inputid_t inputID,
                                channelid_t channelID,
                                controlmode_t mode,
                                channelvalue_t value) :
