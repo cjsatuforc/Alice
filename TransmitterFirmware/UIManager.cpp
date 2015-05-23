@@ -32,7 +32,7 @@ void ui_init(U8GLIB * glcd)
   // Create menu structure
   int i = 0;
   g_mainMenuData[i++] = (m2_xmenu_entry) {"Channels", NULL, NULL};
-  
+
   for(int j = 0; j < ChannelManager::Instance().numChannels(); j++)
   {
     Channel * channel = ChannelManager::Instance().getChannel(j);
@@ -40,21 +40,21 @@ void ui_init(U8GLIB * glcd)
     sprintf(name, ". %s\0", channel->getName());
     g_mainMenuData[i++] = (m2_xmenu_entry) {name, NULL, NULL};
   }
-  
+
   g_mainMenuData[i++] = (m2_xmenu_entry) {"Macros", NULL, NULL};
-  
+
   g_mainMenuData[i++] = (m2_xmenu_entry) {"Setup", NULL, NULL};
   g_mainMenuData[i++] = (m2_xmenu_entry) {". Radio Tx Period", NULL, NULL};
   g_mainMenuData[i++] = (m2_xmenu_entry) {". UI Frame Rate", NULL, NULL};
-  
+
   g_mainMenuData[i++] = (m2_xmenu_entry) {NULL, NULL, NULL};
 
-  
+
   g_glcd = glcd;
-  
+
   // Connect u8glib with m2tklib
   m2_SetU8g(glcd->getU8g(), m2_u8g_box_icon);
-  
+
   // Set home screens
   g_m2tk.setHome(&align_homeScreen);
   g_m2tk.setHome2(&align_mainMenu);
@@ -77,26 +77,33 @@ void ui_update()
 }
 
 
-void ui_handleButtonPress(uibutton_t id)
+void ui_handleButton(inputtype_t type, IInputDevice * device)
 {
-  debug("Button press");
-  g_m2tk.setKey(id);
+  if(type == UIT_BUTTON)
+  {
+    IButton * button = (IButton *) device;
+    if(button->isActive())
+    {
+      debug("Button press");
+      g_m2tk.setKey(button->getID());
+    }
+  }
 }
 
 
 const char * ui_processChannelMenu(uint8_t idx, uint8_t msg)
 {
   Channel * channel = ChannelManager::Instance().getChannel(idx);
-  
+
   if(channel == NULL)
     return "";
-  
+
   const char * res = channel->getName();
-  
+
   if(msg == M2_STRLIST_MSG_SELECT)
   {
     // Process selection
   }
-  
+
   return res;
 }

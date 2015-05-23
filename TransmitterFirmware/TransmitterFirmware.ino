@@ -12,6 +12,7 @@
 #include "IRadio.h"
 #include "Channel.h"
 #include "ChannelManager.h"
+#include "InputManager.h"
 #include "UIManager.h"
 #include "ControlMapping.h"
 
@@ -27,7 +28,6 @@ U8GLIB_KS0108_128 glcd(
 #define LCD_BL_PIN 4
 #define GLCD_ROTATE_180
 
-UniversalInputManager uiButtons;
 DebugRadio radio;
 
 
@@ -47,16 +47,14 @@ void setup()
   ChannelManager::Instance().addChannel(new Channel("Mode", 0, 0, 0, 2));
   ChannelManager::Instance().addChannel(new Channel("Mode 2", 0, 0, 0, 2));
 
-  uiButtons.addNewButton(BUTTON_LEFT, 47);
-  uiButtons.addNewButton(BUTTON_UP, 49);
-  uiButtons.addNewButton(BUTTON_DOWN, 45);
-  uiButtons.addNewButton(BUTTON_RIGHT, 43);
-  uiButtons.addNewButton(BUTTON_SELECT, 44); // F1
-  uiButtons.addNewButton(BUTTON_MENU, 48);   // F2
-  uiButtons.addNewButton(BUTTON_HOME, 42);   // F3
-  uiButtons.addNewButton(BUTTON_BACK, 46);   // F4
-
-  uiButtons.setCallback(uiButtonHandle);
+  InputManager::Instance().addUIButton(BUTTON_LEFT, 47);
+  InputManager::Instance().addUIButton(BUTTON_UP, 49);
+  InputManager::Instance().addUIButton(BUTTON_DOWN, 45);
+  InputManager::Instance().addUIButton(BUTTON_RIGHT, 43);
+  InputManager::Instance().addUIButton(BUTTON_SELECT, 44); // F1
+  InputManager::Instance().addUIButton(BUTTON_MENU, 48);   // F2
+  InputManager::Instance().addUIButton(BUTTON_HOME, 42);   // F3
+  InputManager::Instance().addUIButton(BUTTON_BACK, 46);   // F4
 
 #ifdef GLCD_ROTATE_180
   glcd.setRot180();
@@ -68,19 +66,8 @@ void setup()
 
 void loop()
 {
-  uiButtons.poll();
+  InputManager::Instance().poll();
   ui_update();
 
   //ChannelManager::Instance().sendToRadio(radio);
-}
-
-
-void uiButtonHandle(inputtype_t type, IInputDevice * device)
-{
-  if(type == UIT_BUTTON)
-  {
-    IButton * button = (IButton *) device;
-    if(button->isActive())
-      ui_handleButtonPress((uibutton_t) button->getID());
-  }  
 }
