@@ -1,15 +1,14 @@
 #include "Channel.h"
 
 
-Channel::Channel(
-  char * name,
-  channelid_t id,
-  channelvalue_t defaultValue,
-  channelvalue_t max,
-  channelvalue_t min,
-  channelcallback_t callback) :
-  m_name(name),
+Channel::Channel(channelid_t id,
+                 char * name,
+                 channelvalue_t max,
+                 channelvalue_t min,
+                 channelcallback_t callback,
+                 channelvalue_t defaultValue) :
   m_id(id),
+  m_name(name),
   m_min(min),
   m_max(max),
   m_callback(callback)

@@ -69,14 +69,10 @@ void setup()
   joystick->setTransformation(&transformA);
   InputManager::Instance().addControl(joystick);
 
-  ChannelManager::Instance().addChannel(new Channel("Throttle", 0, 0, 1500, 2500));
-  ChannelManager::Instance().addChannel(new Channel("Yaw", 1, 0, 1500, 2500));
-  ChannelManager::Instance().addChannel(new Channel("Pitch", 2, 0, 1500, 2500));
-  ChannelManager::Instance().addChannel(new Channel("Roll", 3, 0, 1500, 2500));
-  ChannelManager::Instance().addChannel(new Channel("Camera X", 4, 0, 1500, 2500));
-  ChannelManager::Instance().addChannel(new Channel("Camera Y", 5, 0, 1500, 2500));
-  ChannelManager::Instance().addChannel(new Channel("Mode", 6, 0, 0, 2));
-  ChannelManager::Instance().addChannel(new Channel("Mode 2", 7, 0, 0, 2));
+  ChannelManager::Instance().addChannel(new Channel(0, "Throttle"));
+  ChannelManager::Instance().addChannel(new Channel(1, "Yaw"));
+  ChannelManager::Instance().addChannel(new Channel(2, "Pitch"));
+  ChannelManager::Instance().addChannel(new Channel(3, "Roll"));
 
   ControlMappingManager::Instance().addMapping(new ControlMapping(1, 0, CONTROLMODE_SET));
   ControlMappingManager::Instance().addMapping(new ControlMapping(0, 1, CONTROLMODE_SET));

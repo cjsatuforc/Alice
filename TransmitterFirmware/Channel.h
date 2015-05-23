@@ -9,12 +9,12 @@ class Channel
 public:
   typedef void (* channelcallback_t) (channelid_t, channelvalue_t);
 
-  Channel(char * name,
-          channelid_t id,
-          channelvalue_t defaultValue,
-          channelvalue_t max,
-          channelvalue_t min,
-          channelcallback_t callback = 0);
+  Channel(channelid_t id,
+          char * name,
+          channelvalue_t max = 1500,
+          channelvalue_t min = 2500,
+          channelcallback_t callback = NULL,
+          channelvalue_t defaultValue = 0);
   ~Channel();
 
   char * getName() { return m_name; }
