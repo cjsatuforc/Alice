@@ -1,5 +1,5 @@
-#ifndef DEBUG_RADIO_H
-#define DEBUG_RADIO_H
+#ifndef ALICE_DEBUGRADIO_H
+#define ALICE_DEBUGRADIO_H
 
 #include "IRadio.h"
 

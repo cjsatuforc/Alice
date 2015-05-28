@@ -19,8 +19,8 @@
 #include "ControlMapping.h"
 
 #include "ArduinoJoystick.h"
-#include "DebugRadio.h"
 #include "LinearTransform.h"
+#include "PPMRadio.h"
 
 
 // D0, D1, D2, D3, D4, D5, D6, D7
@@ -32,11 +32,10 @@ U8GLIB_KS0108_128 glcd(
 #define LCD_BL_PIN 4
 #define GLCD_ROTATE_180
 
-DebugRadio radio;
+PPMRadio radio(11, 4);
 
 LinearTransform transformA(-150, 150, 1500, 2500);
 LinearTransform transformB(0, 150, 1500, 2500);
-
 
 void setup()
 {
@@ -96,6 +95,4 @@ void loop()
   ui_update();
 
   ChannelManager::Instance().sendToRadio(radio);
-
-  delay(100);
 }
