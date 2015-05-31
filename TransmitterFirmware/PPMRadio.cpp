@@ -1,7 +1,5 @@
 #include "PPMRadio.h"
 
-#include "ppm.h"
-
 
 PPMRadio::PPMRadio(int pin, size_t numChannels) : IRadio()
 {
