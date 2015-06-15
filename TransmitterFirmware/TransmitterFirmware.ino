@@ -26,10 +26,9 @@
 // D0, D1, D2, D3, D4, D5, D6, D7
 // EN, CS1, CS2, DI, RW
 U8GLIB_KS0108_128 glcd(
-  38, 41, 40, 37, 36, 35, 34, 33,
-  14, 32, 31, 30, 15
+  30, 31, 32, 33, 34, 35, 36, 37,
+  42, 38, 39, 40, 41
 );
-#define LCD_BL_PIN 4
 #define GLCD_ROTATE_180
 
 PPMRadio radio(11, 4);
@@ -41,14 +40,14 @@ void setup()
 {
   setup_serial_logger();
 
-  InputManager::Instance().addUIButton(BUTTON_LEFT, 47);
-  InputManager::Instance().addUIButton(BUTTON_UP, 49);
-  InputManager::Instance().addUIButton(BUTTON_DOWN, 45);
-  InputManager::Instance().addUIButton(BUTTON_RIGHT, 43);
-  InputManager::Instance().addUIButton(BUTTON_SELECT, 44); // F1
-  InputManager::Instance().addUIButton(BUTTON_MENU, 48);   // F2
-  InputManager::Instance().addUIButton(BUTTON_HOME, 42);   // F3
-  InputManager::Instance().addUIButton(BUTTON_BACK, 46);   // F4
+  InputManager::Instance().addUIButton(BUTTON_LEFT, 25);
+  InputManager::Instance().addUIButton(BUTTON_UP, 23);
+  InputManager::Instance().addUIButton(BUTTON_DOWN, 27);
+  InputManager::Instance().addUIButton(BUTTON_RIGHT, 29);
+  InputManager::Instance().addUIButton(BUTTON_SELECT, 26); // F1
+  InputManager::Instance().addUIButton(BUTTON_MENU, 22);   // F2
+  InputManager::Instance().addUIButton(BUTTON_HOME, 28);   // F3
+  InputManager::Instance().addUIButton(BUTTON_BACK, 24);   // F4
 
   ArduinoJoystick * joystick = NULL;
 
