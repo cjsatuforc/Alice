@@ -15,9 +15,8 @@ class InputManager
       return instance;
     }
 
-    bool poll(bool ui = true, bool controls = true);
+    bool poll(bool controlsOnly = false);
 
-    bool addUIButton(uibutton_t id, inputpin_t pin);
     bool addControl(IInputDevice * device);
 
   private:
@@ -26,7 +25,6 @@ class InputManager
     InputManager(InputManager const&);
     void operator=(InputManager const&);
 
-    UniversalInputManager m_uiButtons;
     UniversalInputManager m_controls;
 
 };
