@@ -15,17 +15,10 @@
 #include "ControlMapping.h"
 #include "PPMRadio.h"
 
+PPMRadio g_radio(11, 4);
+
 #include "SerialRadio.h"
-#include "NullRadio.h"
-
-
-//PPMRadio g_radio(11, 4);
-SerialRadio g_radio(Serial);
-//NullRadio g_radio;
-
-LinearTransform transformA(-150, 150, 1000, 2000);
-LinearTransform transformB(-150, 150, 1000, 2000);
-
+//SerialRadio g_radio(Serial);
 
 void setup()
 {
@@ -34,22 +27,22 @@ void setup()
   ArduinoJoystick * joystick = NULL;
 
   joystick = new ArduinoJoystick(0, 0);
-  joystick->setTransformation(&transformA);
+  joystick->setTransformation(new LinearTransform(-150, 150, 1000, 2000));
   InputManager::Instance().addControl(joystick);
 
   joystick = new ArduinoJoystick(1, 1);
-  joystick->setTransformation(&transformB);
+  joystick->setTransformation(new LinearTransform(-150, 150, 1000, 2000));
   InputManager::Instance().addControl(joystick);
 
   joystick = new ArduinoJoystick(2, 2);
-  joystick->setTransformation(&transformA);
+  joystick->setTransformation(new LinearTransform(-150, 150, 1000, 2000));
   InputManager::Instance().addControl(joystick);
 
   joystick = new ArduinoJoystick(3, 3);
-  joystick->setTransformation(&transformA);
+  joystick->setTransformation(new LinearTransform(-150, 150, 1000, 2000));
   InputManager::Instance().addControl(joystick);
 
-  ChannelManager::Instance().addChannel(new Channel(0, "Throttle"));
+  ChannelManager::Instance().addChannel(new Channel(0, "Throttle", 1000, 2000, 1500, true));
   ChannelManager::Instance().addChannel(new Channel(1, "Yaw"));
   ChannelManager::Instance().addChannel(new Channel(2, "Pitch"));
   ChannelManager::Instance().addChannel(new Channel(3, "Roll"));
@@ -62,7 +55,6 @@ void setup()
   g_radio.open();
   g_radio.pair();
 }
-
 
 void loop()
 {

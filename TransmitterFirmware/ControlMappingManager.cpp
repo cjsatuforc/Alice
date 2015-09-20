@@ -2,17 +2,14 @@
 
 #include <IButton.h>
 #include <IJoystick.h>
-
 #include "InputManager.h"
 #include "ChannelManager.h"
-
 
 ControlMappingManager::ControlMappingManager()
 {
   for(int i = 0; i < MAX_MAPPINGS; i++)
     m_mappings[i] = NULL;
 }
-
 
 bool ControlMappingManager::handleInput(inputtype_t type, IInputDevice * device)
 {
@@ -27,7 +24,7 @@ bool ControlMappingManager::handleInput(inputtype_t type, IInputDevice * device)
             mapping->getInputID() == device->getID())
         {
           IJoystick * joystick = (IJoystick *) device;
-          ChannelManager::Instance().getChannel(mapping->getChannelID())->setValue(joystick->getValue());
+          ChannelManager::Instance().getChannel(mapping->getChannelID())->setRawValue(joystick->getValue());
         }
         break;
       }
@@ -39,7 +36,6 @@ bool ControlMappingManager::handleInput(inputtype_t type, IInputDevice * device)
     }
   }
 }
-
 
 bool ControlMappingManager::addMapping(ControlMapping * mapping)
 {

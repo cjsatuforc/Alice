@@ -2,9 +2,7 @@
 #define ALICE_CHANNELMANAGER_H
 
 #include "Channel.h"
-
 #include "IRadio.h"
-
 
 class ChannelManager
 {

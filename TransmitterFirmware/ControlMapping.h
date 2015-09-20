@@ -2,9 +2,7 @@
 #define ALICE_CONTROLMAPPING_H
 
 #include "UniversalInputTypes.h"
-
 #include "Types.h"
-
 
 class ControlMapping
 {

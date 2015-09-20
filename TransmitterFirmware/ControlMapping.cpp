@@ -1,6 +1,5 @@
 #include "ControlMapping.h"
 
-
 ControlMapping::ControlMapping(inputid_t inputID,
                                channelid_t channelID,
                                controlmode_t mode) :
@@ -10,7 +9,6 @@ ControlMapping::ControlMapping(inputid_t inputID,
   m_setValue(0)
 {
 }
-
 
 ControlMapping::ControlMapping(inputid_t inputID,
                                channelid_t channelID,

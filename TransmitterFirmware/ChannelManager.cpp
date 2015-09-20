@@ -1,12 +1,10 @@
 #include "ChannelManager.h"
 
-
 ChannelManager::ChannelManager()
 {
   for(int i = 0; i < MAX_CHANNELS; i++)
     m_channels[i] = NULL;
 }
-
 
 bool ChannelManager::addChannel(Channel * channel)
 {
@@ -21,7 +19,6 @@ bool ChannelManager::addChannel(Channel * channel)
   return true;
 }
 
-
 Channel * ChannelManager::getChannel(int index)
 {
   if(index >= m_numChannels)
@@ -29,7 +26,6 @@ Channel * ChannelManager::getChannel(int index)
 
   return m_channels[index];
 }
-
 
 bool ChannelManager::sendToRadio(IRadio & radio)
 {

@@ -1,10 +1,8 @@
 #ifndef ALICE_CONTROLMAPPINGMANAGER_H
 #define ALICE_CONTROLMAPPINGMANAGER_H
 
-#include "ControlMappingManager.h"
-
 #include <IInputDevice.h>
-
+#include "ControlMappingManager.h"
 #include "ControlMapping.h"
 
 
