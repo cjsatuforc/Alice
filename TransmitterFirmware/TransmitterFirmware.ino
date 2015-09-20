@@ -2,9 +2,9 @@
 
 #include <UniversalInputManager.h>
 #include <UniversalInputTypes.h>
-#include <IButton.h>
+#include <ArduinoJoystick.h>
+#include <LinearTransform.h>
 
-#include "SerialLog.h"
 #include "Types.h"
 #include "IRadio.h"
 #include "Channel.h"
@@ -13,21 +13,23 @@
 #include "ControlMappingManager.h"
 #include "InputManager.h"
 #include "ControlMapping.h"
-
-#include "ArduinoJoystick.h"
-#include "LinearTransform.h"
 #include "PPMRadio.h"
 
+#include "SerialRadio.h"
+#include "NullRadio.h"
 
-PPMRadio g_radio(11, 4);
 
-LinearTransform transformA(-150, 150, 1500, 2500);
-LinearTransform transformB(0, 150, 1500, 2500);
+//PPMRadio g_radio(11, 4);
+SerialRadio g_radio(Serial);
+//NullRadio g_radio;
+
+LinearTransform transformA(-150, 150, 1000, 2000);
+LinearTransform transformB(-150, 150, 1000, 2000);
 
 
 void setup()
 {
-  setup_serial_logger();
+	Serial.begin(115200);
 
   ArduinoJoystick * joystick = NULL;
 

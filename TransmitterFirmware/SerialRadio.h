@@ -1,12 +1,13 @@
-#ifndef ALICE_DEBUGRADIO_H
-#define ALICE_DEBUGRADIO_H
+#ifndef ALICE_SERIALRADIO_H
+#define ALICE_SERIALRADIO_H
 
 #include "IRadio.h"
+#include <Stream.h>
 
-class DebugRadio : public IRadio
+class SerialRadio : public IRadio
 {
 public:
-  DebugRadio();
+  SerialRadio(Stream &port);
 
   virtual bool open();
   virtual bool close();
@@ -22,6 +23,7 @@ public:
 private:
   bool m_open;
   bool m_paired;
+  Stream &m_port;
 
 };
 

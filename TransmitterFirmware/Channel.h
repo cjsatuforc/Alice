@@ -11,8 +11,8 @@ public:
 
   Channel(channelid_t id,
           char * name,
-          channelvalue_t max = 1500,
-          channelvalue_t min = 2500,
+          channelvalue_t max = 1000,
+          channelvalue_t min = 2000,
           channelcallback_t callback = NULL,
           channelvalue_t defaultValue = 0);
   ~Channel();
