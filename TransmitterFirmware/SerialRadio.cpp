@@ -1,8 +1,9 @@
 #include "SerialRadio.h"
 
-SerialRadio::SerialRadio(Stream &port) : IRadio(),
-  m_open(false), m_paired(false), m_port(port)
+SerialRadio::SerialRadio(Stream &port, bool alwaysPrint) : IRadio(),
+  m_open(false), m_paired(false), m_alwaysPrint(alwaysPrint), m_port(port)
 {
+  memset(m_values, ChannelManager::MAX_CHANNELS, 0);
 }
 
 bool SerialRadio::open()
@@ -35,10 +36,17 @@ bool SerialRadio::unpair()
 
 bool SerialRadio::setChannel(channelid_t id, channelvalue_t value)
 {
-  char buffer[21];
-  snprintf(buffer,21, "RADIO:CH:%d:%d", id, value);
-  m_port.println(buffer);
-  return true;
+  bool changed = m_values[id] != value;
+  if(m_alwaysPrint || changed)
+  {
+    char buffer[21];
+    snprintf(buffer,21, "RADIO:CH:%d:%d", id, value);
+    m_port.println(buffer);
+    m_values[id] == value;
+    return true;
+  }
+  else
+    return false;
 }
 
 bool SerialRadio::tx()

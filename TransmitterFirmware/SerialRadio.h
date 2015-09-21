@@ -2,12 +2,13 @@
 #define ALICE_SERIALRADIO_H
 
 #include "IRadio.h"
+#include "ChannelManager.h"
 #include <Stream.h>
 
 class SerialRadio : public IRadio
 {
 public:
-  SerialRadio(Stream &port);
+  SerialRadio(Stream &port, bool alwaysPrint = false);
 
   virtual bool open();
   virtual bool close();
@@ -23,7 +24,9 @@ public:
 private:
   bool m_open;
   bool m_paired;
+  bool m_alwaysPrint;
   Stream &m_port;
+  channelvalue_t m_values[ChannelManager::MAX_CHANNELS];
 
 };
 
