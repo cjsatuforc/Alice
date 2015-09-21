@@ -17,6 +17,7 @@ public:
   virtual bool isPaired() { return true; }
 
   virtual bool setChannel(channelid_t id, channelvalue_t value);
+
   virtual bool tx() { return true; }
 
   static void isr();
@@ -37,7 +38,6 @@ protected:
   static bool m_state;
   static byte m_currentChannelID;
   static unsigned int m_calcRest;
-
 };
 
 #endif

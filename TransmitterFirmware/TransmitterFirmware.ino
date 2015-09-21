@@ -22,9 +22,9 @@ SerialRadio g_radio(Serial);
 
 void setup()
 {
-	Serial.begin(115200);
+  Serial.begin(115200);
 
-  ArduinoJoystick * joystick = NULL;
+  ArduinoJoystick *joystick = NULL;
 
   joystick = new ArduinoJoystick(0, 0);
   joystick->setTransformation(new LinearTransform(-150, 150, 1000, 2000));

@@ -5,32 +5,31 @@
 #include "ControlMappingManager.h"
 #include "ControlMapping.h"
 
-
 class ControlMappingManager
 {
-  public:
-    static ControlMappingManager& Instance()
-    {
-      static ControlMappingManager instance;
-      return instance;
-    }
+public:
+  static ControlMappingManager &Instance()
+  {
+    static ControlMappingManager instance;
+    return instance;
+  }
 
-    static const int MAX_MAPPINGS = 50;
+  static const int MAX_MAPPINGS = 50;
 
-    bool handleInput(inputtype_t type, IInputDevice * device);
+  bool handleInput(inputtype_t type, IInputDevice *device);
 
-    bool addMapping(ControlMapping * mapping);
-    int numMappings() { return m_numMappings; }
+  bool addMapping(ControlMapping *mapping);
 
-  private:
-    ControlMappingManager();
+  int numMappings() { return m_numMappings; }
 
-    ControlMappingManager(ControlMappingManager const&);
-    void operator=(ControlMappingManager const&);
+private:
+  ControlMappingManager();
 
-    int m_numMappings;
-    ControlMapping * m_mappings[MAX_MAPPINGS];
+  ControlMappingManager(ControlMappingManager const &);
+  void operator=(ControlMappingManager const &);
 
+  int m_numMappings;
+  ControlMapping *m_mappings[MAX_MAPPINGS];
 };
 
 #endif

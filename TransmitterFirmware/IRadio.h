@@ -6,7 +6,7 @@
 class IRadio
 {
 public:
-  IRadio() {};
+  IRadio(){};
 
   virtual bool open() = 0;
   virtual bool close() = 0;
@@ -18,7 +18,6 @@ public:
 
   virtual bool setChannel(channelid_t id, channelvalue_t value) = 0;
   virtual bool tx() = 0;
-
 };
 
 #endif

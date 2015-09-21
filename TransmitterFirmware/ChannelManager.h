@@ -6,31 +6,30 @@
 
 class ChannelManager
 {
-  public:
-    static ChannelManager& Instance()
-    {
-      static ChannelManager instance;
-      return instance;
-    }
+public:
+  static ChannelManager &Instance()
+  {
+    static ChannelManager instance;
+    return instance;
+  }
 
-    static const int MAX_CHANNELS = 12;
+  static const int MAX_CHANNELS = 12;
 
-    bool addChannel(Channel * channel);
+  int numChannels() { return m_numChannels; }
 
-    int numChannels() { return m_numChannels; }
-    Channel * getChannel(int index);
+  bool addChannel(Channel *channel);
+  Channel *getChannel(int index);
 
-    bool sendToRadio(IRadio & radio);
+  bool sendToRadio(IRadio &radio);
 
-  private:
-    ChannelManager();
+private:
+  ChannelManager();
 
-    ChannelManager(ChannelManager const&);
-    void operator=(ChannelManager const&);
+  ChannelManager(ChannelManager const &);
+  void operator=(ChannelManager const &);
 
-    int m_numChannels;
-    Channel *m_channels[MAX_CHANNELS];
-
+  int m_numChannels;
+  Channel *m_channels[MAX_CHANNELS];
 };
 
 #endif

@@ -27,7 +27,6 @@ private:
   bool m_alwaysPrint;
   Stream &m_port;
   channelvalue_t m_values[ChannelManager::MAX_CHANNELS];
-
 };
 
 #endif

@@ -3,7 +3,7 @@
 #include <IButton.h>
 #include "ControlMappingManager.h"
 
-void handle_control(inputtype_t type, IInputDevice * device)
+void handle_control(inputtype_t type, IInputDevice *device)
 {
   ControlMappingManager::Instance().handleInput(type, device);
 }
@@ -17,7 +17,7 @@ bool InputManager::poll(bool controlsOnly)
 {
   bool updated = false;
 
-  if(m_controls.poll())
+  if (m_controls.poll())
     updated = true;
 
   // Must ignore any other checks if controlsOnly is true
@@ -25,7 +25,7 @@ bool InputManager::poll(bool controlsOnly)
   return updated;
 }
 
-bool InputManager::addControl(IInputDevice * device)
+bool InputManager::addControl(IInputDevice *device)
 {
   return m_controls.addDevice(device);
 }
