@@ -8,10 +8,11 @@ before_install:
 
 install:
   - arduino --install-library "Universal Inputs"
-  
+  - arduino --install-library "NeoNextion"
+
 script:
   - build_main_platforms
-  
+
 notifications:
   email:
     on_success: change
