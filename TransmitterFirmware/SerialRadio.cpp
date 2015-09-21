@@ -42,7 +42,7 @@ bool SerialRadio::setChannel(channelid_t id, channelvalue_t value)
     char buffer[21];
     snprintf(buffer,21, "RADIO:CH:%d:%d", id, value);
     m_port.println(buffer);
-    m_values[id] == value;
+    m_values[id] = value;
     return true;
   }
   else
