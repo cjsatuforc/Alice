@@ -5,6 +5,7 @@ sudo: false
 before_install:
   - source <(curl -SLs https://raw.githubusercontent.com/adafruit/travis-ci-arduino/master/install.sh)
   - ln -s AliceLib $HOME/arduino_ide/libraries/AliceLib
+  - ln -s AliceNextionUI $HOME/arduino_ide/libraries/AliceNextionUI
 
 install:
   - arduino --install-library "Universal Inputs"
