@@ -7,7 +7,7 @@ before_install:
   - ln -s AliceLib $HOME/arduino_ide/libraries/AliceLib
 
 install:
-  - arduino --install-library "ArduinoUniversalInput"
+  - arduino --install-library "Universal Inputs"
   
 script:
   - build_main_platforms
