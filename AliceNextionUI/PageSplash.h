@@ -10,7 +10,7 @@ public:
   PageSplash(AliceNextionUI *ui);
 
   void update();
-  void handleNextionEvent(INextionTouchable *item);
+  void handleNextionEvent(NextionEventType type, INextionTouchable *widget);
 
 private:
   AliceNextionUI *m_ui;

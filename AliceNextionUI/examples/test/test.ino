@@ -3,6 +3,8 @@
 
 #include <AliceNextionUI.h>
 #include <PageSplash.h>
+#include <PageMain.h>
+#include <PageMenu.h>
 
 SoftwareSerial nextionSerial(10, 11); // RX, TX
 Nextion nex(nextionSerial);
@@ -16,7 +18,12 @@ void setup()
   nextionSerial.begin(9600);
   nex.init();
   
-  ui.addPage(new PageSplash(&ui));
+	Serial.println("pages");
+  Serial.println(ui.addPage(new PageSplash(&ui)));
+	Serial.println(ui.addPage(new PageMain(&ui)));
+	Serial.println(ui.addPage(new PageMenu(&ui)));
+	
+	Serial.println(ui.showPage(PG_SPLASH));
 }
 
 void loop()

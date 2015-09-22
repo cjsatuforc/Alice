@@ -5,7 +5,7 @@ PageSplash::PageSplash(AliceNextionUI *ui):
   INextionCallback(),
   m_mContinue(new NextionHotspot(ui->nextion(), PG_SPLASH, 5, "mContinue"))
 {
-  Serial.println(m_mContinue->attachReleaseEvent(this));
+  m_mContinue->attachCallback(this);
 }
 
 void PageSplash::update()
@@ -13,7 +13,10 @@ void PageSplash::update()
   // Nothing to do
 }
 
-void PageSplash::handleNextionEvent(INextionTouchable *item)
+void PageSplash::handleNextionEvent(NextionEventType type, INextionTouchable *widget)
 {
-  Serial.println("event");
+  if (type == NEX_EVENT_PUSH)
+    return;
+
+  IAliceNextionUIPage::m_ui->showPage(PG_MAIN);
 }

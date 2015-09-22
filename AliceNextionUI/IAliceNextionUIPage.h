@@ -16,7 +16,7 @@ public:
   bool isShown();
   bool show();
 
-private:
+protected:
   AliceNextionUI *m_ui;
   NextionPage *m_page;
 };

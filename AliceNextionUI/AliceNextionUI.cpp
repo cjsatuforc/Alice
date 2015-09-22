@@ -16,14 +16,14 @@ bool AliceNextionUI::addPage(IAliceNextionUIPage *page)
     return false;
 
   m_pages[page->id()] = page;
-  return false;
+  return true;
 }
 
 bool AliceNextionUI::showPage(AliceNextionUIPageID id)
 {
   if(m_pages[id] == NULL)
     return false;
-
+  
   return m_pages[id]->show();
 }
 
