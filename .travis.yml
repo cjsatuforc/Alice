@@ -12,7 +12,8 @@ install:
   - arduino --install-library "NeoNextion"
 
 script:
-  - build_main_platforms
+  - build_platform leonardo
+  - build_platform arduino:avr:mega
 
 notifications:
   email:

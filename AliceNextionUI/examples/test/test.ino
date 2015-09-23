@@ -1,4 +1,3 @@
-#include <SoftwareSerial.h>
 #include <Nextion.h>
 
 #include <AliceNextionUI.h>
@@ -10,8 +9,7 @@
 #include <PageChanOpt.h>
 #include <PageGeneralSett.h>
 
-SoftwareSerial nextionSerial(10, 11); // RX, TX
-Nextion nex(nextionSerial);
+Nextion nex(Serial1);
 AliceNextionUI ui(nex);
 
 void setup()
@@ -19,7 +17,7 @@ void setup()
 	Serial.begin(9600);
 	pinMode(13, OUTPUT);
 
-  nextionSerial.begin(9600);
+  Serial1.begin(9600);
   nex.init();
   
 	Serial.println("pages");
