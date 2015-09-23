@@ -1,7 +1,7 @@
 #ifndef ALICE_IRADIO_H
 #define ALICE_IRADIO_H
 
-#include "Types.h"
+#include "AliceTypes.h"
 
 class IRadio
 {

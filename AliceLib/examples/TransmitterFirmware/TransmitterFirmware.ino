@@ -5,7 +5,7 @@
 #include <ArduinoJoystick.h>
 #include <LinearTransform.h>
 
-#include "Types.h"
+#include "AliceTypes.h"
 #include "IRadio.h"
 #include "Channel.h"
 #include "ChannelManager.h"

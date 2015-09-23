@@ -1,9 +1,9 @@
 #include "PageSplash.h"
 
-PageSplash::PageSplash(AliceNextionUI *ui):
-  IAliceNextionUIPage(ui, new NextionPage(ui->nextion(), PG_SPLASH, 0, "pgSplash")),
-  INextionCallback(),
-  m_mContinue(new NextionHotspot(ui->nextion(), PG_SPLASH, 5, "mContinue"))
+PageSplash::PageSplash(AliceNextionUI *ui)
+    : IAliceNextionUIPage(ui, new NextionPage(ui->nextion(), PG_SPLASH, 0, "pgSplash"))
+    , INextionCallback()
+    , m_mContinue(new NextionHotspot(ui->nextion(), PG_SPLASH, 5, "mContinue"))
 {
   m_mContinue->attachCallback(this);
 }

@@ -4,21 +4,21 @@
 #include "IAliceNextionUIPage.h"
 #include <NextionHotspot.h>
 
-class PageSplash: public IAliceNextionUIPage, public INextionCallback
+class PageSplash : public IAliceNextionUIPage, public INextionCallback
 {
 public:
   PageSplash(AliceNextionUI *ui);
 
   void update();
   void handleNextionEvent(NextionEventType type, INextionTouchable *widget);
-    
+
 protected:
   void enterPage();
 
 private:
   AliceNextionUI *m_ui;
   NextionPage *m_page;
-  
+
   NextionHotspot *m_mContinue;
 };
 

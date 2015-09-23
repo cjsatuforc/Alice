@@ -1,5 +1,5 @@
-#ifndef ALICE_TYPES_H
-#define ALICE_TYPES_H
+#ifndef ALICE_ALICETYPES_H
+#define ALICE_ALICETYPES_H
 
 #include <Arduino.h>
 #include <inttypes.h>

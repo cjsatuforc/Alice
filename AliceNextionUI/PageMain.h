@@ -4,21 +4,21 @@
 #include "IAliceNextionUIPage.h"
 #include <NextionPicture.h>
 
-class PageMain: public IAliceNextionUIPage, public INextionCallback
+class PageMain : public IAliceNextionUIPage, public INextionCallback
 {
 public:
   PageMain(AliceNextionUI *ui);
 
   void update();
-  void handleNextionEvent(NextionEventType type, INextionTouchable *widget);  
-  
+  void handleNextionEvent(NextionEventType type, INextionTouchable *widget);
+
 protected:
   void enterPage();
 
 private:
   AliceNextionUI *m_ui;
   NextionPage *m_page;
-  
+
   NextionPicture *m_pMenu;
 };
 

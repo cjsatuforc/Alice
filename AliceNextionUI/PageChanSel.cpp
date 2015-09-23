@@ -1,9 +1,9 @@
 #include "PageChanSel.h"
 
-PageChanSel::PageChanSel(AliceNextionUI *ui):
-  IAliceNextionUIPage(ui, new NextionPage(ui->nextion(), PG_CHANSEL, 0, "pgChanSel")),
-  INextionCallback(),
-  m_pBack(new NextionPicture(ui->nextion(), PG_CHANSEL, 0, "pBack"))
+PageChanSel::PageChanSel(AliceNextionUI *ui)
+    : IAliceNextionUIPage(ui, new NextionPage(ui->nextion(), PG_CHANSEL, 0, "pgChanSel"))
+    , INextionCallback()
+    , m_pBack(new NextionPicture(ui->nextion(), PG_CHANSEL, 0, "pBack"))
 {
   m_pBack->attachCallback(this);
 }

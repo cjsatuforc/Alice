@@ -8,17 +8,17 @@ class IAliceNextionUIPage
 {
 public:
   IAliceNextionUIPage(AliceNextionUI *ui, NextionPage *page);
-  
+
   uint8_t id();
 
   virtual void update() = 0;
-  
+
   bool isShown();
   bool show();
 
 protected:
   virtual void enterPage() = 0;
-  
+
   AliceNextionUI *m_ui;
   NextionPage *m_page;
 };

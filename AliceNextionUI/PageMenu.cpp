@@ -1,13 +1,13 @@
 #include "PageMenu.h"
 
-PageMenu::PageMenu(AliceNextionUI *ui):
-  IAliceNextionUIPage(ui, new NextionPage(ui->nextion(), PG_MENU, 0, "pgMenu")),
-  INextionCallback(),
-  m_pHome(new NextionPicture(ui->nextion(), PG_MENU, 9, "pHome")),
-  m_pSplash(new NextionPicture(ui->nextion(), PG_MENU, 10, "pSplash")),
-  m_bTrim(new NextionButton(ui->nextion(), PG_MENU, 1, "bTrim")),
-  m_bChannel(new NextionButton(ui->nextion(), PG_MENU, 2, "bChannel")),
-  m_bGeneral(new NextionButton(ui->nextion(), PG_MENU, 3, "bGeneral"))
+PageMenu::PageMenu(AliceNextionUI *ui)
+    : IAliceNextionUIPage(ui, new NextionPage(ui->nextion(), PG_MENU, 0, "pgMenu"))
+    , INextionCallback()
+    , m_pHome(new NextionPicture(ui->nextion(), PG_MENU, 9, "pHome"))
+    , m_pSplash(new NextionPicture(ui->nextion(), PG_MENU, 10, "pSplash"))
+    , m_bTrim(new NextionButton(ui->nextion(), PG_MENU, 1, "bTrim"))
+    , m_bChannel(new NextionButton(ui->nextion(), PG_MENU, 2, "bChannel"))
+    , m_bGeneral(new NextionButton(ui->nextion(), PG_MENU, 3, "bGeneral"))
 {
   m_pHome->attachCallback(this);
   m_pSplash->attachCallback(this);

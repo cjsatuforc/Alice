@@ -1,7 +1,7 @@
 #ifndef ALICE_ICHANNEL_H
 #define ALICE_ICHANNEL_H
 
-#include "Types.h"
+#include "AliceTypes.h"
 
 class Channel
 {

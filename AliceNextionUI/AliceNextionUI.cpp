@@ -1,18 +1,18 @@
 #include "AliceNextionUI.h"
 #include "IAliceNextionUIPage.h"
 
-AliceNextionUI::AliceNextionUI(Nextion &nex):
-  m_nextion(nex)
+AliceNextionUI::AliceNextionUI(Nextion &nex)
+    : m_nextion(nex)
 {
   memset(m_pages, PG_NULL, NULL);
 }
 
 bool AliceNextionUI::addPage(IAliceNextionUIPage *page)
 {
-  if(page->id() >= PG_NULL)
+  if (page->id() >= PG_NULL)
     return false;
 
-  if(m_pages[page->id()] != NULL)
+  if (m_pages[page->id()] != NULL)
     return false;
 
   m_pages[page->id()] = page;
@@ -21,7 +21,7 @@ bool AliceNextionUI::addPage(IAliceNextionUIPage *page)
 
 IAliceNextionUIPage *AliceNextionUI::getPage(AliceNextionUIPageID id)
 {
-  if(id >= PG_NULL)
+  if (id >= PG_NULL)
     return NULL;
 
   return m_pages[id];
@@ -29,23 +29,14 @@ IAliceNextionUIPage *AliceNextionUI::getPage(AliceNextionUIPageID id)
 
 bool AliceNextionUI::showPage(AliceNextionUIPageID id)
 {
-  if(m_pages[id] == NULL)
+  if (m_pages[id] == NULL)
     return false;
-  
+
   return m_pages[id]->show();
 }
 
-void AliceNextionUI::update()
-{
-  m_pages[m_nextion.getCurrentPage()]->update();
-}
+void AliceNextionUI::update() { m_pages[m_nextion.getCurrentPage()]->update(); }
 
-void AliceNextionUI::poll()
-{
-  m_nextion.poll();
-}
+void AliceNextionUI::poll() { m_nextion.poll(); }
 
-Nextion &AliceNextionUI::nextion()
-{
-  return m_nextion;
-}
+Nextion &AliceNextionUI::nextion() { return m_nextion; }

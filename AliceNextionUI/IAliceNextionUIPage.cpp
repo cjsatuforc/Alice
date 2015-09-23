@@ -1,14 +1,12 @@
 #include "IAliceNextionUIPage.h"
 
-IAliceNextionUIPage::IAliceNextionUIPage(AliceNextionUI *ui, NextionPage *page):
-  m_ui(ui), m_page(page)
+IAliceNextionUIPage::IAliceNextionUIPage(AliceNextionUI *ui, NextionPage *page)
+    : m_ui(ui)
+    , m_page(page)
 {
 }
 
-uint8_t IAliceNextionUIPage::id()
-{
-  return m_page->getPageID();
-}
+uint8_t IAliceNextionUIPage::id() { return m_page->getPageID(); }
 
 bool IAliceNextionUIPage::isShown()
 {

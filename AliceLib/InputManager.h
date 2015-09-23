@@ -2,8 +2,7 @@
 #define ALICE_INPUTMANAGER_H
 
 #include <UniversalInputManager.h>
-
-#include "Types.h"
+#include "AliceTypes.h"
 
 class InputManager
 {
