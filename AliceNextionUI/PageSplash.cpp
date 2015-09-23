@@ -20,3 +20,8 @@ void PageSplash::handleNextionEvent(NextionEventType type, INextionTouchable *wi
 
   IAliceNextionUIPage::m_ui->showPage(PG_MAIN);
 }
+
+void PageSplash::enterPage()
+{
+  // Nothing to do
+}

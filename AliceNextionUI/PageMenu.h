@@ -3,6 +3,7 @@
 
 #include "IAliceNextionUIPage.h"
 #include <NextionPicture.h>
+#include <NextionButton.h>
 
 class PageMenu: public IAliceNextionUIPage, public INextionCallback
 {
@@ -11,6 +12,9 @@ public:
 
   void update();
   void handleNextionEvent(NextionEventType type, INextionTouchable *widget);
+  
+protected:
+  void enterPage();
 
 private:
   AliceNextionUI *m_ui;
@@ -18,6 +22,10 @@ private:
   
   NextionPicture *m_pHome;
   NextionPicture *m_pSplash;
+  
+  NextionButton *m_bTrim;
+  NextionButton *m_bChannel;
+  NextionButton *m_bGeneral;
 };
 
 #endif

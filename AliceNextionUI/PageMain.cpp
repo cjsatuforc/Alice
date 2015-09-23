@@ -20,3 +20,8 @@ void PageMain::handleNextionEvent(NextionEventType type, INextionTouchable *widg
   if (widget == m_pMenu)
     IAliceNextionUIPage::m_ui->showPage(PG_MENU);
 }
+
+void PageMain::enterPage()
+{
+  // Nothing to do
+}

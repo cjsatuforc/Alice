@@ -10,7 +10,10 @@ public:
   PageMain(AliceNextionUI *ui);
 
   void update();
-  void handleNextionEvent(NextionEventType type, INextionTouchable *widget);
+  void handleNextionEvent(NextionEventType type, INextionTouchable *widget);  
+  
+protected:
+  void enterPage();
 
 private:
   AliceNextionUI *m_ui;

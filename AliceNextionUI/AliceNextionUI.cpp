@@ -19,6 +19,14 @@ bool AliceNextionUI::addPage(IAliceNextionUIPage *page)
   return true;
 }
 
+IAliceNextionUIPage *AliceNextionUI::getPage(AliceNextionUIPageID id)
+{
+  if(id >= PG_NULL)
+    return NULL;
+
+  return m_pages[id];
+}
+
 bool AliceNextionUI::showPage(AliceNextionUIPageID id)
 {
   if(m_pages[id] == NULL)

@@ -17,6 +17,8 @@ public:
   bool show();
 
 protected:
+  virtual void enterPage() = 0;
+  
   AliceNextionUI *m_ui;
   NextionPage *m_page;
 };

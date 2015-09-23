@@ -17,5 +17,7 @@ bool IAliceNextionUIPage::isShown()
 
 bool IAliceNextionUIPage::show()
 {
-  return m_page->show();
+  bool result = m_page->show();
+  enterPage();
+  return result;
 }

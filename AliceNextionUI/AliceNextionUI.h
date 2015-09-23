@@ -24,6 +24,7 @@ public:
   AliceNextionUI(Nextion &nex);
   
   bool addPage(IAliceNextionUIPage *page);
+  IAliceNextionUIPage *getPage(AliceNextionUIPageID id);
   bool showPage(AliceNextionUIPageID id);
   
   void update();

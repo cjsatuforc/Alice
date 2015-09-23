@@ -11,6 +11,9 @@ public:
 
   void update();
   void handleNextionEvent(NextionEventType type, INextionTouchable *widget);
+    
+protected:
+  void enterPage();
 
 private:
   AliceNextionUI *m_ui;
