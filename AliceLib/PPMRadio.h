@@ -22,9 +22,9 @@ public:
 
   static void isr();
 
-  static const long FRAME_LENGTH_MS = 22500;
-  static const long PULSE_LENGTH_MS = 300;
-  static const byte ON_STATE = 1;
+  static const long FRAME_LENGTH_MS = 20000;
+  static const long PULSE_LENGTH_MS = 400;
+  static const byte ON_STATE = 0;
   static const size_t MAX_CHANNELS = 16;
 
 protected:

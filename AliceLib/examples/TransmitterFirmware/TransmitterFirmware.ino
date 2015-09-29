@@ -15,10 +15,10 @@
 #include "ControlMapping.h"
 #include "PPMRadio.h"
 
-//PPMRadio g_radio(11, 4);
+PPMRadio g_radio(11, 8);
 
-#include "SerialRadio.h"
-SerialRadio g_radio(Serial);
+/* #include "SerialRadio.h" */
+/* SerialRadio g_radio(Serial); */
 
 void setup()
 {
@@ -42,10 +42,10 @@ void setup()
   joystick->setTransformation(new LinearTransform(-150, 150, 1000, 2000));
   InputManager::Instance().addControl(joystick);
 
-  ChannelManager::Instance().addChannel(new Channel(0, "Throttle", 1000, 2000, 1500, true));
-  ChannelManager::Instance().addChannel(new Channel(1, "Yaw"));
-  ChannelManager::Instance().addChannel(new Channel(2, "Pitch"));
-  ChannelManager::Instance().addChannel(new Channel(3, "Roll"));
+  ChannelManager::Instance().addChannel(new Channel(2, "Throttle", 1000, 2000, 1500, true));
+  ChannelManager::Instance().addChannel(new Channel(3, "Yaw"));
+  ChannelManager::Instance().addChannel(new Channel(1, "Pitch"));
+  ChannelManager::Instance().addChannel(new Channel(0, "Roll"));
 
   ControlMappingManager::Instance().addMapping(new ControlMapping(1, 0, CONTROLMODE_SET));
   ControlMappingManager::Instance().addMapping(new ControlMapping(0, 1, CONTROLMODE_SET));
