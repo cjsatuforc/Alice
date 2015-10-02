@@ -10,21 +10,28 @@ PPMRadio::PPMRadio(int pin, size_t numChannels) : IRadio()
   for(i = 0; i < m_numChannels; i++)
     m_channelVal[i] = 1500;
 
+#ifdef __AVR__
   pinMode(m_ppmPin, OUTPUT);
   digitalWrite(m_ppmPin, !ON_STATE);
+#endif
 }
 
 bool PPMRadio::setChannel(channelid_t id, channelvalue_t value)
 {
+#ifdef __AVR__
   if(id >= m_numChannels)
     return false;
 
   m_channelVal[id] = value;
   return true;
+#else
+  return false;
+#endif
 }
 
 bool PPMRadio::open()
 {
+#ifdef __AVR__
   cli();
   TCCR1A = 0; // set entire TCCR1 register to 0
   TCCR1B = 0;
@@ -37,10 +44,14 @@ bool PPMRadio::open()
 
   m_open = true;
   return true;
+#else
+  return false;
+#endif
 }
 
 void PPMRadio::isr()
 {
+#ifdef __AVR__
   TCNT1 = 0;
 
   if(m_state)
@@ -68,13 +79,16 @@ void PPMRadio::isr()
       m_currentChannelID++;
     }
   }
+#endif
 }
 
 
+#ifdef __AVR__
 ISR(TIMER1_COMPA_vect)
 {
   PPMRadio::isr();
 }
+#endif
 
 bool PPMRadio::m_open;
 int PPMRadio::m_ppmPin;

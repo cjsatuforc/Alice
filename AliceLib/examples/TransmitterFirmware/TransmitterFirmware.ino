@@ -13,12 +13,9 @@
 #include "ControlMappingManager.h"
 #include "InputManager.h"
 #include "ControlMapping.h"
-#include "PPMRadio.h"
 
-PPMRadio g_radio(11, 8);
-
-/* #include "SerialRadio.h" */
-/* SerialRadio g_radio(Serial); */
+#include "SerialRadio.h"
+SerialRadio g_radio(Serial);
 
 void setup()
 {
