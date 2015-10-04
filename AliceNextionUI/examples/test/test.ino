@@ -19,7 +19,7 @@ void setup()
 
   Serial1.begin(9600);
   nex.init();
-  
+
 	Serial.println("pages");
   Serial.println(ui.addPage(new PageSplash(&ui)));
 	Serial.println(ui.addPage(new PageMain(&ui)));
@@ -28,7 +28,7 @@ void setup()
 	Serial.println(ui.addPage(new PageChanSel(&ui)));
 	Serial.println(ui.addPage(new PageChanOpt(&ui)));
 	Serial.println(ui.addPage(new PageGeneralSett(&ui)));
-	
+
 	Serial.println(ui.showPage(PG_SPLASH));
 }
 

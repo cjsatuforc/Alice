@@ -52,3 +52,40 @@ void Channel::setRawValue(channelvalue_t value)
 {
   m_rawValue = value;
 }
+
+bool Channel::setMin(channelvalue_t value)
+{
+  if (value >= m_centre)
+    return false;
+
+  m_min = value;
+  return true;
+}
+
+bool Channel::setCentre(channelvalue_t value)
+{
+  if (value >= m_max || value <= m_min)
+    return false;
+
+  m_centre = value;
+  return true;
+}
+
+bool Channel::setMax(channelvalue_t value)
+{
+  if (value <= m_centre)
+    return false;
+
+  m_max = value;
+  return true;
+}
+
+void Channel::setReverse(bool reverse)
+{
+  m_reverse = reverse;
+}
+
+void Channel::setTrim(channelvalue_t value)
+{
+  m_trim = value;
+}

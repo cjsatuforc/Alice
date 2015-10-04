@@ -8,7 +8,9 @@ PageMain::PageMain(AliceNextionUI *ui)
   m_pMenu->attachCallback(this);
 }
 
-void PageMain::update() {}
+void PageMain::update()
+{
+}
 
 void PageMain::handleNextionEvent(NextionEventType type, INextionTouchable *widget)
 {

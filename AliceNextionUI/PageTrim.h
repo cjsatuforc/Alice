@@ -8,6 +8,12 @@
 class PageTrim : public IAliceNextionUIPage, public INextionCallback
 {
 public:
+  static const uint8_t TRIM_DELTA = 5;
+  static const uint8_t CHAN_HORIZ_LEFT = 3;
+  static const uint8_t CHAN_VERT_LEFT = 2;
+  static const uint8_t CHAN_HORIZ_RIGHT = 0;
+  static const uint8_t CHAN_VERT_RIGHT = 1;
+
   PageTrim(AliceNextionUI *ui);
 
   void update();

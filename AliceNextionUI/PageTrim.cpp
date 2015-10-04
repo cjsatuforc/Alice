@@ -1,5 +1,8 @@
 #include "PageTrim.h"
 
+#include <Channel.h>
+#include <ChannelManager.h>
+
 PageTrim::PageTrim(AliceNextionUI *ui)
     : IAliceNextionUIPage(ui, new NextionPage(ui->nextion(), PG_TRIM, 0, "pgTrim"))
     , INextionCallback()
@@ -40,46 +43,77 @@ void PageTrim::handleNextionEvent(NextionEventType type, INextionTouchable *widg
     return;
 
   if (widget == m_pBack)
+  {
     IAliceNextionUIPage::m_ui->showPage(PG_MENU);
-  
+    return;
+  }
+
   else if (widget == m_pLeftHUp)
   {
-    Serial.println("left h up");
+    Channel *chan = ChannelManager::Instance().getChannel(CHAN_HORIZ_LEFT);
+    channelvalue_t trim = chan->getTrim();
+    trim += TRIM_DELTA;
+    chan->setTrim(trim);
   }
   else if (widget == m_pLeftHDown)
   {
-    Serial.println("left h down");
+    Channel *chan = ChannelManager::Instance().getChannel(CHAN_HORIZ_LEFT);
+    channelvalue_t trim = chan->getTrim();
+    trim -= TRIM_DELTA;
+    chan->setTrim(trim);
   }
   else if (widget == m_pLeftVUp)
   {
-    Serial.println("left v up");
+    Channel *chan = ChannelManager::Instance().getChannel(CHAN_VERT_LEFT);
+    channelvalue_t trim = chan->getTrim();
+    trim += TRIM_DELTA;
+    chan->setTrim(trim);
   }
   else if (widget == m_pLeftVDown)
   {
-    Serial.println("left v down");
+    Channel *chan = ChannelManager::Instance().getChannel(CHAN_VERT_LEFT);
+    channelvalue_t trim = chan->getTrim();
+    trim -= TRIM_DELTA;
+    chan->setTrim(trim);
   }
   else if (widget == m_pRightHUp)
   {
-    Serial.println("right h up");
+    Channel *chan = ChannelManager::Instance().getChannel(CHAN_HORIZ_RIGHT);
+    channelvalue_t trim = chan->getTrim();
+    trim += TRIM_DELTA;
+    chan->setTrim(trim);
   }
   else if (widget == m_pRightHDown)
   {
-    Serial.println("right h down");
+    Channel *chan = ChannelManager::Instance().getChannel(CHAN_HORIZ_RIGHT);
+    channelvalue_t trim = chan->getTrim();
+    trim -= TRIM_DELTA;
+    chan->setTrim(trim);
   }
   else if (widget == m_pRightVUp)
   {
-    Serial.println("right v up");
+    Channel *chan = ChannelManager::Instance().getChannel(CHAN_VERT_RIGHT);
+    channelvalue_t trim = chan->getTrim();
+    trim += TRIM_DELTA;
+    chan->setTrim(trim);
   }
   else if (widget == m_pRightVDown)
   {
-    Serial.println("right v down");
+    Channel *chan = ChannelManager::Instance().getChannel(CHAN_VERT_RIGHT);
+    channelvalue_t trim = chan->getTrim();
+    trim -= TRIM_DELTA;
+    chan->setTrim(trim);
   }
+  else
+    return;
+
+  enterPage();
 }
 
 void PageTrim::enterPage()
 {
-  m_tLeftHVal->setTextAsNumber(0);
-  m_tLeftVVal->setTextAsNumber(1);
-  m_tRightHVal->setTextAsNumber(2);
-  m_tRightVVal->setTextAsNumber(3);
+  m_tLeftHVal->setTextAsNumber(ChannelManager::Instance().getChannel(CHAN_HORIZ_LEFT)->getTrim());
+  m_tLeftVVal->setTextAsNumber(ChannelManager::Instance().getChannel(CHAN_VERT_LEFT)->getTrim());
+  m_tRightHVal->setTextAsNumber(ChannelManager::Instance().getChannel(CHAN_HORIZ_RIGHT)->getTrim());
+  m_tRightVVal->setTextAsNumber(ChannelManager::Instance().getChannel(CHAN_VERT_RIGHT)->getTrim());
 }

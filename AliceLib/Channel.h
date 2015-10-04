@@ -25,6 +25,12 @@ public:
   bool isReversed() { return m_reverse; }
   channelvalue_t getTrim() { return m_trim; }
 
+  bool setMin(channelvalue_t value);
+  bool setCentre(channelvalue_t value);
+  bool setMax(channelvalue_t value);
+  void setReverse(bool reverse);
+  void setTrim(channelvalue_t value);
+
 private:
   char *m_name;
   channelid_t m_id;
