@@ -24,8 +24,10 @@
 #include "InputManager.h"
 #include "ControlMapping.h"
 
-#include "SerialRadio.h"
-SerialRadio g_radio(Serial);
+/* #include "SerialRadio.h" */
+/* SerialRadio g_radio(Serial); */
+#include "NullRadio.h"
+NullRadio g_radio;
 
 Nextion nex(Serial1);
 AliceNextionUI ui(nex);
@@ -36,7 +38,7 @@ void setup()
   Serial.begin(9600);
 
   Serial1.begin(9600);
-  nex.init();
+  Serial.println(nex.init());
 
   Serial.println(ui.addPage(new PageSplash(&ui)));
 	Serial.println(ui.addPage(new PageMain(&ui)));
@@ -86,5 +88,5 @@ void loop()
   ChannelManager::Instance().sendToRadio(g_radio);
 
   ui.poll();
-  ui.update();
+  /* ui.update(); */
 }

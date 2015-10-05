@@ -42,4 +42,16 @@ void PageMenu::handleNextionEvent(NextionEventType type, INextionTouchable *widg
 void PageMenu::enterPage()
 {
   // Nothing to do
+
+  //TODO: dev only
+
+  size_t len = 6;
+  char buffer[len];
+  Serial.println(m_bChannel->getText(buffer, len));
+  Serial.println(buffer);
+
+  len = 15;
+  char buffer2[len];
+  Serial.println(m_bChannel->getText(buffer2, len));
+  Serial.println(buffer2);
 }

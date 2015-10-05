@@ -47,10 +47,12 @@ void PageChanOpt::handleNextionEvent(NextionEventType type, INextionTouchable *w
 
   if (widget == m_pBack)
     IAliceNextionUIPage::m_ui->showPage(PG_CHANSEL);
-  
+
   else if (widget == m_hCVal)
   {
     Serial.println("slider moved");
+    NextionSlider *slider = (NextionSlider*) widget;
+    Serial.println(slider->getValue());
   }
   else if (widget == m_btCRev)
   {
