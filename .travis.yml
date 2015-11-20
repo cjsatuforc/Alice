@@ -4,12 +4,12 @@ sudo: false
 
 before_install:
   - source <(curl -SLs https://raw.githubusercontent.com/adafruit/travis-ci-arduino/master/install.sh)
-  - ln -s $PWD/AliceLib $HOME/arduino_ide/libraries/AliceLib
-  - ln -s $PWD/AliceNextionUI $HOME/arduino_ide/libraries/AliceNextionUI
 
 install:
   - arduino --install-library "Universal Inputs"
   - arduino --install-library "NeoNextion"
+  - ln -s $PWD/AliceLib $HOME/arduino_ide/libraries/AliceLib
+  - ln -s $PWD/AliceNextionUI $HOME/arduino_ide/libraries/AliceNextionUI
 
 script:
   - build_platform leonardo
