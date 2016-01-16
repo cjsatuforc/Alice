@@ -7,9 +7,7 @@ before_install:
 
 install:
   - arduino --install-library "Universal Inputs"
-  - arduino --install-library "NeoNextion"
-  - ln -s $PWD/AliceLib $HOME/arduino_ide/libraries/AliceLib
-  - ln -s $PWD/AliceNextionUI $HOME/arduino_ide/libraries/AliceNextionUI
+  - ln -s $PWD/AliceFirmware $HOME/arduino_ide/libraries/AliceFirmware
 
 script:
   - build_platform leonardo
