@@ -14,6 +14,8 @@ class InputManager
       return instance;
     }
 
+    IInput * getInput(char * inputName);
+
   private:
     InputManager();
     InputManager(InputManager const &);

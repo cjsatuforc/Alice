@@ -10,7 +10,7 @@ class IInput : public AliceObject
     IInput(char * name);
     virtual ~IInput();
 
-    virtual channelvalue_t value() = 0;
+    virtual usvalue_t value() = 0;
 };
 
 #endif

@@ -4,6 +4,10 @@
 #include <Arduino.h>
 #include <inttypes.h>
 
-typedef int16_t channelvalue_t;
+#define US_LOW 1000
+#define US_CENTRE 1500
+#define US_HIGH 2000
+
+typedef int16_t usvalue_t;
 
 #endif
