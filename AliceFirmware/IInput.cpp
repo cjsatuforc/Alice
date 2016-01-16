@@ -1,6 +1,7 @@
 #include "IInput.h"
 
-IInput::IInput()
+IInput::IInput(char * name)
+  : AliceObject(name)
 {
 }
 

@@ -6,7 +6,7 @@
 class SerialOutput : public IOutput
 {
   public:
-    SerialOutput();
+    SerialOutput(char * name);
     virtual ~SerialOutput();
 };
 

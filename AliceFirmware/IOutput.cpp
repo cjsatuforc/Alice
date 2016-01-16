@@ -1,6 +1,7 @@
 #include "IOutput.h"
 
-IOutput::IOutput()
+IOutput::IOutput(char * name)
+  : AliceObject(name)
 {
 }
 

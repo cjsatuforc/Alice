@@ -1,10 +1,12 @@
 #ifndef _ALICE_IOUTPUT_H_
 #define _ALICE_IOUTPUT_H_
 
-class IOutput
+#include "AliceObject.h"
+
+class IOutput : public AliceObject
 {
   public:
-    IOutput();
+    IOutput(char * name);
     virtual ~IOutput();
 };
 

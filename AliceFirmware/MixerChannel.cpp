@@ -1,6 +1,7 @@
 #include "MixerChannel.h"
 
-MixerChannel::MixerChannel()
+MixerChannel::MixerChannel(char * name)
+  : AliceObject(name)
 {
 }
 

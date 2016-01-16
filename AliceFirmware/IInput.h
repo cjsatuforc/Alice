@@ -2,11 +2,12 @@
 #define _ALICE_IINPUT_H_
 
 #include "AliceTypes.h"
+#include "AliceObject.h"
 
-class IInput
+class IInput : public AliceObject
 {
   public:
-    IInput();
+    IInput(char * name);
     virtual ~IInput();
 
     virtual channelvalue_t value() = 0;

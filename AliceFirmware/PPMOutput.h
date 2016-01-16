@@ -6,7 +6,7 @@
 class PPMOutput : public IOutput
 {
   public:
-    PPMOutput();
+    PPMOutput(char * name);
     virtual ~PPMOutput();
 };
 

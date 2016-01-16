@@ -1,7 +1,7 @@
 #include "SerialOutput.h"
 
-SerialOutput::SerialOutput()
-  : IOutput()
+SerialOutput::SerialOutput(char * name)
+  : IOutput(name)
 {
 }
 

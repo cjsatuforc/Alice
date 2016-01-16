@@ -1,10 +1,12 @@
 #ifndef _ALICE_MIXERCHANNEL_H_
 #define _ALICE_MIXERCHANNEL_H_
 
-class MixerChannel
+#include "AliceObject.h"
+
+class MixerChannel : public AliceObject
 {
   public:
-    MixerChannel();
+    MixerChannel(char * name);
     virtual ~MixerChannel();
 };
 
