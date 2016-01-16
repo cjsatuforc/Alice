@@ -1,0 +1,5 @@
+name=Flight Mode
+channel=5
+default=-100
+[add,override,add_if,override_if] [source] [weight]
+

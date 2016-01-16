@@ -1,0 +1,9 @@
+name=PPM out
+channel_start=1
+channel_end=6
+driver=PPM
+pin=3
+active=low
+frame_length=22.5
+pulse_width=300
+
