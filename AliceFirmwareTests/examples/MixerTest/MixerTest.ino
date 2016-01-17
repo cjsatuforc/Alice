@@ -12,10 +12,6 @@ test(create_empty_mixer)
 {
   Mixer m("test mixer", 5);
 
-  // Name
-  char * expectedName = "test mixer";
-  assertEqual(m.getName(), expectedName);
-
   // Default channels
   for (int i = 0; i < 5; i++)
     assertTrue(m.getChannel(i) == NULL);

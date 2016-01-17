@@ -10,10 +10,6 @@ test(create_empty_model)
 {
   Model m("test model", 2);
 
-  // Name
-  char * expectedName = "test model";
-  assertEqual(m.getName(), expectedName);
-
   // Default outputs
   for (int i = 0; i < 2; i++)
     assertTrue(m.getOutput(i) == NULL);
