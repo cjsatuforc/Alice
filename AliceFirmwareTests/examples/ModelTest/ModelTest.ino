@@ -12,10 +12,6 @@
 test(create_empty_model)
 {
   Model m("test model", 2);
-
-  // Default outputs
-  for (int i = 0; i < 2; i++)
-    assertTrue(m.getOutput(i) == NULL);
 }
 
 /**
