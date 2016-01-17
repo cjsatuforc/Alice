@@ -4,7 +4,7 @@
 
 #include <Mixer.h>
 #include <MixerChannel.h>
-#include <MixItem.h>
+#include <IMixerOperation.h>
 
 test(create_empty_mixer)
 {

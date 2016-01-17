@@ -4,13 +4,27 @@
 #include "AliceTypes.h"
 #include "AliceObject.h"
 
+enum InputType
+{
+  INPUT_STICK,
+  INPUT_POT,
+  INPUT_SWITCH,
+  INPUT_MULTIPOS
+};
+
 class IInput : public AliceObject
 {
   public:
-    IInput(char * name);
     virtual ~IInput();
 
-    virtual usvalue_t value() = 0;
+    InputType type() const;
+    virtual usvalue_t value() const = 0;
+
+  protected:
+    IInput(char * name, InputType type);
+
+  private:
+    const InputType m_type;
 };
 
 #endif
