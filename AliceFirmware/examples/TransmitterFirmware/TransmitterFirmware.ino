@@ -5,6 +5,9 @@
 #include <Radio.h>
 #include <InputManager.h>
 
+/**
+ * @brief Setup routine.
+ */
 void setup()
 {
   Serial.begin(115200);
@@ -12,6 +15,9 @@ void setup()
   // TODO
 }
 
+/**
+ * @brief Main loop.
+ */
 void loop()
 {
   // TODO

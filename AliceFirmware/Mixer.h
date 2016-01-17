@@ -15,6 +15,10 @@
 class Mixer : public AliceObject
 {
   public:
+    /**
+     * @typedef MixerChannelNumber
+     * @param Number given to a Mixer channel.
+     */
     typedef size_t MixerChannelNumber;
 
     Mixer(char * name, size_t numChannels);

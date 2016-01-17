@@ -46,3 +46,10 @@ IInput * InputManager::getInput(const char * inputName)
 
   return NULL;
 }
+
+/**
+ * @brief Polls input devices for changes.
+ */
+void InputManager::poll()
+{
+}

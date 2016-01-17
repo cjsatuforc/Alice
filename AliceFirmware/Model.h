@@ -8,6 +8,10 @@
 #include "Mixer.h"
 #include "IOutput.h"
 
+/**
+ * @class Model
+ * @brief Represents the configuration of a model.
+ */
 class Model : public AliceObject
 {
   public:
@@ -15,13 +19,13 @@ class Model : public AliceObject
     virtual ~Model();
 
     Mixer * getMixer();
-    IOutput * getOutput(size_t n);
+    IOutput * getOutput(const char * name);
     size_t getNumberOutputs();
 
   private:
-    Mixer *m_mixer;
-    IOutput **m_outputs;
-    size_t m_numOutputs;
+    Mixer *m_mixer; //!< Mixer used by the Model
+    IOutput **m_outputs; //!< Output devices
+    size_t m_numOutputs; //!< Number of output devices
 };
 
 #endif

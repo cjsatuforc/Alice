@@ -2,6 +2,10 @@
 
 #include "Model.h"
 
+/**
+ * @copydoc AliceObject::AliceObject
+ * @param numOutputs Number of output devices
+ */
 Model::Model(char * name, size_t numOutputs)
   : AliceObject(name)
   , m_mixer(NULL)
@@ -22,19 +26,35 @@ Model::~Model()
   }
 }
 
+/**
+ * @brief Gets the active Mixer.
+ * @return Pointer to the Mixer
+ */
 Mixer * Model::getMixer()
 {
   return m_mixer;
 }
 
-IOutput * Model::getOutput(size_t n)
+/**
+ * @brief Gets an output device by name.
+ * @param name Name of output device
+ * @return Pointer to the IOutput, NULL if not found
+ */
+IOutput * Model::getOutput(const char * name)
 {
-  if (n >= m_numOutputs)
-    return NULL;
+  for (size_t i = 0; i < m_numOutputs; i++)
+  {
+    if (m_outputs[i] != NULL && strcmp(m_outputs[i]->getName(), name) == 0)
+      return m_outputs[i];
+  }
 
-  return m_outputs[n];
+  return NULL;
 }
 
+/**
+ * @brief Gets the number of output devices.
+ * @return NUmber of outputs
+ */
 size_t Model::getNumberOutputs()
 {
   return m_numOutputs;

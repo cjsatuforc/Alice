@@ -3,6 +3,11 @@
 #ifndef _ALICE_INPUTMANAGER_H_
 #define _ALICE_INPUTMANAGER_H_
 
+/**
+ * @def MAX_NUM_INPUTS
+ * @brief Maximum number of IInput devices that can be added to the
+ *        InputManager.
+ */
 #define MAX_NUM_INPUTS 16
 
 #include "IInput.h"
@@ -24,9 +29,10 @@ class InputManager
       return instance;
     }
 
-    void poll();
     bool addInput(IInput * input);
     IInput * getInput(const char * inputName);
+
+    void poll();
 
   private:
     InputManager();

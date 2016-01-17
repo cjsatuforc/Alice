@@ -5,6 +5,10 @@
 
 #include "AliceObject.h"
 
+/**
+ * @class MixerChannel
+ * @brief Represents a channel in a Mixer.
+ */
 class MixerChannel : public AliceObject
 {
   public:
