@@ -1,3 +1,5 @@
+/*! \file */
+
 #include "AliceObject.h"
 
 AliceObject::AliceObject(char * name)

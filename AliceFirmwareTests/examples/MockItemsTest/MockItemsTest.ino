@@ -1,3 +1,5 @@
+/*! \file */
+
 #line 2 "MockItemsTest.ino"
 
 #include <ArduinoUnit.h>

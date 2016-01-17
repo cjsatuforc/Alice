@@ -1,3 +1,5 @@
+/*! \file */
+
 #ifndef _ALICE_IINPUT_H_
 #define _ALICE_IINPUT_H_
 

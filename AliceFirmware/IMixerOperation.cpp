@@ -1,3 +1,5 @@
+/*! \file */
+
 #include "IMixerOperation.h"
 
 #include "InputManager.h"

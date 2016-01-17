@@ -1,3 +1,5 @@
+/*! \file */
+
 #include "Mixer.h"
 
 Mixer::Mixer(char * name, size_t numChannels)

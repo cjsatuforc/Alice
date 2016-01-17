@@ -1,3 +1,5 @@
+/*! \file */
+
 #include "Model.h"
 
 Model::Model(char * name, size_t numOutputs)

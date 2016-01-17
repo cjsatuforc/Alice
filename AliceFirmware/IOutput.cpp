@@ -1,3 +1,5 @@
+/*! \file */
+
 #include "IOutput.h"
 
 IOutput::IOutput(char * name)

@@ -1,3 +1,5 @@
+/*! \file */
+
 #include <inttypes.h>
 
 #include <Radio.h>

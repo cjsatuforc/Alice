@@ -1,3 +1,5 @@
+/*! \file */
+
 #ifndef _ALICE_IMIXEROPERATION_H_
 #define _ALICE_IMIXEROPERATION_H_
 

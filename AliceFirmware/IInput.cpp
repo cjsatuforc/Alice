@@ -1,3 +1,5 @@
+/*! \file */
+
 #include "IInput.h"
 
 IInput::IInput(char * name, InputType type)

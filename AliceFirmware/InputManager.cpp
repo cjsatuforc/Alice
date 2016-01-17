@@ -1,3 +1,5 @@
+/*! \file */
+
 #include "InputManager.h"
 
 InputManager::InputManager()

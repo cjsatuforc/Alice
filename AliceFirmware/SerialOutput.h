@@ -1,3 +1,5 @@
+/*! \file */
+
 #ifndef _ALICE_SERIALOUTPUT_H_
 #define _ALICE_SERIALOUTPUT_H_
 

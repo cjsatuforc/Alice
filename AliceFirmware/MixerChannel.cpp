@@ -1,3 +1,5 @@
+/*! \file */
+
 #include "MixerChannel.h"
 
 MixerChannel::MixerChannel(char * name)

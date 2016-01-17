@@ -1,3 +1,5 @@
+/*! \file */
+
 #ifndef _ALICETESTS_MOCKINPUT_H_
 #define _ALICETESTS_MOCKINPUT_H_
 

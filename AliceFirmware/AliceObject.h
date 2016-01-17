@@ -1,3 +1,5 @@
+/*! \file */
+
 #ifndef _ALICE_ALICEOBJECT_H_
 #define _ALICE_ALICEOBJECT_H_
 

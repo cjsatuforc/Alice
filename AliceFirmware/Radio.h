@@ -1,3 +1,5 @@
+/*! \file */
+
 #ifndef _ALICE_RADIO_H_
 #define _ALICE_RADIO_H_
 

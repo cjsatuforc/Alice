@@ -1,3 +1,5 @@
+/*! \file */
+
 #include "SerialOutput.h"
 
 SerialOutput::SerialOutput(char * name)

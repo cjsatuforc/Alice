@@ -1,3 +1,5 @@
+/*! \file */
+
 #ifndef _ALICE_ALICETYPES_H_
 #define _ALICE_ALICETYPES_H_
 

@@ -1,3 +1,5 @@
+/*! \file */
+
 #include "PPMOutput.h"
 
 PPMOutput::PPMOutput(char * name)
