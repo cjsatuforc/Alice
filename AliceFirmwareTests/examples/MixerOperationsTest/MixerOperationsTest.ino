@@ -1,4 +1,4 @@
-/*! \file */
+/** @file */
 
 #line 2 "MixerTest.ino"
 

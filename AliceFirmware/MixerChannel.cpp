@@ -1,4 +1,4 @@
-/*! \file */
+/** @file */
 
 #include "MixerChannel.h"
 

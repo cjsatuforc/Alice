@@ -1,4 +1,4 @@
-/*! \file */
+/** @file */
 
 #ifndef _ALICE_PPMOUTPUT_H_
 #define _ALICE_PPMOUTPUT_H_

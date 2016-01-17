@@ -1,4 +1,4 @@
-/*! \file */
+/** @file */
 
 #include <inttypes.h>
 

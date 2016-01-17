@@ -1,10 +1,14 @@
-/*! \file */
+/** @file */
 
 #ifndef _ALICETESTS_MOCKINPUT_H_
 #define _ALICETESTS_MOCKINPUT_H_
 
 #include <IInput.h>
 
+/**
+ * @class MockInput
+ * @brief Mocks an input device
+ */
 class MockInput : public IInput
 {
   public:
@@ -27,7 +31,7 @@ class MockInput : public IInput
     }
 
   private:
-    cevalue_t m_value;
+    cevalue_t m_value; //!< Value of the input
 };
 
 #endif

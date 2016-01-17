@@ -1,4 +1,4 @@
-/*! \file */
+/** @file */
 
 #ifndef _ALICE_MIXER_H_
 #define _ALICE_MIXER_H_

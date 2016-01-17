@@ -1,10 +1,14 @@
-/*! \file */
+/** @file */
 
 #ifndef _ALICE_ALICEOBJECT_H_
 #define _ALICE_ALICEOBJECT_H_
 
 #include "AliceTypes.h"
 
+/**
+ * @class AliceObject
+ * @brief Represents a component of the radio control structure.
+ */
 class AliceObject
 {
   public:
@@ -14,7 +18,7 @@ class AliceObject
     const char * getName() const;
 
   private:
-    const char * m_name;
+    const char * m_name; //!< Name of the object
 };
 
 #endif

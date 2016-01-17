@@ -1,4 +1,4 @@
-/*! \file */
+/** @file */
 
 #ifndef _ALICE_INPUTMANAGER_H_
 #define _ALICE_INPUTMANAGER_H_

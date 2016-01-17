@@ -1,4 +1,4 @@
-/*! \file */
+/** @file */
 
 #ifndef _ALICE_MODEL_H_
 #define _ALICE_MODEL_H_

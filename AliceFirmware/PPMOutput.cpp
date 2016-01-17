@@ -1,4 +1,4 @@
-/*! \file */
+/** @file */
 
 #include "PPMOutput.h"
 
