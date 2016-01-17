@@ -5,6 +5,10 @@
 
 #include "IOutput.h"
 
+/**
+ * @class PPMOutput
+ * @brief Output device to output a PPM stream.
+ */
 class PPMOutput : public IOutput
 {
   public:

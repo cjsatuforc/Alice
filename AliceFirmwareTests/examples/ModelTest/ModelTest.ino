@@ -6,6 +6,9 @@
 
 #include <Model.h>
 
+/**
+ * @brief Tests creation of an empty Model.
+ */
 test(create_empty_model)
 {
   Model m("test model", 2);
@@ -15,12 +18,18 @@ test(create_empty_model)
     assertTrue(m.getOutput(i) == NULL);
 }
 
+/**
+ * @brief Setup routine.
+ */
 void setup()
 {
   Serial.begin(9600);
   while(!Serial);
 }
 
+/**
+ * @brief Test runner.
+ */
 void loop()
 {
   Test::run();

@@ -2,6 +2,10 @@
 
 #include "Mixer.h"
 
+/**
+ * @copydoc AliceObject::AliceObject
+ * @param numChannels Number of channels in the mixer
+ */
 Mixer::Mixer(char * name, size_t numChannels)
   : AliceObject(name)
   , m_numChannels(numChannels)
@@ -21,6 +25,11 @@ Mixer::~Mixer()
   }
 }
 
+/**
+ * @brief Gets a given channel in the mixer.
+ * @param chan Channel number
+ * @return POinter to the MixerChannel
+ */
 MixerChannel * Mixer::getChannel(MixerChannelNumber chan)
 {
   if (chan >= m_numChannels)

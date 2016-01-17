@@ -7,6 +7,9 @@
 #include <IInput.h>
 #include <MockInput.h>
 
+/**
+ * @brief Tests the MockInput class.
+ */
 test(mock_input)
 {
   MockInput in1("mock_in1", INPUT_STICK, 1500);
@@ -18,12 +21,18 @@ test(mock_input)
   assertEqual(in2.value(), 2000);
 }
 
+/**
+ * @brief Setup routine.
+ */
 void setup()
 {
   Serial.begin(9600);
   while(!Serial);
 }
 
+/**
+ * @brief Test runner.
+ */
 void loop()
 {
   Test::run();

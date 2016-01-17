@@ -7,6 +7,11 @@
 #include "AliceObject.h"
 #include "MixerChannel.h"
 
+/**
+ * @class Mixer
+ * @brief A channel mixer that takes values from IInput devices and produces
+ *        outputs for IOutput devcies.
+ */
 class Mixer : public AliceObject
 {
   public:
@@ -18,8 +23,8 @@ class Mixer : public AliceObject
     MixerChannel * getChannel(MixerChannelNumber chan);
 
   private:
-    MixerChannel **m_channels;
-    size_t m_numChannels;
+    MixerChannel **m_channels; //!< Mixer channels
+    size_t m_numChannels; //!< Number of channels in the mixer
 };
 
 #endif

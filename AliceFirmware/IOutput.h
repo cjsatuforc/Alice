@@ -5,6 +5,10 @@
 
 #include "AliceObject.h"
 
+/**
+ * @class IOutput
+ * @brief Represents an output device.
+ */
 class IOutput : public AliceObject
 {
   public:

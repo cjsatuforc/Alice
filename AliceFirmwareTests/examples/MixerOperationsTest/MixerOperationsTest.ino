@@ -4,6 +4,10 @@
 
 #include <ArduinoUnit.h>
 
+/**
+ * @def assertClose
+ * @brief Used to test that two doubles are equal within a tolerance of 0.01.
+ */
 #define assertClose(a, b) assertTrue(abs(a - b) < 0.01)
 
 #include <MockInput.h>
@@ -12,6 +16,9 @@
 #include <MixerOperationAddIf.h>
 #include <MixerOperationReplaceIf.h>
 
+/**
+ * @brief Tests the add function.
+ */
 test(add)
 {
   MixerOperationAdd add1("add1", "in_-100", 100.0);
@@ -42,6 +49,9 @@ test(add)
   assertClose(add9.evaluate(-100.0), 0.0);
 }
 
+/**
+ * @brief Tests the add-if operation.
+ */
 test(add_if)
 {
   MixerOperationAddIf addif1("addif1", "in_50", 25.0, 52);
@@ -51,6 +61,9 @@ test(add_if)
   assertClose(addif2.evaluate(50.0), 50.0);
 }
 
+/**
+ * @brief Tests the replace-if operation.
+ */
 test(replace_if)
 {
   MixerOperationReplaceIf repif1("repif1", "in_50", 25.0, 52);
@@ -60,6 +73,9 @@ test(replace_if)
   assertClose(repif2.evaluate(50.0), 50.0);
 }
 
+/**
+ * @brief Setup routine.
+ */
 void setup()
 {
   Serial.begin(9600);
@@ -73,6 +89,9 @@ void setup()
   InputManager::Instance().addInput(new MockInput("in_100", INPUT_STICK, 100.0));
 }
 
+/**
+ * @brief Test runner.
+ */
 void loop()
 {
   Test::run();

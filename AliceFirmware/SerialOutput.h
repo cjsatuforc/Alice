@@ -5,6 +5,10 @@
 
 #include "IOutput.h"
 
+/**
+ * @class SerialOutput
+ * @brief Output device to output verbose/debug data to a serial port.
+ */
 class SerialOutput : public IOutput
 {
   public:
