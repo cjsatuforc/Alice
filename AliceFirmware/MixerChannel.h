@@ -4,6 +4,8 @@
 #define _ALICE_MIXERCHANNEL_H_
 
 #include "AliceObject.h"
+#include "AliceObjectList.h"
+#include "IMixerOperation.h"
 
 /**
  * @class MixerChannel
@@ -12,8 +14,17 @@
 class MixerChannel : public AliceObject
 {
   public:
-    MixerChannel(char * name);
+    MixerChannel(char * name, size_t numOperations, cevalue_t initialValue);
     virtual ~MixerChannel();
+
+    bool addOperation(IMixerOperation * op);
+    IMixerOperation * getOperation(const char * name);
+
+    cevalue_t evaluate() const;
+
+  private:
+    const cevalue_t m_initialValue;
+    AliceObjectList m_operations;
 };
 
 #endif
