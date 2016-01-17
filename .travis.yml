@@ -9,6 +9,7 @@ install:
   - arduino --install-library "Universal Inputs"
   - arduino --install-library "ArduinoUnit"
   - ln -s $PWD/AliceFirmware $HOME/arduino_ide/libraries/AliceFirmware
+  - ln -s $PWD/AliceFirmwareTests $HOME/arduino_ide/libraries/AliceFirmwareTests
 
 script:
   - build_platform leonardo
