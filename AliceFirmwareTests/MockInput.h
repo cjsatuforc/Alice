@@ -8,7 +8,7 @@
 class MockInput : public IInput
 {
   public:
-    MockInput(char * name, InputType type, usvalue_t v)
+    MockInput(char * name, InputType type, cevalue_t v = 0.0)
       : IInput(name, type)
       , m_value(v)
     {
@@ -16,18 +16,18 @@ class MockInput : public IInput
 
     virtual ~MockInput() {};
 
-    void setValue(usvalue_t v)
+    void setValue(cevalue_t v)
     {
       m_value = v;
     }
 
-    virtual usvalue_t value() const
+    virtual cevalue_t value() const
     {
       return m_value;
     }
 
   private:
-    usvalue_t m_value;
+    cevalue_t m_value;
 };
 
 #endif

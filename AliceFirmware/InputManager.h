@@ -16,7 +16,8 @@ class InputManager
       return instance;
     }
 
-    IInput * getInput(char * inputName);
+    bool addInput(IInput * input);
+    IInput * getInput(const char * inputName);
 
   private:
     InputManager();

@@ -11,7 +11,7 @@ AliceObject::~AliceObject()
 {
 }
 
-char * AliceObject::getName()
+const char * AliceObject::getName() const
 {
   return m_name;
 }

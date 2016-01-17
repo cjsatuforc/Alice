@@ -20,7 +20,7 @@ class IInput : public AliceObject
     virtual ~IInput();
 
     InputType type() const;
-    virtual usvalue_t value() const = 0;
+    virtual cevalue_t value() const = 0;
 
   protected:
     IInput(char * name, InputType type);

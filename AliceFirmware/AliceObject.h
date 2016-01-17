@@ -11,10 +11,10 @@ class AliceObject
     AliceObject(char * name);
     virtual ~AliceObject();
 
-    char * getName();
+    const char * getName() const;
 
   private:
-    char * m_name;
+    const char * m_name;
 };
 
 #endif

@@ -9,16 +9,23 @@
 class IMixerOperation : public AliceObject
 {
   public:
-    IMixerOperation(char * name, char * mappedInputName);
+    IMixerOperation(char * name, char * mappedInputName, cevalue_t weight);
     virtual ~IMixerOperation();
 
-    char * getMappedInputName();
+    const char * getMappedInputName() const;
 
-    usvalue_t getInputValue();
-    virtual usvalue_t evaluate(usvalue_t lastValue) = 0;
+    cevalue_t getInputValue() const;
+    cevalue_t evaluate(cevalue_t lastValue) const;
+
+    cevalue_t getWeight() const;
+
+  protected:
+    virtual cevalue_t doEvaluation(cevalue_t lastValue) const = 0;
+
+    const cevalue_t m_weight;
 
   private:
-    char * m_mappedInputName;
+    const char * m_mappedInputName;
 };
 
 #endif
