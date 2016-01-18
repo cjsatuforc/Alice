@@ -5,6 +5,7 @@
 
 #include "AliceTypes.h"
 #include "AliceObject.h"
+#include "AliceObjectList.h"
 #include "Mixer.h"
 #include "IOutput.h"
 
@@ -19,13 +20,13 @@ class Model : public AliceObject
     virtual ~Model();
 
     Mixer * getMixer();
+
+    bool addOutput(IOutput * item);
     IOutput * getOutput(const char * name);
-    size_t getNumberOutputs();
 
   private:
     Mixer *m_mixer; //!< Mixer used by the Model
-    IOutput **m_outputs; //!< Output devices
-    size_t m_numOutputs; //!< Number of output devices
+    AliceObjectList m_outputs; //!< Output devices
 };
 
 #endif

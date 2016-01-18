@@ -17,7 +17,7 @@ class MixerChannel : public AliceObject
     MixerChannel(char * name, size_t numOperations, cevalue_t initialValue);
     virtual ~MixerChannel();
 
-    bool addOperation(IMixerOperation * op);
+    bool addOperation(IMixerOperation * item);
     IMixerOperation * getOperation(const char * name);
 
     cevalue_t evaluate() const;

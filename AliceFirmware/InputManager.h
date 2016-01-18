@@ -10,6 +10,7 @@
  */
 #define MAX_NUM_INPUTS 16
 
+#include "AliceObjectList.h"
 #include "IInput.h"
 
 /**
@@ -29,8 +30,8 @@ class InputManager
       return instance;
     }
 
-    bool addInput(IInput * input);
-    IInput * getInput(const char * inputName);
+    bool addInput(IInput * item);
+    IInput * getInput(const char * name);
 
     void poll();
 
@@ -39,7 +40,7 @@ class InputManager
     InputManager(InputManager const &);
     void operator=(InputManager const &);
 
-    IInput *m_inputs[MAX_NUM_INPUTS]; //!< Array of input devices
+    AliceObjectList m_inputs;
 };
 
 #endif

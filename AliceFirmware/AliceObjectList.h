@@ -7,7 +7,7 @@
 
 /**
  * @class AliceObjectList
- * @brief Represents a component of the radio control structure.
+ * @brief Container for a list of AliceObject instances.
  */
 class AliceObjectList
 {
@@ -16,14 +16,15 @@ class AliceObjectList
     virtual ~AliceObjectList();
 
     bool add(AliceObject * object);
-    AliceObject * get(const char * name) const;
+    AliceObject * get(size_t idx) const;
+    AliceObject * getByName(const char * name) const;
 
     size_t size() const;
     size_t capacity() const;
 
   private:
-    size_t m_capacity;
-    AliceObject **m_objects;
+    size_t m_capacity; //!< Maximum number of instances that can be stored
+    AliceObject **m_objects; //!< Pointer to arroy of AliceObject
 };
 
 #endif
