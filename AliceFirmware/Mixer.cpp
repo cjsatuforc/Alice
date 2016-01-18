@@ -8,32 +8,26 @@
  */
 Mixer::Mixer(char * name, size_t numChannels)
   : AliceObject(name)
-  , m_numChannels(numChannels)
+  , m_channels(numChannels)
 {
-  m_channels = new MixerChannel*[numChannels];
-
-  for (size_t i = 0; i < m_numChannels; i++)
-    m_channels[i] = NULL;
 }
 
 Mixer::~Mixer()
 {
-  for (size_t i = 0; i < m_numChannels; i++)
-  {
-    if (m_channels[i] != NULL)
-      delete m_channels[i];
-  }
 }
 
 /**
- * @brief Gets a given channel in the mixer.
- * @param chan Channel number
- * @return POinter to the MixerChannel
+ * @copydoc AliceObjectList::set
  */
-MixerChannel * Mixer::getChannel(MixerChannelNumber chan)
+bool Mixer::addChannel(MixerChannelNumber idx, MixerChannel * item)
 {
-  if (chan >= m_numChannels)
-    return NULL;
+  return m_channels.set(idx, item);
+}
 
-  return m_channels[chan];
+/**
+ * @copydoc AliceObjectList::get
+ */
+MixerChannel * Mixer::getChannel(MixerChannelNumber idx)
+{
+  return (MixerChannel *) m_channels.get(idx);
 }

@@ -44,6 +44,22 @@ bool AliceObjectList::add(AliceObject * item)
 }
 
 /**
+ * @brief Adds a new item at a given position in the list.
+ * @param idx Index at which item is inserted
+ * @param item Pointer to the item to add
+ * @return True if instance was added to list, false if the index is out of
+ *         range
+ */
+bool AliceObjectList::set(size_t idx, AliceObject * item)
+{
+  if (idx >= m_capacity)
+    return false;
+
+  m_objects[idx] = item;
+  return true;
+}
+
+/**
  * @brief Gets an item from the list by name.
  * @param name Name of item to get
  * @return Pointer to the item, NULL if not found
@@ -66,10 +82,10 @@ AliceObject * AliceObjectList::getByName(const char * name) const
  */
 AliceObject * AliceObjectList::get(size_t idx) const
 {
-  if (idx < m_capacity)
-    return m_objects[idx];
+  if (idx >= m_capacity)
+    return NULL;
 
-  return NULL;
+  return m_objects[idx];
 }
 
 /**

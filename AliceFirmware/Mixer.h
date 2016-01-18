@@ -5,6 +5,7 @@
 
 #include "AliceTypes.h"
 #include "AliceObject.h"
+#include "AliceObjectList.h"
 #include "MixerChannel.h"
 
 /**
@@ -24,11 +25,11 @@ class Mixer : public AliceObject
     Mixer(char * name, size_t numChannels);
     virtual ~Mixer();
 
-    MixerChannel * getChannel(MixerChannelNumber chan);
+    bool addChannel(MixerChannelNumber idx, MixerChannel * item);
+    MixerChannel * getChannel(MixerChannelNumber idx);
 
   private:
-    MixerChannel **m_channels; //!< Mixer channels
-    size_t m_numChannels; //!< Number of channels in the mixer
+    AliceObjectList m_channels; //!< Mixer channels
 };
 
 #endif

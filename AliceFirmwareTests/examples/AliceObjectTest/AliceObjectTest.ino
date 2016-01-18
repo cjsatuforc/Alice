@@ -19,9 +19,9 @@ test(object_name)
 }
 
 /**
- * @brief Tests the AliceObjectList container.
+ * @brief Tests the AliceObjectList container when appending items.
  */
-test(object_list)
+test(object_list_add)
 {
   AliceObjectList l(10);
 
@@ -44,6 +44,34 @@ test(object_list)
 
   assertEqual(((MockInput *) l.get(0))->value(), 1500);
   assertEqual(((MockInput *) l.get(1))->value(), 2000);
+}
+
+/**
+ * @brief Tests the AliceObjectList container when adding items.
+ */
+test(object_list_set)
+{
+  AliceObjectList l(10);
+
+  assertEqual(l.capacity(), 10);
+  assertEqual(l.size(), 0);
+
+  l.set(2, new MockInput("in1", INPUT_STICK, 1500));
+  l.set(5, new MockInput("in2", INPUT_STICK, 2000));
+
+  assertEqual(l.size(), 2);
+
+  assertTrue(l.getByName("in1") != NULL);
+  assertTrue(l.getByName("in2") != NULL);
+  assertTrue(((MockInput *) l.getByName("nope")) == NULL);
+  assertTrue(((MockInput *) l.get(0)) == NULL);
+  assertTrue(((MockInput *) l.get(20)) == NULL);
+
+  assertEqual(((MockInput *) l.getByName("in1"))->value(), 1500);
+  assertEqual(((MockInput *) l.getByName("in2"))->value(), 2000);
+
+  assertEqual(((MockInput *) l.get(2))->value(), 1500);
+  assertEqual(((MockInput *) l.get(5))->value(), 2000);
 }
 
 /**

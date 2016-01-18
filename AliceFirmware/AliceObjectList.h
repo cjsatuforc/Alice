@@ -16,6 +16,8 @@ class AliceObjectList
     virtual ~AliceObjectList();
 
     bool add(AliceObject * object);
+    bool set(size_t idx, AliceObject * item);
+
     AliceObject * get(size_t idx) const;
     AliceObject * getByName(const char * name) const;
 
