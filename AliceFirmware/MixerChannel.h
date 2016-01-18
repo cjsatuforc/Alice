@@ -14,11 +14,14 @@
 class MixerChannel : public AliceObject
 {
   public:
-    MixerChannel(char * name, size_t numOperations, cevalue_t initialValue);
+    MixerChannel(char * name, size_t numOperations, cevalue_t initialValue = 0.0);
     virtual ~MixerChannel();
+
+    usvalue_t initialValue() const;
 
     bool addOperation(IMixerOperation * item);
     IMixerOperation * getOperation(const char * name);
+    size_t numOperations() const;
 
     cevalue_t evaluate() const;
 

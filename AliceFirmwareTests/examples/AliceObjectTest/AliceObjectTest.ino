@@ -3,11 +3,12 @@
 #line 2 "AliceObjectTest.ino"
 
 #include <ArduinoUnit.h>
+#include <AliceTest.h>
+
+#include <MockInput.h>
 
 #include <AliceObject.h>
 #include <AliceObjectList.h>
-
-#include <MockInput.h>
 
 /**
  * @brief Tests object names.

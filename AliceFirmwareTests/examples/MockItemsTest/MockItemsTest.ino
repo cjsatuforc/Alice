@@ -3,6 +3,7 @@
 #line 2 "MockItemsTest.ino"
 
 #include <ArduinoUnit.h>
+#include <AliceTest.h>
 
 #include <IInput.h>
 #include <MockInput.h>

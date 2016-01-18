@@ -3,14 +3,10 @@
 #line 2 "MixerTest.ino"
 
 #include <ArduinoUnit.h>
-
-/**
- * @def assertClose
- * @brief Used to test that two doubles are equal within a tolerance of 0.01.
- */
-#define assertClose(a, b) assertTrue(abs(a - b) < 0.01)
+#include <AliceTest.h>
 
 #include <MockInput.h>
+
 #include <InputManager.h>
 #include <MixerOperationAdd.h>
 #include <MixerOperationAddIf.h>
