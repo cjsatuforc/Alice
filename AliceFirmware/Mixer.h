@@ -28,6 +28,8 @@ class Mixer : public AliceObject
     bool addChannel(MixerChannelNumber idx, MixerChannel * item);
     MixerChannel * getChannel(MixerChannelNumber idx);
 
+    usvalue_t evaluate(MixerChannelNumber idx);
+
   private:
     AliceObjectList m_channels; //!< Mixer channels
 };

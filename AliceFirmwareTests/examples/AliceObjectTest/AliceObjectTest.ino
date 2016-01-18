@@ -16,7 +16,7 @@
 test(object_name)
 {
   AliceObject o("test");
-  assertTrue(strcmp(o.getName(), "test") == 0);
+  assertTrue(strcmp(o.name(), "test") == 0);
 }
 
 /**

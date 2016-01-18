@@ -68,7 +68,7 @@ AliceObject * AliceObjectList::getByName(const char * name) const
 {
   for (size_t i = 0; i < m_capacity; i++)
   {
-    if (m_objects[i] != NULL && strcmp(m_objects[i]->getName(), name) == 0)
+    if (m_objects[i] != NULL && strcmp(m_objects[i]->name(), name) == 0)
       return m_objects[i];
   }
 

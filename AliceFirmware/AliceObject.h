@@ -15,7 +15,7 @@ class AliceObject
     AliceObject(char * name);
     virtual ~AliceObject();
 
-    const char * getName() const;
+    const char * name() const;
 
   private:
     const char * m_name; //!< Name of the object

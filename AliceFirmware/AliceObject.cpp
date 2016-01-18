@@ -19,7 +19,7 @@ AliceObject::~AliceObject()
  * @brief Gets the name of the object
  * @return Name
  */
-const char * AliceObject::getName() const
+const char * AliceObject::name() const
 {
   return m_name;
 }
