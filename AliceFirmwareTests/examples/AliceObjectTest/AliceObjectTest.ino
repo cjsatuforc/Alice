@@ -76,6 +76,26 @@ test(object_list_set)
 }
 
 /**
+ * @brief Tests the ce_to_us() function.
+ */
+test(ce_to_us_test)
+{
+  assertEqual(ce_to_us(CE_HIGH), US_HIGH);
+  assertEqual(ce_to_us(CE_CENTRE), US_CENTRE);
+  assertEqual(ce_to_us(CE_LOW), US_LOW);
+}
+
+/**
+ * @brief Tests the us_to_ce() function.
+ */
+test(us_to_ce_test)
+{
+  assertClose(us_to_ce(US_HIGH), CE_HIGH);
+  assertClose(us_to_ce(US_CENTRE), CE_CENTRE);
+  assertClose(us_to_ce(US_LOW), CE_LOW);
+}
+
+/**
  * @brief Setup routine.
  */
 void setup()
