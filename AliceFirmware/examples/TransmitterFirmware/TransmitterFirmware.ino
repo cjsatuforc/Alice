@@ -3,7 +3,6 @@
 #include <inttypes.h>
 
 #include <Radio.h>
-#include <InputManager.h>
 
 /**
  * @brief Setup routine.
@@ -12,7 +11,7 @@ void setup()
 {
   Serial.begin(115200);
 
-  // TODO
+  Radio::Instance().init();
 }
 
 /**
@@ -20,5 +19,5 @@ void setup()
  */
 void loop()
 {
-  // TODO
+  Radio::Instance().update();
 }

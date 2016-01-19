@@ -9,9 +9,9 @@
  */
 IOutput::IOutput(char *name, channelnumber_t start, channelnumber_t end)
     : AliceObject(name)
+    , m_numChannels(end - start + 1)
     , m_startChannel(start)
     , m_endChannel(end)
-    , m_numChannels(end - start + 1)
 {
   m_values = new usvalue_t[m_numChannels];
 

@@ -7,7 +7,7 @@
 
 #include <MockInput.h>
 
-#include <InputManager.h>
+#include <Radio.h>
 #include <MixerOperationAdd.h>
 #include <MixerOperationAddIf.h>
 #include <MixerOperationReplaceIf.h>
@@ -79,11 +79,11 @@ void setup()
     ;
 
   // Setup mock inputs
-  InputManager::Instance().addInput(new MockInput("in_-100", INPUT_STICK, -100.0));
-  InputManager::Instance().addInput(new MockInput("in_-50", INPUT_STICK, -50.0));
-  InputManager::Instance().addInput(new MockInput("in_0", INPUT_STICK, 0.0));
-  InputManager::Instance().addInput(new MockInput("in_50", INPUT_STICK, 50.0));
-  InputManager::Instance().addInput(new MockInput("in_100", INPUT_STICK, 100.0));
+  Radio::Instance().addInput(new MockInput("in_-100", INPUT_STICK, -100.0));
+  Radio::Instance().addInput(new MockInput("in_-50", INPUT_STICK, -50.0));
+  Radio::Instance().addInput(new MockInput("in_0", INPUT_STICK, 0.0));
+  Radio::Instance().addInput(new MockInput("in_50", INPUT_STICK, 50.0));
+  Radio::Instance().addInput(new MockInput("in_100", INPUT_STICK, 100.0));
 }
 
 /**

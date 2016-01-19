@@ -2,7 +2,7 @@
 
 #include "IMixerOperation.h"
 
-#include "InputManager.h"
+#include "Radio.h"
 #include "IInput.h"
 
 /**
@@ -12,8 +12,8 @@
  */
 IMixerOperation::IMixerOperation(char *name, char *mappedInputName, cevalue_t weight)
     : AliceObject(name)
-    , m_mappedInputName(mappedInputName)
     , m_weight(weight)
+    , m_mappedInputName(mappedInputName)
 {
 }
 
@@ -36,7 +36,7 @@ const char *IMixerOperation::getMappedInputName() const
  */
 cevalue_t IMixerOperation::getInputValue() const
 {
-  IInput *in = InputManager::Instance().getInput(m_mappedInputName);
+  IInput *in = Radio::Instance().getInput(m_mappedInputName);
   if (in == NULL)
     return US_CENTRE;
 

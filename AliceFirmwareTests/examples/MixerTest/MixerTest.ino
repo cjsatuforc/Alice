@@ -7,7 +7,7 @@
 
 #include <MockInput.h>
 
-#include <InputManager.h>
+#include <Radio.h>
 #include <Mixer.h>
 #include <MixerChannel.h>
 #include <MixerOperationAdd.h>
@@ -125,7 +125,7 @@ test(create_empty_channel)
 test(channel_evaluation_add)
 {
   MockInput *in = new MockInput("test_stick_1", INPUT_STICK, -100.0);
-  InputManager::Instance().addInput(in);
+  Radio::Instance().addInput(in);
 
   MixerChannel c("test channel", 10);
 
@@ -153,9 +153,9 @@ test(channel_evaluation_replaceif)
   MockInput *in1 = new MockInput("replaceif_test_switch_1", INPUT_SWITCH, 0.0);
   MockInput *in2 = new MockInput("replaceif_test_switch_2", INPUT_SWITCH, 0.0);
   MockInput *in3 = new MockInput("replaceif_test_switch_3", INPUT_SWITCH, 0.0);
-  InputManager::Instance().addInput(in1);
-  InputManager::Instance().addInput(in2);
-  InputManager::Instance().addInput(in3);
+  Radio::Instance().addInput(in1);
+  Radio::Instance().addInput(in2);
+  Radio::Instance().addInput(in3);
 
   MixerChannel c("test channel", 10);
 
@@ -207,9 +207,9 @@ test(channel_evaluation_addif)
   MockInput *in1 = new MockInput("addif_test_switch_1", INPUT_SWITCH, 0.0);
   MockInput *in2 = new MockInput("addif_test_switch_2", INPUT_SWITCH, 0.0);
   MockInput *in3 = new MockInput("addif_test_switch_3", INPUT_SWITCH, 0.0);
-  InputManager::Instance().addInput(in1);
-  InputManager::Instance().addInput(in2);
-  InputManager::Instance().addInput(in3);
+  Radio::Instance().addInput(in1);
+  Radio::Instance().addInput(in2);
+  Radio::Instance().addInput(in3);
 
   MixerChannel c("test channel", 10);
 
