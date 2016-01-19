@@ -21,6 +21,11 @@ class MockOutput : public IOutput
     }
 
     virtual ~MockOutput() {};
+
+    bool open() { return true; };
+    bool close() { return true; };
+    bool isOpen() const { return true; };
+    bool tx() { return true; };
 };
 
 #endif

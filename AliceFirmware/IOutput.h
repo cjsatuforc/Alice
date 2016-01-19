@@ -28,6 +28,31 @@ class IOutput : public AliceObject
     usvalue_t valueByIndex(size_t idx) const;
     usvalue_t valueByChannel(channelnumber_t channelNumber) const;
 
+    /**
+     * @brief Opens the output device for transmission.
+     * @return True if the device was successfully opened
+     */
+    virtual bool open() = 0;
+
+    /**
+     * @brief Closes the output device.
+     * @return True if the device was successfully closed
+     */
+    virtual bool close() = 0;
+
+    /**
+     * @brief Returns true if the device is currently open and can be
+     *        transmitted.
+     * @return True if open
+     */
+    virtual bool isOpen() const = 0;
+
+    /**
+     * @brief Sends a transmission on the output device.
+     * @return True if data was successfully sent
+     */
+    virtual bool tx() = 0;
+
   protected:
     usvalue_t * m_values; //!< Output values
     const size_t m_numChannels; //!< Number of output channels
