@@ -27,6 +27,67 @@ test(create_empty_mixer)
 }
 
 /**
+ * @brief Tests filling an array of the exact correct size with evaluated
+ *        values from a Mixer.
+ */
+test(evaluation_fill_array_samesize)
+{
+  Mixer m("test mixer", 5);
+  m.addChannel(0, new MixerChannel("channel 0", 0, 1000));
+  m.addChannel(1, new MixerChannel("channel 1", 0, 1400));
+  m.addChannel(2, new MixerChannel("channel 2", 0, 1600));
+  m.addChannel(3, new MixerChannel("channel 3", 0, 2000));
+
+  cevalue_t values[4];
+  assertEqual(m.fillOutputArray(values, 4), 4);
+
+  assertClose(values[0], 1000);
+  assertClose(values[1], 1400);
+  assertClose(values[2], 1600);
+  assertClose(values[3], 2000);
+}
+
+/**
+ * @brief Tests filling an array of greater then required size with evaluated
+ *        values from a Mixer.
+ */
+test(evaluation_fill_array_largesize)
+{
+  Mixer m("test mixer", 5);
+  m.addChannel(0, new MixerChannel("channel 0", 0, 1000));
+  m.addChannel(1, new MixerChannel("channel 1", 0, 1400));
+  m.addChannel(2, new MixerChannel("channel 2", 0, 1600));
+  m.addChannel(3, new MixerChannel("channel 3", 0, 2000));
+
+  cevalue_t values[8];
+  assertEqual(m.fillOutputArray(values, 8), 4);
+
+  assertClose(values[0], 1000);
+  assertClose(values[1], 1400);
+  assertClose(values[2], 1600);
+  assertClose(values[3], 2000);
+}
+
+/**
+ * @brief Tests filling an array of less then required size with evaluated
+ *        values from a Mixer.
+ */
+test(evaluation_fill_array_smallsize)
+{
+  Mixer m("test mixer", 5);
+  m.addChannel(0, new MixerChannel("channel 0", 0, 1000));
+  m.addChannel(1, new MixerChannel("channel 1", 0, 1400));
+  m.addChannel(2, new MixerChannel("channel 2", 0, 1600));
+  m.addChannel(3, new MixerChannel("channel 3", 0, 2000));
+
+  cevalue_t values[2];
+  assertEqual(m.fillOutputArray(values, 2), 2);
+
+  assertClose(values[0], 1000);
+  assertClose(values[1], 1400);
+}
+
+/**
  * @brief Tests creation of an empty MixerChannel.
  */
 test(create_empty_channel)

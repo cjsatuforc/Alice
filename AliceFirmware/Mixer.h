@@ -22,7 +22,8 @@ class Mixer : public AliceObject
     bool addChannel(channelnumber_t idx, MixerChannel * item);
     MixerChannel * getChannel(channelnumber_t idx);
 
-    usvalue_t evaluate(channelnumber_t idx);
+    cevalue_t evaluate(channelnumber_t idx) const;
+    size_t fillOutputArray(cevalue_t * output, size_t len) const;
 
   private:
     AliceObjectList m_channels; //!< Mixer channels

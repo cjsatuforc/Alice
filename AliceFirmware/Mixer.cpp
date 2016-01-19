@@ -38,7 +38,7 @@ MixerChannel * Mixer::getChannel(channelnumber_t idx)
  * @param idx Channel number
  * @return Evaluated value, can also return 0.0 if channel was not found
  */
-usvalue_t Mixer::evaluate(channelnumber_t idx)
+cevalue_t Mixer::evaluate(channelnumber_t idx) const
 {
   MixerChannel * chan = (MixerChannel *) m_channels.get(idx);
 
@@ -46,4 +46,25 @@ usvalue_t Mixer::evaluate(channelnumber_t idx)
     return 0.0;
 
   return chan->evaluate();
+}
+
+/**
+ * @brief Fills an array with evealuated values from each channel of the mixer.
+ * @param output Pointer to output array
+ * @param len Length of output array
+ * @return Number of valid elements in outout array
+ */
+size_t Mixer::fillOutputArray(cevalue_t * output, size_t len) const
+{
+  size_t i;
+
+  for (i = 0; i < len; i++)
+  {
+    if (i >= m_channels.size())
+      break;
+
+    output[i] = evaluate(i);
+  }
+
+  return i;
 }
