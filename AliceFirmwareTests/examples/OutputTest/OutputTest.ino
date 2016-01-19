@@ -29,9 +29,7 @@ test(setting_values)
     assertEqual(out1.valueByChannel(i), 1500);
 
   /* Set values */
-  usvalue_t vals[] = {1000, 1100, 1200, 1300,
-                      1400, 1600, 1700, 1800,
-                      1900, 2000};
+  usvalue_t vals[] = {1000, 1100, 1200, 1300, 1400, 1600, 1700, 1800, 1900, 2000};
 
   assertTrue(out1.setValues(vals, 10));
 
@@ -58,7 +56,8 @@ test(setting_values)
 void setup()
 {
   Serial.begin(9600);
-  while(!Serial);
+  while (!Serial)
+    ;
 }
 
 /**

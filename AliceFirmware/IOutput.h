@@ -15,51 +15,51 @@
  */
 class IOutput : public AliceObject
 {
-  public:
-    IOutput(char * name, channelnumber_t start, channelnumber_t end);
-    virtual ~IOutput();
+public:
+  IOutput(char *name, channelnumber_t start, channelnumber_t end);
+  virtual ~IOutput();
 
-    size_t numChannels() const;
-    channelnumber_t startChannel() const;
-    channelnumber_t endChannel() const;
+  size_t numChannels() const;
+  channelnumber_t startChannel() const;
+  channelnumber_t endChannel() const;
 
-    bool setValues(usvalue_t *values, size_t numValues);
+  bool setValues(usvalue_t *values, size_t numValues);
 
-    usvalue_t valueByIndex(size_t idx) const;
-    usvalue_t valueByChannel(channelnumber_t channelNumber) const;
+  usvalue_t valueByIndex(size_t idx) const;
+  usvalue_t valueByChannel(channelnumber_t channelNumber) const;
 
-    /**
-     * @brief Opens the output device for transmission.
-     * @return True if the device was successfully opened
-     */
-    virtual bool open() = 0;
+  /**
+   * @brief Opens the output device for transmission.
+   * @return True if the device was successfully opened
+   */
+  virtual bool open() = 0;
 
-    /**
-     * @brief Closes the output device.
-     * @return True if the device was successfully closed
-     */
-    virtual bool close() = 0;
+  /**
+   * @brief Closes the output device.
+   * @return True if the device was successfully closed
+   */
+  virtual bool close() = 0;
 
-    /**
-     * @brief Returns true if the device is currently open and can be
-     *        transmitted.
-     * @return True if open
-     */
-    virtual bool isOpen() const = 0;
+  /**
+   * @brief Returns true if the device is currently open and can be
+   *        transmitted.
+   * @return True if open
+   */
+  virtual bool isOpen() const = 0;
 
-    /**
-     * @brief Sends a transmission on the output device.
-     * @return True if data was successfully sent
-     */
-    virtual bool tx() = 0;
+  /**
+   * @brief Sends a transmission on the output device.
+   * @return True if data was successfully sent
+   */
+  virtual bool tx() = 0;
 
-  protected:
-    usvalue_t * m_values; //!< Output values
-    const size_t m_numChannels; //!< Number of output channels
+protected:
+  usvalue_t *m_values;        //!< Output values
+  const size_t m_numChannels; //!< Number of output channels
 
-  private:
-    const channelnumber_t m_startChannel; //!< First channel to be output
-    const channelnumber_t m_endChannel; //!< Last channel to be output
+private:
+  const channelnumber_t m_startChannel; //!< First channel to be output
+  const channelnumber_t m_endChannel;   //!< Last channel to be output
 };
 
 #endif

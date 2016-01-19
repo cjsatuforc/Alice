@@ -15,18 +15,18 @@
  */
 class Mixer : public AliceObject
 {
-  public:
-    Mixer(char * name, size_t numChannels);
-    virtual ~Mixer();
+public:
+  Mixer(char *name, size_t numChannels);
+  virtual ~Mixer();
 
-    bool addChannel(channelnumber_t idx, MixerChannel * item);
-    MixerChannel * getChannel(channelnumber_t idx);
+  bool addChannel(channelnumber_t idx, MixerChannel *item);
+  MixerChannel *getChannel(channelnumber_t idx);
 
-    cevalue_t evaluate(channelnumber_t idx) const;
-    size_t fillOutputArray(cevalue_t * output, size_t len) const;
+  cevalue_t evaluate(channelnumber_t idx) const;
+  size_t fillOutputArray(cevalue_t *output, size_t len) const;
 
-  private:
-    AliceObjectList m_channels; //!< Mixer channels
+private:
+  AliceObjectList m_channels; //!< Mixer channels
 };
 
 #endif

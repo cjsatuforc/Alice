@@ -11,23 +11,23 @@
  */
 class Radio
 {
-  public:
-    /**
-     * \brief Returns the instance of the radio
-     * \return Radio instance
-     */
-    static Radio &Instance()
-    {
-      static Radio instance;
-      return instance;
-    }
+public:
+  /**
+   * \brief Returns the instance of the radio
+   * \return Radio instance
+   */
+  static Radio &Instance()
+  {
+    static Radio instance;
+    return instance;
+  }
 
-  private:
-    Radio();
-    Radio(Radio const &);
-    void operator=(Radio const &);
+private:
+  Radio();
+  Radio(Radio const &);
+  void operator=(Radio const &);
 
-    Model *m_activeModel; //!< Model that is currently loaded
+  Model *m_activeModel; //!< Model that is currently loaded
 };
 
 #endif

@@ -29,7 +29,7 @@ usvalue_t ce_to_us(cevalue_t value)
  * @param value Timing value
  * @return Zero centred value
  */
-usvalue_t us_to_ce(cevalue_t value)
+cevalue_t us_to_ce(usvalue_t value)
 {
   return (value - US_LOW) * US_TO_CE_FACT + CE_LOW;
 }

@@ -11,14 +11,14 @@
  */
 class AliceObject
 {
-  public:
-    AliceObject(char * name);
-    virtual ~AliceObject();
+public:
+  AliceObject(char *name);
+  virtual ~AliceObject();
 
-    const char * name() const;
+  const char *name() const;
 
-  private:
-    const char * m_name; //!< Name of the object
+private:
+  const char *m_name; //!< Name of the object
 };
 
 #endif

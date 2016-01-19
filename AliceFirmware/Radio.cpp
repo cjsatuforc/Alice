@@ -7,7 +7,7 @@
 /**
  * @brief Constructs the Radio.
  */
-Radio::Radio() :
-  m_activeModel(NULL)
+Radio::Radio()
+    : m_activeModel(NULL)
 {
 }

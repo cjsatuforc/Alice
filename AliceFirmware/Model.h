@@ -15,18 +15,18 @@
  */
 class Model : public AliceObject
 {
-  public:
-    Model(char * name, size_t numOutputs);
-    virtual ~Model();
+public:
+  Model(char *name, size_t numOutputs);
+  virtual ~Model();
 
-    Mixer * getMixer();
+  Mixer *getMixer();
 
-    bool addOutput(IOutput * item);
-    IOutput * getOutput(const char * name);
+  bool addOutput(IOutput *item);
+  IOutput *getOutput(const char *name);
 
-  private:
-    Mixer *m_mixer; //!< Mixer used by the Model
-    AliceObjectList m_outputs; //!< Output devices
+private:
+  Mixer *m_mixer;            //!< Mixer used by the Model
+  AliceObjectList m_outputs; //!< Output devices
 };
 
 #endif

@@ -75,7 +75,8 @@ test(replace_if)
 void setup()
 {
   Serial.begin(9600);
-  while(!Serial);
+  while (!Serial)
+    ;
 
   // Setup mock inputs
   InputManager::Instance().addInput(new MockInput("in_-100", INPUT_STICK, -100.0));

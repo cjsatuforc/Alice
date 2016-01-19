@@ -8,10 +8,10 @@
  * @param initialValue Initial value of the channel before operations are
  *                     evaluated
  */
-MixerChannel::MixerChannel(char * name, size_t numOperations, cevalue_t initialValue)
-  : AliceObject(name)
-  , m_initialValue(initialValue)
-  , m_operations(numOperations)
+MixerChannel::MixerChannel(char *name, size_t numOperations, cevalue_t initialValue)
+    : AliceObject(name)
+    , m_initialValue(initialValue)
+    , m_operations(numOperations)
 {
 }
 
@@ -31,7 +31,7 @@ usvalue_t MixerChannel::initialValue() const
 /**
  * @copydoc AliceObjectList::add
  */
-bool MixerChannel::addOperation(IMixerOperation * item)
+bool MixerChannel::addOperation(IMixerOperation *item)
 {
   return m_operations.add(item);
 }
@@ -39,9 +39,9 @@ bool MixerChannel::addOperation(IMixerOperation * item)
 /**
  * @copydoc AliceObjectList::getByName
  */
-IMixerOperation * MixerChannel::getOperation(const char * name)
+IMixerOperation *MixerChannel::getOperation(const char *name)
 {
-  return (IMixerOperation *) m_operations.getByName(name);
+  return (IMixerOperation *)m_operations.getByName(name);
 }
 
 /**
@@ -63,7 +63,7 @@ cevalue_t MixerChannel::evaluate() const
 
   for (size_t i = 0; i < m_operations.size(); i++)
   {
-    IMixerOperation *op = (IMixerOperation *) m_operations.get(i);
+    IMixerOperation *op = (IMixerOperation *)m_operations.get(i);
     value = op->evaluate(value);
   }
 

@@ -6,9 +6,9 @@
  * @copydoc AliceObject::AliceObject
  * @param numChannels Number of channels in the mixer
  */
-Mixer::Mixer(char * name, size_t numChannels)
-  : AliceObject(name)
-  , m_channels(numChannels)
+Mixer::Mixer(char *name, size_t numChannels)
+    : AliceObject(name)
+    , m_channels(numChannels)
 {
 }
 
@@ -19,7 +19,7 @@ Mixer::~Mixer()
 /**
  * @copydoc AliceObjectList::set
  */
-bool Mixer::addChannel(channelnumber_t idx, MixerChannel * item)
+bool Mixer::addChannel(channelnumber_t idx, MixerChannel *item)
 {
   return m_channels.set(idx, item);
 }
@@ -27,9 +27,9 @@ bool Mixer::addChannel(channelnumber_t idx, MixerChannel * item)
 /**
  * @copydoc AliceObjectList::get
  */
-MixerChannel * Mixer::getChannel(channelnumber_t idx)
+MixerChannel *Mixer::getChannel(channelnumber_t idx)
 {
-  return (MixerChannel *) m_channels.get(idx);
+  return (MixerChannel *)m_channels.get(idx);
 }
 
 /**
@@ -40,7 +40,7 @@ MixerChannel * Mixer::getChannel(channelnumber_t idx)
  */
 cevalue_t Mixer::evaluate(channelnumber_t idx) const
 {
-  MixerChannel * chan = (MixerChannel *) m_channels.get(idx);
+  MixerChannel *chan = (MixerChannel *)m_channels.get(idx);
 
   if (chan == NULL)
     return 0.0;
@@ -54,7 +54,7 @@ cevalue_t Mixer::evaluate(channelnumber_t idx) const
  * @param len Length of output array
  * @return Number of valid elements in outout array
  */
-size_t Mixer::fillOutputArray(cevalue_t * output, size_t len) const
+size_t Mixer::fillOutputArray(cevalue_t *output, size_t len) const
 {
   size_t i;
 

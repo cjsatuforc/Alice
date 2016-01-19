@@ -24,22 +24,22 @@ enum InputType
  */
 class IInput : public AliceObject
 {
-  public:
-    virtual ~IInput();
+public:
+  virtual ~IInput();
 
-    InputType type() const;
+  InputType type() const;
 
-    /**
-     * @brief Gets the current value of the input device.
-     * @return Zero centred value
-     */
-    virtual cevalue_t value() const = 0;
+  /**
+   * @brief Gets the current value of the input device.
+   * @return Zero centred value
+   */
+  virtual cevalue_t value() const = 0;
 
-  protected:
-    IInput(char * name, InputType type);
+protected:
+  IInput(char *name, InputType type);
 
-  private:
-    const InputType m_type; //!< Type of device
+private:
+  const InputType m_type; //!< Type of device
 };
 
 #endif

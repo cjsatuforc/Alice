@@ -19,28 +19,28 @@
  */
 class InputManager
 {
-  public:
-    /**
-     * \brief Returns the instance of the input manager
-     * \return InputManager instance
-     */
-    static InputManager &Instance()
-    {
-      static InputManager instance;
-      return instance;
-    }
+public:
+  /**
+   * \brief Returns the instance of the input manager
+   * \return InputManager instance
+   */
+  static InputManager &Instance()
+  {
+    static InputManager instance;
+    return instance;
+  }
 
-    bool addInput(IInput * item);
-    IInput * getInput(const char * name);
+  bool addInput(IInput *item);
+  IInput *getInput(const char *name);
 
-    void poll();
+  void poll();
 
-  private:
-    InputManager();
-    InputManager(InputManager const &);
-    void operator=(InputManager const &);
+private:
+  InputManager();
+  InputManager(InputManager const &);
+  void operator=(InputManager const &);
 
-    AliceObjectList m_inputs;
+  AliceObjectList m_inputs;
 };
 
 #endif

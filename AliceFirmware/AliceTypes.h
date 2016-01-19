@@ -61,6 +61,7 @@ typedef double cevalue_t;
 typedef size_t channelnumber_t;
 
 usvalue_t ce_to_us(cevalue_t value);
-usvalue_t us_to_ce(cevalue_t value);
+
+cevalue_t us_to_ce(usvalue_t value);
 
 #endif

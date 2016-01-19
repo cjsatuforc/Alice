@@ -7,9 +7,9 @@
  * @param capacity Maximum number of elements
  */
 AliceObjectList::AliceObjectList(size_t capacity)
-  : m_capacity(capacity)
+    : m_capacity(capacity)
 {
-  m_objects = new AliceObject*[capacity];
+  m_objects = new AliceObject *[capacity];
 
   for (size_t i = 0; i < m_capacity; i++)
     m_objects[i] = NULL;
@@ -29,7 +29,7 @@ AliceObjectList::~AliceObjectList()
  * @param item Pointer to the item to add
  * @return True if instance was added to list, false if the list is full
  */
-bool AliceObjectList::add(AliceObject * item)
+bool AliceObjectList::add(AliceObject *item)
 {
   for (size_t i = 0; i < m_capacity; i++)
   {
@@ -50,7 +50,7 @@ bool AliceObjectList::add(AliceObject * item)
  * @return True if instance was added to list, false if the index is out of
  *         range
  */
-bool AliceObjectList::set(size_t idx, AliceObject * item)
+bool AliceObjectList::set(size_t idx, AliceObject *item)
 {
   if (idx >= m_capacity)
     return false;
@@ -64,7 +64,7 @@ bool AliceObjectList::set(size_t idx, AliceObject * item)
  * @param name Name of item to get
  * @return Pointer to the item, NULL if not found
  */
-AliceObject * AliceObjectList::getByName(const char * name) const
+AliceObject *AliceObjectList::getByName(const char *name) const
 {
   for (size_t i = 0; i < m_capacity; i++)
   {
@@ -80,7 +80,7 @@ AliceObject * AliceObjectList::getByName(const char * name) const
  * @param idx Index of item to get
  * @return Pointer to the item, NULL if not found
  */
-AliceObject * AliceObjectList::get(size_t idx) const
+AliceObject *AliceObjectList::get(size_t idx) const
 {
   if (idx >= m_capacity)
     return NULL;

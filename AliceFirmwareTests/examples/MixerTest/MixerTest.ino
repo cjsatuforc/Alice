@@ -103,7 +103,7 @@ test(create_empty_channel)
  */
 test(channel_evaluation_add)
 {
-  MockInput * in = new MockInput("test_stick_1", INPUT_STICK, -100.0);
+  MockInput *in = new MockInput("test_stick_1", INPUT_STICK, -100.0);
   InputManager::Instance().addInput(in);
 
   MixerChannel c("test channel", 10);
@@ -129,9 +129,9 @@ test(channel_evaluation_add)
  */
 test(channel_evaluation_replaceif)
 {
-  MockInput * in1 = new MockInput("replaceif_test_switch_1", INPUT_SWITCH, 0.0);
-  MockInput * in2 = new MockInput("replaceif_test_switch_2", INPUT_SWITCH, 0.0);
-  MockInput * in3 = new MockInput("replaceif_test_switch_3", INPUT_SWITCH, 0.0);
+  MockInput *in1 = new MockInput("replaceif_test_switch_1", INPUT_SWITCH, 0.0);
+  MockInput *in2 = new MockInput("replaceif_test_switch_2", INPUT_SWITCH, 0.0);
+  MockInput *in3 = new MockInput("replaceif_test_switch_3", INPUT_SWITCH, 0.0);
   InputManager::Instance().addInput(in1);
   InputManager::Instance().addInput(in2);
   InputManager::Instance().addInput(in3);
@@ -183,9 +183,9 @@ test(channel_evaluation_replaceif)
  */
 test(channel_evaluation_addif)
 {
-  MockInput * in1 = new MockInput("addif_test_switch_1", INPUT_SWITCH, 0.0);
-  MockInput * in2 = new MockInput("addif_test_switch_2", INPUT_SWITCH, 0.0);
-  MockInput * in3 = new MockInput("addif_test_switch_3", INPUT_SWITCH, 0.0);
+  MockInput *in1 = new MockInput("addif_test_switch_1", INPUT_SWITCH, 0.0);
+  MockInput *in2 = new MockInput("addif_test_switch_2", INPUT_SWITCH, 0.0);
+  MockInput *in3 = new MockInput("addif_test_switch_3", INPUT_SWITCH, 0.0);
   InputManager::Instance().addInput(in1);
   InputManager::Instance().addInput(in2);
   InputManager::Instance().addInput(in3);
@@ -252,7 +252,8 @@ test(channel_evaluation_addif)
 void setup()
 {
   Serial.begin(9600);
-  while(!Serial);
+  while (!Serial)
+    ;
 }
 
 /**

@@ -6,14 +6,14 @@
  * @brief Constructs the InputManager.
  */
 InputManager::InputManager()
-  : m_inputs(MAX_NUM_INPUTS)
+    : m_inputs(MAX_NUM_INPUTS)
 {
 }
 
 /**
  * @copydoc AliceObjectList::add
  */
-bool InputManager::addInput(IInput * item)
+bool InputManager::addInput(IInput *item)
 {
   return m_inputs.add(item);
 }
@@ -21,9 +21,9 @@ bool InputManager::addInput(IInput * item)
 /**
  * @copydoc AliceObjectList::getByName
  */
-IInput * InputManager::getInput(const char * name)
+IInput *InputManager::getInput(const char *name)
 {
-  return (IInput *) m_inputs.getByName(name);
+  return (IInput *)m_inputs.getByName(name);
 }
 
 /**

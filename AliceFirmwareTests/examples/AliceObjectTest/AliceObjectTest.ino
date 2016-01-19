@@ -36,15 +36,15 @@ test(object_list_add)
 
   assertTrue(l.getByName("in1") != NULL);
   assertTrue(l.getByName("in2") != NULL);
-  assertTrue(((MockInput *) l.getByName("nope")) == NULL);
-  assertTrue(((MockInput *) l.get(8)) == NULL);
-  assertTrue(((MockInput *) l.get(20)) == NULL);
+  assertTrue(((MockInput *)l.getByName("nope")) == NULL);
+  assertTrue(((MockInput *)l.get(8)) == NULL);
+  assertTrue(((MockInput *)l.get(20)) == NULL);
 
-  assertEqual(((MockInput *) l.getByName("in1"))->value(), 1500);
-  assertEqual(((MockInput *) l.getByName("in2"))->value(), 2000);
+  assertEqual(((MockInput *)l.getByName("in1"))->value(), 1500);
+  assertEqual(((MockInput *)l.getByName("in2"))->value(), 2000);
 
-  assertEqual(((MockInput *) l.get(0))->value(), 1500);
-  assertEqual(((MockInput *) l.get(1))->value(), 2000);
+  assertEqual(((MockInput *)l.get(0))->value(), 1500);
+  assertEqual(((MockInput *)l.get(1))->value(), 2000);
 }
 
 /**
@@ -64,15 +64,15 @@ test(object_list_set)
 
   assertTrue(l.getByName("in1") != NULL);
   assertTrue(l.getByName("in2") != NULL);
-  assertTrue(((MockInput *) l.getByName("nope")) == NULL);
-  assertTrue(((MockInput *) l.get(0)) == NULL);
-  assertTrue(((MockInput *) l.get(20)) == NULL);
+  assertTrue(((MockInput *)l.getByName("nope")) == NULL);
+  assertTrue(((MockInput *)l.get(0)) == NULL);
+  assertTrue(((MockInput *)l.get(20)) == NULL);
 
-  assertEqual(((MockInput *) l.getByName("in1"))->value(), 1500);
-  assertEqual(((MockInput *) l.getByName("in2"))->value(), 2000);
+  assertEqual(((MockInput *)l.getByName("in1"))->value(), 1500);
+  assertEqual(((MockInput *)l.getByName("in2"))->value(), 2000);
 
-  assertEqual(((MockInput *) l.get(2))->value(), 1500);
-  assertEqual(((MockInput *) l.get(5))->value(), 2000);
+  assertEqual(((MockInput *)l.get(2))->value(), 1500);
+  assertEqual(((MockInput *)l.get(5))->value(), 2000);
 }
 
 /**
@@ -101,7 +101,8 @@ test(us_to_ce_test)
 void setup()
 {
   Serial.begin(9600);
-  while(!Serial);
+  while (!Serial)
+    ;
 }
 
 /**

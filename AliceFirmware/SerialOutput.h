@@ -11,14 +11,14 @@
  */
 class SerialOutput : public IOutput
 {
-  public:
-    SerialOutput(char * name, channelnumber_t start, channelnumber_t end);
-    virtual ~SerialOutput();
+public:
+  SerialOutput(char *name, channelnumber_t start, channelnumber_t end);
+  virtual ~SerialOutput();
 
-    bool open();
-    bool close();
-    bool isOpen() const;
-    bool tx();
+  bool open();
+  bool close();
+  bool isOpen() const;
+  bool tx();
 };
 
 #endif

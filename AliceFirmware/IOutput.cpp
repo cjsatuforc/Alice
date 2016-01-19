@@ -7,11 +7,11 @@
  * @param start First channel to include in output
  * @param end Last channel to include in output
  */
-IOutput::IOutput(char * name, channelnumber_t start, channelnumber_t end)
-  : AliceObject(name)
-  , m_startChannel(start)
-  , m_endChannel(end)
-  , m_numChannels(end - start + 1)
+IOutput::IOutput(char *name, channelnumber_t start, channelnumber_t end)
+    : AliceObject(name)
+    , m_startChannel(start)
+    , m_endChannel(end)
+    , m_numChannels(end - start + 1)
 {
   m_values = new usvalue_t[m_numChannels];
 
@@ -21,7 +21,7 @@ IOutput::IOutput(char * name, channelnumber_t start, channelnumber_t end)
 
 IOutput::~IOutput()
 {
-  delete [] m_values;
+  delete[] m_values;
 }
 
 /**

@@ -10,10 +10,10 @@
  * @param mappedInputName Name of the input device used in this mix
  * @param weight Weight associated with this mix
  */
-IMixerOperation::IMixerOperation(char * name, char * mappedInputName, cevalue_t weight)
-  : AliceObject(name)
-  , m_mappedInputName(mappedInputName)
-  , m_weight(weight)
+IMixerOperation::IMixerOperation(char *name, char *mappedInputName, cevalue_t weight)
+    : AliceObject(name)
+    , m_mappedInputName(mappedInputName)
+    , m_weight(weight)
 {
 }
 
@@ -25,7 +25,7 @@ IMixerOperation::~IMixerOperation()
  * @brief Gets the name of the input device used in this device.
  * @return Input device name
  */
-const char * IMixerOperation::getMappedInputName() const
+const char *IMixerOperation::getMappedInputName() const
 {
   return m_mappedInputName;
 }
@@ -36,7 +36,7 @@ const char * IMixerOperation::getMappedInputName() const
  */
 cevalue_t IMixerOperation::getInputValue() const
 {
-  IInput * in = InputManager::Instance().getInput(m_mappedInputName);
+  IInput *in = InputManager::Instance().getInput(m_mappedInputName);
   if (in == NULL)
     return US_CENTRE;
 

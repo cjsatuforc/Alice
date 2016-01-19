@@ -11,14 +11,14 @@
  */
 class PPMOutput : public IOutput
 {
-  public:
-    PPMOutput(char * name, channelnumber_t start, channelnumber_t end);
-    virtual ~PPMOutput();
+public:
+  PPMOutput(char *name, channelnumber_t start, channelnumber_t end);
+  virtual ~PPMOutput();
 
-    bool open();
-    bool close();
-    bool isOpen() const;
-    bool tx();
+  bool open();
+  bool close();
+  bool isOpen() const;
+  bool tx();
 };
 
 #endif

@@ -21,7 +21,8 @@ test(create_empty_model)
 void setup()
 {
   Serial.begin(9600);
-  while(!Serial);
+  while (!Serial)
+    ;
 }
 
 /**

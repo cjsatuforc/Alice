@@ -18,25 +18,27 @@
  */
 class MixerOperationAdd : public IMixerOperation
 {
-  public:
-    /**
-     * @copydoc IMixerOperation::IMixerOperation
-     */
-    MixerOperationAdd(char * name, char * mappedInputName, cevalue_t weight)
+public:
+  /**
+   * @copydoc IMixerOperation::IMixerOperation
+   */
+  MixerOperationAdd(char *name, char *mappedInputName, cevalue_t weight)
       : IMixerOperation(name, mappedInputName, weight)
-    {
-    }
+  {
+  }
 
-    virtual ~MixerOperationAdd() {}
+  virtual ~MixerOperationAdd()
+  {
+  }
 
-  protected:
-    /**
-     * @copydoc IMixerOperation::doEvaluation
-     */
-    virtual cevalue_t doEvaluation(cevalue_t lastValue) const
-    {
-      return lastValue + (m_weight * getInputValue()) / 100.0;
-    }
+protected:
+  /**
+   * @copydoc IMixerOperation::doEvaluation
+   */
+  virtual cevalue_t doEvaluation(cevalue_t lastValue) const
+  {
+    return lastValue + (m_weight * getInputValue()) / 100.0;
+  }
 };
 
 #endif
