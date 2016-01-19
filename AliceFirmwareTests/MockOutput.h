@@ -22,9 +22,32 @@ class MockOutput : public IOutput
 
     virtual ~MockOutput() {};
 
+    /**
+     * @copydoc IOutput::open
+     *
+     * Always returns true.
+     */
     bool open() { return true; };
+
+    /**
+     * @copydoc IOutput::close
+     *
+     * Always returns true.
+     */
     bool close() { return true; };
+
+    /**
+     * @copydoc IOutput::isOpen
+     *
+     * Always returns true.
+     */
     bool isOpen() const { return true; };
+
+    /**
+     * @copydoc IOutput::tx
+     *
+     * Always returns true.
+     */
     bool tx() { return true; };
 };
 
