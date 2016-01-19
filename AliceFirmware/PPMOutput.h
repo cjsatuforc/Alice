@@ -12,7 +12,7 @@
 class PPMOutput : public IOutput
 {
   public:
-    PPMOutput(char * name);
+    PPMOutput(char * name, channelnumber_t start, channelnumber_t end);
     virtual ~PPMOutput();
 };
 

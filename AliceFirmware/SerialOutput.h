@@ -12,7 +12,7 @@
 class SerialOutput : public IOutput
 {
   public:
-    SerialOutput(char * name);
+    SerialOutput(char * name, channelnumber_t start, channelnumber_t end);
     virtual ~SerialOutput();
 };
 

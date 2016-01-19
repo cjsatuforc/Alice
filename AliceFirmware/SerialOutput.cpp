@@ -3,10 +3,10 @@
 #include "SerialOutput.h"
 
 /**
- * @copydoc AliceObject::AliceObject
+ * @copydoc IOutput::IOutput
  */
-SerialOutput::SerialOutput(char * name)
-  : IOutput(name)
+SerialOutput::SerialOutput(char * name, channelnumber_t start, channelnumber_t end)
+  : IOutput(name, start, end)
 {
 }
 

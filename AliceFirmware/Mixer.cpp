@@ -19,7 +19,7 @@ Mixer::~Mixer()
 /**
  * @copydoc AliceObjectList::set
  */
-bool Mixer::addChannel(MixerChannelNumber idx, MixerChannel * item)
+bool Mixer::addChannel(channelnumber_t idx, MixerChannel * item)
 {
   return m_channels.set(idx, item);
 }
@@ -27,7 +27,7 @@ bool Mixer::addChannel(MixerChannelNumber idx, MixerChannel * item)
 /**
  * @copydoc AliceObjectList::get
  */
-MixerChannel * Mixer::getChannel(MixerChannelNumber idx)
+MixerChannel * Mixer::getChannel(channelnumber_t idx)
 {
   return (MixerChannel *) m_channels.get(idx);
 }
@@ -38,7 +38,7 @@ MixerChannel * Mixer::getChannel(MixerChannelNumber idx)
  * @param idx Channel number
  * @return Evaluated value, can also return 0.0 if channel was not found
  */
-usvalue_t Mixer::evaluate(MixerChannelNumber idx)
+usvalue_t Mixer::evaluate(channelnumber_t idx)
 {
   MixerChannel * chan = (MixerChannel *) m_channels.get(idx);
 

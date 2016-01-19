@@ -16,19 +16,13 @@
 class Mixer : public AliceObject
 {
   public:
-    /**
-     * @typedef MixerChannelNumber
-     * @param Number given to a Mixer channel.
-     */
-    typedef size_t MixerChannelNumber;
-
     Mixer(char * name, size_t numChannels);
     virtual ~Mixer();
 
-    bool addChannel(MixerChannelNumber idx, MixerChannel * item);
-    MixerChannel * getChannel(MixerChannelNumber idx);
+    bool addChannel(channelnumber_t idx, MixerChannel * item);
+    MixerChannel * getChannel(channelnumber_t idx);
 
-    usvalue_t evaluate(MixerChannelNumber idx);
+    usvalue_t evaluate(channelnumber_t idx);
 
   private:
     AliceObjectList m_channels; //!< Mixer channels

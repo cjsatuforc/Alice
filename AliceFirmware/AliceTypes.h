@@ -54,6 +54,12 @@ typedef int16_t usvalue_t;
  */
 typedef double cevalue_t;
 
+/**
+ * @typedef channelnumber_t
+ * @brief Used to represent a channel in a Mixer or IOutput device.
+ */
+typedef size_t channelnumber_t;
+
 usvalue_t ce_to_us(cevalue_t value);
 usvalue_t us_to_ce(cevalue_t value);
 

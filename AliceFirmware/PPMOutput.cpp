@@ -3,10 +3,10 @@
 #include "PPMOutput.h"
 
 /**
- * @copydoc AliceObject::AliceObject
+ * @copydoc IOutput::IOutput
  */
-PPMOutput::PPMOutput(char * name)
-  : IOutput(name)
+PPMOutput::PPMOutput(char * name, channelnumber_t start, channelnumber_t end)
+  : IOutput(name, start, end)
 {
 }
 
