@@ -23,7 +23,9 @@ public:
   MixerChannel *getChannel(channelnumber_t idx);
 
   cevalue_t evaluate(channelnumber_t idx) const;
-  size_t fillOutputArray(cevalue_t *output, size_t len) const;
+
+  size_t fillOutputArrayZeroCentre(cevalue_t *output, size_t len) const;
+  size_t fillOutputArrayTiming(usvalue_t *output, size_t len) const;
 
 private:
   AliceObjectList m_channels; //!< Mixer channels

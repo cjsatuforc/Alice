@@ -49,12 +49,13 @@ cevalue_t Mixer::evaluate(channelnumber_t idx) const
 }
 
 /**
- * @brief Fills an array with evealuated values from each channel of the mixer.
+ * @brief Fills an array with evaluated zero centred values from each channel
+ *        of the mixer.
  * @param output Pointer to output array
  * @param len Length of output array
- * @return Number of valid elements in outout array
+ * @return Number of valid elements in output array
  */
-size_t Mixer::fillOutputArray(cevalue_t *output, size_t len) const
+size_t Mixer::fillOutputArrayZeroCentre(cevalue_t *output, size_t len) const
 {
   size_t i;
 
@@ -64,6 +65,28 @@ size_t Mixer::fillOutputArray(cevalue_t *output, size_t len) const
       break;
 
     output[i] = evaluate(i);
+  }
+
+  return i;
+}
+
+/**
+ * @brief Fills an array with evaluated timing values from each channel of the
+ *        mixer.
+ * @param output Pointer to output array
+ * @param len Length of output array
+ * @return Number of valid elements in output array
+ */
+size_t Mixer::fillOutputArrayTiming(usvalue_t *output, size_t len) const
+{
+  size_t i;
+
+  for (i = 0; i < len; i++)
+  {
+    if (i >= m_channels.size())
+      break;
+
+    output[i] = ce_to_us(evaluate(i));
   }
 
   return i;
