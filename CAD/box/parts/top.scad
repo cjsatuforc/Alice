@@ -5,9 +5,9 @@ module TopPanel()
 {
   difference()
   {
-    XYPanel();
+    projection()
+      XYPanel();
   }
 }
 
-projection()
-  TopPanel();
+TopPanel();

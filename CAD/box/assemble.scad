@@ -23,7 +23,8 @@ z = (internal_z / 2) + half_thick + explode;
 color("red")
 {
   translate([0, 0, z])
-    TopPanel();
+    linear_extrude(height=3, center=true)
+      TopPanel();
 
   translate([0, 0, -z])
     BottomPanel();
@@ -41,14 +42,14 @@ color("green")
   }
 }
 
-color("blue")
+rotate([90, 0, 90])
 {
-  rotate([90, 0, 90])
-  {
+  color("blue")
     translate([0, 0, x])
-      FrontPanel();
+      linear_extrude(height=3, center=true)
+        FrontPanel();
 
+  color("grey")
     translate([0, 0, -x])
       RearPanel();
-  }
 }
