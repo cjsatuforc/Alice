@@ -1,5 +1,14 @@
 include <CAD-Library/parametric_enclosures/basic_bolt_jointed/basic_bolt_jointed.scad>;
+
+use <front.scad>;
+use <rear.scad>;
+use <top.scad>;
+use <bottom.scad>;
+use <left.scad>;
+use <right.scad>;
+
 include <config.scad>;
+
 
 $fn = 16;
 
@@ -14,10 +23,10 @@ z = (internal_z / 2) + half_thick + explode;
 color("red")
 {
   translate([0, 0, z])
-    XYPanel();
+    TopPanel();
 
   translate([0, 0, -z])
-    XYPanel();
+    BottomPanel();
 }
 
 color("green")
@@ -25,10 +34,10 @@ color("green")
   rotate([90, 0, 0])
   {
     translate([0, 0, y])
-      XZPanel();
+      LeftSidePanel();
 
     translate([0, 0, -y])
-      XZPanel();
+      RightSidePanel();
   }
 }
 
@@ -37,9 +46,9 @@ color("blue")
   rotate([90, 0, 90])
   {
     translate([0, 0, x])
-      YZPanel();
+      FrontPanel();
 
     translate([0, 0, -x])
-      YZPanel();
+      RearPanel();
   }
 }

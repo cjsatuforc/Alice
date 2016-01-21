@@ -1,7 +1,7 @@
 /* Internal dimensions */
-internal_x = 210;
-internal_y = 90;
-internal_z = 100;
+internal_x = 80;
+internal_y = 180;
+internal_z = 150;
 
 /* Material */
 material_thickness = 3;
@@ -15,9 +15,9 @@ side_panel_padding = 5;
 screw_hole_radius = 1.75;
 
 xy_panel_tabs_width = 10;
-xy_panel_tabs = [-40, 0, 40];
-xy_panel_screws = [-25, 25];
+xy_panel_tabs = [-70, 0, 70];
+xy_panel_screws = [-45, 45];
 
 xz_panel_tabs_width = 10;
-xz_panel_tabs = [-15, 15];
-xz_panel_screws = [0];
+xz_panel_tabs = [-60, 0, 60];
+xz_panel_screws = [-35, 35];
