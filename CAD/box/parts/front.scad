@@ -3,8 +3,7 @@ use <CAD-Library/dxf_import.scad>;
 include <CAD-Library/parametric_enclosures/basic_bolt_jointed/basic_bolt_jointed.scad>;
 include <../config.scad>;
 
-potentiometer_positions = [[-20, 60], [0, 60], [20, 60]];
-switch_positions = [[-75, 60], [-60, 60], [60, 60], [75, 60]];
+use <../alice.scad>
 
 module Joystick()
 {
@@ -35,18 +34,15 @@ module FrontPanel()
     }
 
     // Switches
-    for (sw_pos = switch_positions)
-    {
-      translate(sw_pos)
-        circle(d=switch_hole_diameter);
-    }
+    PositionAndLabel([-80, 60], "SW1") circle(d=switch_hole_diameter);
+    PositionAndLabel([-60, 60], "SW2") circle(d=switch_hole_diameter);
+    PositionAndLabel([ 60, 60], "SW3") circle(d=switch_hole_diameter);
+    PositionAndLabel([ 80, 60], "SW4") circle(d=switch_hole_diameter);
 
-    // Switches
-    for (pot_pos = potentiometer_positions)
-    {
-      translate(pot_pos)
-        circle(d=potentiometer_hole_diameter);
-    }
+    // Potentiometers
+    PositionAndLabel([-20, 60], "P1") circle(d=potentiometer_hole_diameter);
+    PositionAndLabel([  0, 60], "P2") circle(d=potentiometer_hole_diameter);
+    PositionAndLabel([ 20, 60], "P3") circle(d=potentiometer_hole_diameter);
   }
 }
 
