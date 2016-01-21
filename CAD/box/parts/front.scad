@@ -7,13 +7,15 @@ use <../alice.scad>
 module Joystick()
 {
   projection()
-  DXFImport("/home/dan/git_repos/CAD-Library/DXF/Switches/ParallaxJoystick27808.dxf",
-            subtraction_layers=["Joystick_Cutout", "Joystick_MountingHoles"]);
+    DXFImport("/home/dan/git_repos/CAD-Library/DXF/Switches/ParallaxJoystick27808.dxf",
+              subtraction_layers=["Joystick_Cutout", "Joystick_MountingHoles"]);
 }
 
-module LCD()
+module Display()
 {
-  //TODO
+  projection()
+    DXFImport("/home/dan/git_repos/CAD-Library/DXF/Displays/NX4024T032.dxf",
+              subtraction_layers=["NX4024T032_DisplayArea", "NX4024T032_MountingHoles"]);
 }
 
 module FrontPanel()
@@ -22,6 +24,10 @@ module FrontPanel()
   {
     projection()
       YZPanel();
+
+    // Display
+    translate([-3, -45])
+      Display();
 
     // Joysticks
     translate([0, 20])

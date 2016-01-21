@@ -8,7 +8,7 @@ material_thickness = 3;
 material_tolerance = 0.1;
 
 /* Side Panels */
-side_panel_padding = 5;
+side_panel_padding = 4;
 
 /* Joints */
 /* Positions are given as an offset from the centre of the panel */
@@ -22,6 +22,6 @@ xz_panel_tabs_width = 10;
 xz_panel_tabs = [-60, 0, 60];
 xz_panel_screws = [-35, 35];
 
-
+/* Fitting sizes */
 potentiometer_hole_diameter = 6; //TODO
 switch_hole_diameter = 5; //TODO
