@@ -1,13 +1,13 @@
 include <CAD-Library/parametric_enclosures/basic_bolt_jointed/basic_bolt_jointed.scad>;
-include <config.scad>;
+include <../config.scad>;
 
-module LeftSidePanel()
+module TopPanel()
 {
   difference()
   {
-    XZPanel();
+    XYPanel();
   }
 }
 
 projection()
-  LeftSidePanel();
+  TopPanel();

@@ -1,11 +1,11 @@
 include <CAD-Library/parametric_enclosures/basic_bolt_jointed/basic_bolt_jointed.scad>;
 
-use <front.scad>;
-use <rear.scad>;
-use <top.scad>;
-use <bottom.scad>;
-use <left.scad>;
-use <right.scad>;
+use <parts/front.scad>;
+use <parts/rear.scad>;
+use <parts/top.scad>;
+use <parts/bottom.scad>;
+use <parts/left.scad>;
+use <parts/right.scad>;
 
 include <config.scad>;
 
