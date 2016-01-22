@@ -1,0 +1,4 @@
+name=Aileron
+type=stick
+pin=3
+

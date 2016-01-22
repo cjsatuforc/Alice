@@ -1,0 +1,4 @@
+name=Elevator
+type=stick
+pin=2
+

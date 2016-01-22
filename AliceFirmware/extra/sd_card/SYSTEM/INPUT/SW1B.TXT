@@ -1,0 +1,5 @@
+name=Switch 1 B
+type=logical
+op=not
+params=Switch 1 A,Switch 1 B
+

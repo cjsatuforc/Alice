@@ -1,5 +1,0 @@
-name=Throttle
-type=[stick,pot,switch,multipos]
-[pin=2, pins=2,3,4]
-[config]
-

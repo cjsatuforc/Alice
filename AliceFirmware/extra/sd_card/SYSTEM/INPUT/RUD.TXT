@@ -1,0 +1,4 @@
+name=Rudder
+type=stick
+pin=1
+

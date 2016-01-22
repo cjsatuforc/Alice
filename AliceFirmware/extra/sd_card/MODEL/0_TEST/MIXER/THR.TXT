@@ -1,0 +1,5 @@
+name=Throttle
+channel=0
+default=-100
+add=Throttle,100.0
+

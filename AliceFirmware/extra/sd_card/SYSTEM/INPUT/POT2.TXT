@@ -1,0 +1,4 @@
+name=Pot 2
+type=pot
+pin=5
+

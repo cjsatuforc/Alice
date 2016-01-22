@@ -1,0 +1,4 @@
+name=Switch 1 A
+type=switch
+pin=40
+

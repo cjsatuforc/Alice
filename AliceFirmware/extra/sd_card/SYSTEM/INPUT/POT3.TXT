@@ -1,0 +1,4 @@
+name=Pot 3
+type=pot
+pin=6
+

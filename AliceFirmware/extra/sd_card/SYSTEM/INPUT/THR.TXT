@@ -1,0 +1,4 @@
+name=Throttle
+type=stick
+pin=0
+

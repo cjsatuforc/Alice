@@ -1,0 +1,4 @@
+name=Switch 1 C
+type=switch
+pin=41
+
