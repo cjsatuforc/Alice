@@ -2,6 +2,9 @@
 
 #line 2 "OutputTest.ino"
 
+#include <SPI.h>
+#include <SdFat.h>
+
 #include <ArduinoUnit.h>
 #include <AliceTest.h>
 

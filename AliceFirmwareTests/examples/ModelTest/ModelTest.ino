@@ -2,6 +2,9 @@
 
 #line 2 "ModelTest.ino"
 
+#include <SPI.h>
+#include <SdFat.h>
+
 #include <ArduinoUnit.h>
 #include <AliceTest.h>
 

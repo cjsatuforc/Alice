@@ -2,6 +2,9 @@
 
 #include <inttypes.h>
 
+#include <SPI.h>
+#include <SdFat.h>
+
 #include <Radio.h>
 
 /**
