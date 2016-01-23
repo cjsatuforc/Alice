@@ -18,6 +18,9 @@ public:
   size_t directoryCount(const char *dir);
   size_t listDirectory(const char *dir, char *out, size_t len);
 
+  size_t listConfigurations(const char *file, char *out, size_t len);
+  size_t getConfigValue(const char *file, const char *key, char *out, size_t len);
+
 private:
   SdFat m_sd;
 };
