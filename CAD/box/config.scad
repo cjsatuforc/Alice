@@ -24,4 +24,4 @@ xz_panel_screws = [-35, 35];
 
 /* Dimensions */
 potentiometer_hole_diameter = 8;
-switch_hole_diameter = 5; //TODO
+switch_hole_diameter = 8; //TODO

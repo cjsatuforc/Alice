@@ -20,36 +20,34 @@ x = (internal_x / 2) + half_thick + explode + side_explode;
 y = (internal_y / 2) + half_thick + explode;
 z = (internal_z / 2) + half_thick + explode;
 
-color("red")
-{
-  translate([0, 0, z])
+translate([0, 0, z])
+  color("cyan")
     linear_extrude(height=3, center=true)
       TopPanel();
 
-  translate([0, 0, -z])
+translate([0, 0, -z])
+  color("green")
     BottomPanel();
-}
 
-color("green")
+rotate([90, 0, 0])
 {
-  rotate([90, 0, 0])
-  {
-    translate([0, 0, y])
+  translate([0, 0, y])
+    color("blue")
       LeftSidePanel();
 
-    translate([0, 0, -y])
+  translate([0, 0, -y])
+    color("red")
       RightSidePanel();
-  }
 }
 
 rotate([90, 0, 90])
 {
-  color("blue")
-    translate([0, 0, x])
+  translate([0, 0, x])
+    color("silver")
       linear_extrude(height=3, center=true)
         FrontPanel();
 
-  color("grey")
-    translate([0, 0, -x])
+  translate([0, 0, -x])
+    color("purple")
       RearPanel();
 }

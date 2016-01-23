@@ -21,6 +21,9 @@ module TopPanel()
       PositionAndLabel([-10,  10], "DSMII/X",     2.5) circle(d=6.5);
       PositionAndLabel([ 20,  10], "DSM BIND",    2.5) circle(d=8);
       PositionAndLabel([ 20, -10], "DSM STATUS",  2.5) circle(d=4); //TODO
+
+      // JR trainer port
+      PositionAndLabel([-40, 10], "PPM (JR)", 2.5) circle(d=5); //TODO
     }
   }
 }
