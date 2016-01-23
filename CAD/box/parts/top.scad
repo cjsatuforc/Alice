@@ -16,6 +16,11 @@ module TopPanel()
       PositionAndLabel([ 80, -20], "SW6") circle(d=switch_hole_diameter);
       PositionAndLabel([-80,   5], "SW7") circle(d=switch_hole_diameter);
       PositionAndLabel([ 80,   5], "SW8") circle(d=switch_hole_diameter);
+
+      // DSM moudule
+      PositionAndLabel([-10,  10], "DSMII/X",     2.5) circle(d=6.5);
+      PositionAndLabel([ 20,  10], "DSM BIND",    2.5) circle(d=8);
+      PositionAndLabel([ 20, -10], "DSM STATUS",  2.5) circle(d=4); //TODO
     }
   }
 }

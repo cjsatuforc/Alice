@@ -22,6 +22,6 @@ xz_panel_tabs_width = 10;
 xz_panel_tabs = [-60, 0, 60];
 xz_panel_screws = [-35, 35];
 
-/* Fitting sizes */
-potentiometer_hole_diameter = 6; //TODO
+/* Dimensions */
+potentiometer_hole_diameter = 8;
 switch_hole_diameter = 5; //TODO
