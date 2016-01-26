@@ -11,11 +11,11 @@
  * @param reverse Reverse the direction of the joystick
  * @param threshold Threshold for new value
  */
-JoystickInput::JoystickInput(char *name, uint8_t adcPin, uint8_t adcLower, uint8_t adcCentre,
-                             uint8_t adcUpper, bool reverse, uint8_t threshold)
+JoystickInput::JoystickInput(char *name, uint8_t adcPin, int16_t adcLower, int16_t adcCentre,
+                             int16_t adcUpper, bool reverse, uint8_t threshold)
     : IInput(name, INPUT_STICK)
     , m_joystick(adcPin, adcPin)
-    , m_transform(-adcLower + adcCentre, adcUpper - adcCentre, -1000, 1000)
+    , m_transform(-(adcCentre - adcLower), adcUpper - adcCentre, -1000, 1000)
     , m_reverse(reverse)
 {
   m_joystick.setThreshold(threshold);

@@ -15,8 +15,8 @@
 class JoystickInput : public IInput
 {
 public:
-  JoystickInput(char *name, uint8_t adcPin, uint8_t adcLower = 0, uint8_t adcCentre = 512,
-                uint8_t adcUpper = 1023, bool reverse = false, uint8_t threshold = 1);
+  JoystickInput(char *name, uint8_t adcPin, int16_t adcLower = 0, int16_t adcCentre = 512,
+                int16_t adcUpper = 1023, bool reverse = false, uint8_t threshold = 1);
   virtual ~JoystickInput();
 
   cevalue_t value();

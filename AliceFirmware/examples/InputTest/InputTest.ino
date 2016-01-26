@@ -9,6 +9,7 @@
 
 #include <Radio.h>
 #include <JoystickInput.h>
+#include <PotentiometerInput.h>
 
 /**
  * @brief Setup routine.
@@ -21,6 +22,10 @@ void setup()
   Radio::Instance().addInput(new JoystickInput("pitch", 1, 385, 512, 640));
   Radio::Instance().addInput(new JoystickInput("throttle", 2, 385, 512, 640, true));
   Radio::Instance().addInput(new JoystickInput("yaw", 3, 385, 512, 640, true));
+
+  Radio::Instance().addInput(new PotentiometerInput("pot1", 4));
+  Radio::Instance().addInput(new PotentiometerInput("pot2", 5));
+  Radio::Instance().addInput(new PotentiometerInput("pot3", 6, 0, 1023, true));
 }
 
 /**
@@ -43,6 +48,10 @@ void loop()
   printInputValue("pitch");
   printInputValue("throttle");
   printInputValue("yaw");
+
+  printInputValue("pot1");
+  printInputValue("pot2");
+  printInputValue("pot3");
 
   Serial.println("==========\n");
 
