@@ -4,6 +4,9 @@
 
 #include <SPI.h>
 #include <SdFat.h>
+#include <ArduinoButton.h>
+#include <ArduinoJoystick.h>
+#include <LinearTransform.h>
 
 #include <ArduinoUnit.h>
 #include <AliceTest.h>

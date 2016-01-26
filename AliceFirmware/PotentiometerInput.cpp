@@ -12,7 +12,7 @@
  */
 PotentiometerInput::PotentiometerInput(char *name, uint8_t adcPin, int16_t adcLower,
                                        int16_t adcUpper, bool reverse, uint8_t threshold)
-    : IInput(name, INPUT_STICK)
+    : IInput(name, INPUT_POT)
     , m_adcVCentre(adcLower + ((adcUpper - adcLower) / 2))
     , m_potentiometer(adcPin, adcPin)
     , m_transform(adcLower, adcUpper, -1000, 1000)
