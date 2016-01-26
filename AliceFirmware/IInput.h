@@ -14,8 +14,7 @@ enum InputType
 {
   INPUT_STICK,
   INPUT_POT,
-  INPUT_SWITCH,
-  INPUT_MULTIPOS
+  INPUT_SWITCH
 };
 
 /**
@@ -33,7 +32,7 @@ public:
    * @brief Gets the current value of the input device.
    * @return Zero centred value
    */
-  virtual cevalue_t value() const = 0;
+  virtual cevalue_t value() = 0;
 
 protected:
   IInput(char *name, InputType type);
