@@ -150,6 +150,34 @@ test(channel_evaluation_add)
   in->setValue(100.0);
   assertClose(c.evaluate(), 90.0);
 }
+
+/**
+ * @brief Tests evaluation of a MixerChannel for a basic stick channel with
+ *        negative weighting.
+ */
+test(channel_evaluation_add_negative_weight)
+{
+  MockInput *in = new MockInput("test_stick_2", INPUT_STICK, -100.0);
+  Radio::Instance().addInput(in);
+
+  MixerChannel c("test channel", 10);
+
+  c.addOperation(new MixerOperationAdd("stick_add", "test_stick_2", -90));
+  assertEqual(c.numOperations(), 1);
+
+  /* -100 * -0.9 = 90 */
+  in->setValue(-100.0);
+  assertClose(c.evaluate(), 90.0);
+
+  /* 0 * -0.9 = 0 */
+  in->setValue(0.0);
+  assertClose(c.evaluate(), 0.0);
+
+  /* 100 * -0.9 = -90 */
+  in->setValue(100.0);
+  assertClose(c.evaluate(), -90.0);
+}
+
 /**
  * @brief Tests evaluation of a MixerChannel with several switches each setting
  *        a different value.

@@ -37,7 +37,7 @@ public:
   /**
    * @copydoc IInput::value
    */
-  virtual cevalue_t value() const
+  virtual cevalue_t value()
   {
     return m_value;
   }
