@@ -1,6 +1,5 @@
-use <CAD-Library/dxf_import.scad>;
-
-include <CAD-Library/parametric_enclosures/basic_bolt_jointed/basic_bolt_jointed.scad>;
+use <Suwako/DXFImport.scad>;
+use <Suwako/BoltAndTabBox.scad>
 include <../config.scad>;
 use <../alice.scad>
 
@@ -22,7 +21,7 @@ module FrontPanel()
 {
   difference()
   {
-    YZPanel2D();
+    YZPanel2D(box_config);
 
     // Display
     translate([-3, -45])

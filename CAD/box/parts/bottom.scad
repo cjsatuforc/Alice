@@ -1,13 +1,12 @@
-include <CAD-Library/parametric_enclosures/basic_bolt_jointed/basic_bolt_jointed.scad>;
+use <Suwako/BoltAndTabBox.scad>
 include <../config.scad>;
 
 module BottomPanel()
 {
   difference()
   {
-    XYPanel();
+    XYPanel2D(box_config);
   }
 }
 
-projection()
-  BottomPanel();
+BottomPanel();

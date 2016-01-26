@@ -1,13 +1,12 @@
-include <CAD-Library/parametric_enclosures/basic_bolt_jointed/basic_bolt_jointed.scad>;
+use <Suwako/BoltAndTabBox.scad>
 include <../config.scad>;
 
 module LeftSidePanel()
 {
   difference()
   {
-    XZPanel();
+    XZPanel2D(box_config);
   }
 }
 
-projection()
-  LeftSidePanel();
+LeftSidePanel();

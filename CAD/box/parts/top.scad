@@ -1,4 +1,4 @@
-include <CAD-Library/parametric_enclosures/basic_bolt_jointed/basic_bolt_jointed.scad>;
+use <Suwako/BoltAndTabBox.scad>
 include <../config.scad>;
 use <../alice.scad>;
 
@@ -6,7 +6,7 @@ module TopPanel()
 {
   difference()
   {
-    XYPanel2D();
+    XYPanel2D(box_config);
 
     rotate([0, 0, 90])
     {
