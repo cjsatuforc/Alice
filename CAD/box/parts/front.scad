@@ -22,8 +22,7 @@ module FrontPanel()
 {
   difference()
   {
-    projection()
-      YZPanel();
+    YZPanel2D();
 
     // Display
     translate([-3, -45])

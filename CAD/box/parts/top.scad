@@ -6,8 +6,7 @@ module TopPanel()
 {
   difference()
   {
-    projection()
-      XYPanel();
+    XYPanel2D();
 
     rotate([0, 0, 90])
     {
