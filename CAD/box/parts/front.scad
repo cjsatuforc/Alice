@@ -1,21 +1,6 @@
-use <Suwako/DXFImport.scad>;
 use <Suwako/BoltAndTabBox.scad>
 include <../config.scad>;
 use <../alice.scad>
-
-module Joystick()
-{
-  projection()
-    DXFImport("/home/dan/git_repos/CAD-Library/DXF/Switches/ParallaxJoystick27808.dxf",
-              subtraction_layers=["Joystick_Cutout", "Joystick_MountingHoles"]);
-}
-
-module Display()
-{
-  projection()
-    DXFImport("/home/dan/git_repos/CAD-Library/DXF/Displays/NX4024T032.dxf",
-              subtraction_layers=["NX4024T032_DisplayArea", "NX4024T032_MountingHoles"]);
-}
 
 module FrontPanel()
 {

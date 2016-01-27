@@ -1,0 +1,3 @@
+[submodule "CAD/Kanako"]
+	path = CAD/Kanako
+	url = https://github.com/DanNixon/Kanako.git
