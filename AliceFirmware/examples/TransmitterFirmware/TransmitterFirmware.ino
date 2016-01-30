@@ -7,6 +7,7 @@
 #include <ArduinoButton.h>
 #include <ArduinoJoystick.h>
 #include <LinearTransform.h>
+#include <TimerThree.h>
 
 #include <Radio.h>
 
