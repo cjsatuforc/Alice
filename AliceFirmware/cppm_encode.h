@@ -20,6 +20,7 @@
 void cppm_init();
 bool cppm_start();
 bool cppm_stop();
+bool cppm_is_running();
 void cppm_isr();
 
 bool cppm_set_stream_enable(size_t streamID, bool enable);

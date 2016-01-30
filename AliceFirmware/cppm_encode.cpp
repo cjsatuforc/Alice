@@ -104,6 +104,15 @@ bool cppm_stop()
 }
 
 /**
+ * @brief Retruns true if the CPPM driver is running.
+ * @return True if driver is running
+ */
+bool cppm_is_running()
+{
+  return cppm_running;
+}
+
+/**
  * @brief CPPM ISR, called by the TIMER.
  */
 void cppm_isr()
