@@ -115,13 +115,15 @@ void cppm_isr()
     if (!cppm_streams[i].enable)
       continue;
 
+    /* End of channels */
     if (digitalRead(cppm_streams[i].pin) == !cppm_streams[i].logic &&
         cppm_streams[i].channel == cppm_streams[i].num_channels)
     {
-      /* Wait for end of frame */
-      if (t - cppm_streams[i].frame_start_time < 22500)
+      /* Still some frame time left */
+      if (t - cppm_streams[i].frame_start_time < cppm_streams[i].frame_length)
         continue;
 
+      /* Start next frame */
       cppm_streams[i].frame_start_time = t;
       cppm_streams[i].channel_start_time = t;
       cppm_streams[i].channel = 0;
@@ -143,7 +145,7 @@ void cppm_isr()
       digitalWrite(cppm_streams[i].pin, cppm_streams[i].logic);
 
     /* End of channel pulse */
-    else if (channel_pulse_time > 300)
+    else if (channel_pulse_time > cppm_streams[i].pulse_length)
       digitalWrite(cppm_streams[i].pin, !cppm_streams[i].logic);
   }
 }
