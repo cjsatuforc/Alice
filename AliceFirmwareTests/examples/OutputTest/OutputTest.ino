@@ -38,7 +38,7 @@ test(setting_values)
   /* Set values */
   usvalue_t vals[] = {1000, 1100, 1200, 1300, 1400, 1600, 1700, 1800, 1900, 2000};
 
-  assertTrue(out1.setValues(vals, 10));
+  out1.setValues(vals, 10);
 
   /* Test values by index */
   assertEqual(out1.valueByIndex(0), 1200);
