@@ -12,6 +12,7 @@ IOutput::IOutput(char *name, channelnumber_t start, channelnumber_t end)
     , m_numChannels(end - start + 1)
     , m_startChannel(start)
     , m_endChannel(end)
+    , m_defaultValue(1500)
 {
   m_values = new usvalue_t[m_numChannels];
 
@@ -55,21 +56,20 @@ channelnumber_t IOutput::endChannel() const
  * @brief Sets the output values based on the output of a Mixer.
  * @param values Array of values to be set
  * @param numValues Number of values in the array
- * @return True if all values set successfully
+ *
+ * If the number of input values is too short with respect to the range of
+ * channels selected for this output then any output channels with missing
+ * values take the value of m_defaultValue.
  */
-bool IOutput::setValues(usvalue_t *values, size_t numValues)
+void IOutput::setValues(usvalue_t *values, size_t numValues)
 {
-  bool retVal = true;
-
   for (channelnumber_t c = m_startChannel; c <= m_endChannel; c++)
   {
     if (c < numValues)
       m_values[c - m_startChannel] = values[c];
     else
-      retVal = false;
+      m_values[c - m_startChannel] = m_defaultValue;
   }
-
-  return retVal;
 }
 
 /**

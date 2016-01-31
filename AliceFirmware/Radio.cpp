@@ -14,7 +14,7 @@ Radio::Radio()
 }
 
 /**
- * @param Sets the active model and reinitialises the radio.
+ * @brief Sets the active model and reinitialises the radio.
  * @param model New model
  * @return True for a successful reinitialisation
  */

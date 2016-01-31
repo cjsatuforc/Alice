@@ -23,7 +23,7 @@ public:
   channelnumber_t startChannel() const;
   channelnumber_t endChannel() const;
 
-  bool setValues(usvalue_t *values, size_t numValues);
+  void setValues(usvalue_t *values, size_t numValues);
 
   usvalue_t valueByIndex(size_t idx) const;
   usvalue_t valueByChannel(channelnumber_t channelNumber) const;
@@ -56,6 +56,7 @@ public:
 protected:
   usvalue_t *m_values;        //!< Output values
   const size_t m_numChannels; //!< Number of output channels
+  usvalue_t m_defaultValue;   //!< Default channel value
 
 private:
   const channelnumber_t m_startChannel; //!< First channel to be output

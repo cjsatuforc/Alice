@@ -56,9 +56,9 @@ void setup()
   Model *model = new Model("Test Model", 2);
   model->setMixer(mixer);
 
-  /* OUTPUT */
-  model->addOutput(new SerialOutput("Debug Output", 0, NUM_CHANNELS - 1, Serial));
-  /* model->addOutput(new PPMOutput("PPM Out", 0, NUM_CHANNELS - 1, 10)); */
+  /* OUTPUT (6 channels) */
+  model->addOutput(new SerialOutput("Debug Output", 0, 5, Serial));
+  model->addOutput(new PPMOutput("PPM Out", 0, 5, 10));
 
   Serial.println(Radio::Instance().setModel(model));
 }
