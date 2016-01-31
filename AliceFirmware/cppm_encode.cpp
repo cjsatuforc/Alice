@@ -80,7 +80,7 @@ bool cppm_start()
   }
 
   /* Setup timer */
-  TIMER.initialize(2);
+  TIMER.initialize(60);
   TIMER.attachInterrupt(cppm_isr);
 
   cppm_running = true;

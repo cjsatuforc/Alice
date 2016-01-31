@@ -48,9 +48,16 @@ void Radio::update()
 {
   Mixer *mixer = m_activeModel->getMixer();
 
+  /* Serial.println("New Iter"); */
+  /* unsigned long t = millis(); */
+
   size_t numChannels = mixer->numChannels();
   usvalue_t channelValues[numChannels];
   mixer->fillOutputArrayTiming(channelValues, numChannels);
+
+  /* Serial.print("Mixer: "); */
+  /* Serial.println(millis() - t); */
+  /* t = millis(); */
 
   for (size_t i = 0; i < m_activeModel->numOutputs(); i++)
   {
@@ -58,6 +65,9 @@ void Radio::update()
     out->setValues(channelValues, numChannels);
     out->tx();
   }
+
+  /* Serial.print("TX: "); */
+  /* Serial.println(millis() - t); */
 }
 
 /**

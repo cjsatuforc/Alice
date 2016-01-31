@@ -69,5 +69,4 @@ void setup()
 void loop()
 {
   Radio::Instance().update();
-  delay(5);
 }
