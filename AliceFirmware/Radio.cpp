@@ -14,13 +14,31 @@ Radio::Radio()
 }
 
 /**
+ * @param Sets the active model and reinitialises the radio.
+ * @param model New model
+ * @return True for a successful reinitialisation
+ */
+bool Radio::setModel(Model *model)
+{
+  m_activeModel = model;
+  return init();
+}
+
+/**
  * @brief Initialise the radio.
  * @return True for a successful initialisation
  */
 bool Radio::init()
 {
-  // TODO
-  return false;
+  bool retVal = true;
+
+  for (size_t i = 0; i < m_activeModel->numOutputs(); i++)
+  {
+    if (!m_activeModel->getOutputByIndex(i)->open())
+      retVal = false;
+  }
+
+  return retVal;
 }
 
 /**
@@ -28,7 +46,18 @@ bool Radio::init()
  */
 void Radio::update()
 {
-  // TODO
+  Mixer *mixer = m_activeModel->getMixer();
+
+  size_t numChannels = mixer->numChannels();
+  usvalue_t channelValues[numChannels];
+  mixer->fillOutputArrayTiming(channelValues, numChannels);
+
+  for (size_t i = 0; i < m_activeModel->numOutputs(); i++)
+  {
+    IOutput *out = m_activeModel->getOutputByIndex(i);
+    out->setValues(channelValues, numChannels);
+    out->tx();
+  }
 }
 
 /**

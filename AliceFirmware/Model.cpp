@@ -18,6 +18,15 @@ Model::~Model()
 }
 
 /**
+ * @brief Sets the active Mixer.
+ * @param mixer Pointer to the Mixer
+ */
+void Model::setMixer(Mixer *mixer)
+{
+  m_mixer = mixer;
+}
+
+/**
  * @brief Gets the active Mixer.
  * @return Pointer to the Mixer
  */
@@ -40,4 +49,20 @@ bool Model::addOutput(IOutput *item)
 IOutput *Model::getOutput(const char *name)
 {
   return (IOutput *)m_outputs.getByName(name);
+}
+
+/**
+ * @copydoc AliceObjectList::get
+ */
+IOutput *Model::getOutputByIndex(const size_t idx)
+{
+  return (IOutput *)m_outputs.get(idx);
+}
+
+/**
+ * @copydoc AliceObjectList::size
+ */
+size_t Model::numOutputs() const
+{
+  return m_outputs.size();
 }

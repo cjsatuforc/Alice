@@ -30,12 +30,12 @@ public:
     return instance;
   }
 
+  bool setModel(Model *model);
+  bool init();
+  void update();
+
   bool addInput(IInput *item);
   IInput *getInput(const char *name);
-
-  bool init();
-
-  void update();
 
 private:
   Radio();
@@ -43,7 +43,7 @@ private:
   void operator=(Radio const &);
 
   AliceObjectList m_inputs; //!< Physical inputs
-  Model *m_activeModel; //!< Model that is currently loaded
+  Model *m_activeModel;     //!< Model that is currently loaded
 };
 
 #endif

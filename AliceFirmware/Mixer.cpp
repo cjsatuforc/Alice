@@ -33,6 +33,14 @@ MixerChannel *Mixer::getChannel(channelnumber_t idx)
 }
 
 /**
+ * @copydoc AliceObjectList::size
+ */
+size_t Mixer::numChannels() const
+{
+  return m_channels.size();
+}
+
+/**
  * @brief Evaluates and returns the value of a MixerChannel given its channel
  *        number.
  * @param idx Channel number

@@ -21,6 +21,7 @@ public:
 
   bool addChannel(channelnumber_t idx, MixerChannel *item);
   MixerChannel *getChannel(channelnumber_t idx);
+  size_t numChannels() const;
 
   cevalue_t evaluate(channelnumber_t idx) const;
 

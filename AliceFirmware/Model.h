@@ -19,10 +19,13 @@ public:
   Model(char *name, size_t numOutputs);
   virtual ~Model();
 
+  void setMixer(Mixer *mixer);
   Mixer *getMixer();
 
   bool addOutput(IOutput *item);
   IOutput *getOutput(const char *name);
+  IOutput *getOutputByIndex(size_t idx);
+  size_t numOutputs() const;
 
 private:
   Mixer *m_mixer;            //!< Mixer used by the Model
