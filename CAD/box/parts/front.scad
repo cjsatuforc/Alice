@@ -8,6 +8,9 @@ module FrontPanel()
   {
     YZPanel2D(box_config);
 
+    PositionAndLabel([0, 10], "PWR", text_offset=[0, -15])
+      PowerSwitch();
+
     // Display
     translate([-3, -45])
       Display();
@@ -22,15 +25,24 @@ module FrontPanel()
     }
 
     // Switches
-    PositionAndLabel([-80, 60], "SW1") circle(d=switch_hole_diameter);
-    PositionAndLabel([-60, 60], "SW2") circle(d=switch_hole_diameter);
-    PositionAndLabel([ 60, 60], "SW3") circle(d=switch_hole_diameter);
-    PositionAndLabel([ 80, 60], "SW4") circle(d=switch_hole_diameter);
+    sw_label_offset = [0, -10];
+    PositionAndLabel([-80, 62.5], "SW1", text_offset=sw_label_offset)
+      circle(d=switch_hole_diameter);
+    PositionAndLabel([-60, 62.5], "SW2", text_offset=sw_label_offset)
+      circle(d=switch_hole_diameter);
+    PositionAndLabel([ 60, 62.5], "SW3", text_offset=sw_label_offset)
+      circle(d=switch_hole_diameter);
+    PositionAndLabel([ 80, 62.5], "SW4", text_offset=sw_label_offset)
+      circle(d=switch_hole_diameter);
 
     // Potentiometers
-    PositionAndLabel([-20, 60], "P1") circle(d=potentiometer_hole_diameter);
-    PositionAndLabel([  0, 60], "P2") circle(d=potentiometer_hole_diameter);
-    PositionAndLabel([ 20, 60], "P3") circle(d=potentiometer_hole_diameter);
+    pot_label_offset = [0, -12];
+    PositionAndLabel([-20, 60], "P1", text_offset=pot_label_offset)
+      circle(d=potentiometer_hole_diameter);
+    PositionAndLabel([  0, 60], "P2", text_offset=pot_label_offset)
+      circle(d=potentiometer_hole_diameter);
+    PositionAndLabel([ 20, 60], "P3", text_offset=pot_label_offset)
+      circle(d=potentiometer_hole_diameter);
   }
 }
 

@@ -21,3 +21,11 @@ module Display()
     DXFImport("../Kanako/Displays/NX4024T032.dxf",
               subtraction_layers=["NX4024T032_DisplayArea", "NX4024T032_MountingHoles"]);
 }
+
+module PowerSwitch()
+{
+  rotate([0, 0, 90])
+    projection()
+      DXFImport("../Kanako/Switches/RapidDPDTSwitch.dxf",
+                subtraction_layers=["RapidDPDTSw_Switch", "RapidDPDTSw_MountingHoles"]);
+}
