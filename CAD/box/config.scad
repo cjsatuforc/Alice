@@ -1,5 +1,5 @@
 /* Box config */
-internal = [80, 180, 150];
+internal = [50, 180, 150];
 material_thickness = 3;
 side_panel_padding = 4;
 

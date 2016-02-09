@@ -8,6 +8,7 @@ module FrontPanel()
   {
     YZPanel2D(box_config);
 
+    // Power switch
     PositionAndLabel([0, 10], "PWR", text_offset=[0, -15])
       PowerSwitch();
 
