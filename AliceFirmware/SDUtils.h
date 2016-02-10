@@ -12,7 +12,7 @@
 class SDUtils
 {
 public:
-  SDUtils(uint8_t chipSelect = 10);
+  SDUtils(uint8_t chipSelect = 7);
   virtual ~SDUtils();
 
   size_t directoryCount(const char *dir);
