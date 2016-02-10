@@ -17,13 +17,13 @@ module TopPanel()
       PositionAndLabel([ 80,  15], "SW8") circle(d=switch_hole_diameter);
 
       // JR PPM port
-      PositionAndLabel([-30, 15], "PPM (JR)", 2.5) circle(d=5); //TODO
+      PositionAndLabel([-30, 15], "PPM (JR)", 2.5) circle(d=6); //TODO
 
       // DSM
       PositionAndLabel([-5,  15], "DSM",      2.5) circle(d=6.5);
       PositionAndLabel([-5, -12], "DSM BIND", 2.5) circle(d=8);
       PositionAndLabel([10,   0], "DSM",      2.5, text_offset=[0, -15]) PowerSwitch();
-      translate([-5,  0]) circle(d=4); //TODO
+      translate([-5,  0]) circle(d=3.2);
 
       // Hubsan
       PositionAndLabel([30, 0], "HUBSAN", 2.5, text_offset=[0, -15]) PowerSwitch();
