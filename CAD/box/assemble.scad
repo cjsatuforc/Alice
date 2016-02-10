@@ -7,9 +7,6 @@ use <parts/right.scad>;
 
 include <config.scad>;
 
-
-$fn = 16;
-
 explode = 0;
 side_explode = 0;
 

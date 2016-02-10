@@ -8,3 +8,5 @@ box_config = [internal, [material_thickness, 0.1], 4, [1.75, [-45, 45], [-35, 35
 /* Dimensions */
 potentiometer_hole_diameter = 8;
 switch_hole_diameter = 6.5;
+
+$fn = 64;
