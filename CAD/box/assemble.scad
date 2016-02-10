@@ -34,8 +34,9 @@ rotate([90, 0, 0])
 
   translate([0, 0, -y])
     color("red")
-      linear_extrude(height=material_thickness, center=true)
-        RightSidePanel();
+      rotate([180, 0, 0])
+        linear_extrude(height=material_thickness, center=true)
+          RightSidePanel();
 }
 
 rotate([90, 0, 90])
