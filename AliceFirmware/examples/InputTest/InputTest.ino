@@ -28,7 +28,7 @@ void setup()
 
   Radio::Instance().addInput(new PotentiometerInput("pot1", 4));
   Radio::Instance().addInput(new PotentiometerInput("pot2", 5));
-  Radio::Instance().addInput(new PotentiometerInput("pot3", 6, 0, 1023, true));
+  Radio::Instance().addInput(new PotentiometerInput("pot3", 6));
 
   Radio::Instance().addInput(new SwitchInput("sw1", 22));
   Radio::Instance().addInput(new SwitchInput("sw2", 23));
