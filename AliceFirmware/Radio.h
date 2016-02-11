@@ -11,7 +11,7 @@
  * @def MAX_NUM_INPUTS
  * @brief Maximum number of inputs that can be registered.
  */
-#define MAX_NUM_INPUTS 16
+#define MAX_NUM_INPUTS 32
 
 /**
  * @class Radio

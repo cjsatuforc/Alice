@@ -30,10 +30,27 @@ void setup()
   Radio::Instance().addInput(new PotentiometerInput("pot2", 5));
   Radio::Instance().addInput(new PotentiometerInput("pot3", 6));
 
-  Radio::Instance().addInput(new SwitchInput("sw1", 22));
-  Radio::Instance().addInput(new SwitchInput("sw2", 23));
-  Radio::Instance().addInput(new SwitchInput("sw3", 24));
-  Radio::Instance().addInput(new SwitchInput("sw4", 25));
+  Radio::Instance().addInput(new SwitchInput("sw1u", 29));
+  Radio::Instance().addInput(new SwitchInput("sw1d", 32));
+
+  Radio::Instance().addInput(new SwitchInput("sw2u", 36));
+  Radio::Instance().addInput(new SwitchInput("sw2d", 30));
+
+  Radio::Instance().addInput(new SwitchInput("sw3u", 26));
+  Radio::Instance().addInput(new SwitchInput("sw3d", 27));
+
+  Radio::Instance().addInput(new SwitchInput("sw4u", 35));
+  Radio::Instance().addInput(new SwitchInput("sw4d", 33));
+
+  Radio::Instance().addInput(new SwitchInput("sw5u", 22));
+  Radio::Instance().addInput(new SwitchInput("sw5d", 28));
+
+  Radio::Instance().addInput(new SwitchInput("sw6u", 34));
+  Radio::Instance().addInput(new SwitchInput("sw6d", 23));
+
+  Radio::Instance().addInput(new SwitchInput("sw7u", 24));
+
+  Radio::Instance().addInput(new SwitchInput("sw8u", 25));
 }
 
 /**
@@ -44,7 +61,11 @@ void printInputValue(const char *name)
 {
   Serial.print(name);
   Serial.print(": \t\t");
-  Serial.println(Radio::Instance().getInput(name)->value());
+  IInput * in = Radio::Instance().getInput(name);
+  if (in == NULL)
+    Serial.println("fail");
+  else
+    Serial.println(in->value());
 }
 
 /**
@@ -61,12 +82,22 @@ void loop()
   printInputValue("pot2");
   printInputValue("pot3");
 
-  printInputValue("sw1");
-  printInputValue("sw2");
-  printInputValue("sw3");
-  printInputValue("sw4");
+  printInputValue("sw1u");
+  printInputValue("sw1d");
+  printInputValue("sw2u");
+  printInputValue("sw2d");
+  printInputValue("sw3u");
+  printInputValue("sw3d");
+  printInputValue("sw4u");
+  printInputValue("sw4d");
+  printInputValue("sw5u");
+  printInputValue("sw5d");
+  printInputValue("sw6u");
+  printInputValue("sw6d");
+  printInputValue("sw7u");
+  printInputValue("sw8u");
 
   Serial.println("==========\n");
 
-  delay(100);
+  /* delay(10); */
 }
