@@ -19,7 +19,7 @@
 #include <PPMOutput.h>
 #include <cppm_encode.h>
 
-#define NUM_CHANNELS 4
+#define NUM_CHANNELS 7
 
 /**
  * @brief Setup routine.
@@ -30,13 +30,13 @@ void setup()
   cppm_init();
 
   /* INPUT */
-  Radio::Instance().addInput(new PotentiometerInput("P1", 0));
-  Radio::Instance().addInput(new PotentiometerInput("P2", 1));
-  Radio::Instance().addInput(new PotentiometerInput("P3", 2));
-  Radio::Instance().addInput(new JoystickInput("Roll", 3, 385, 512, 640));
-  Radio::Instance().addInput(new JoystickInput("Pitch", 4, 385, 512, 640));
-  Radio::Instance().addInput(new JoystickInput("Throttle", 5, 385, 512, 640, true));
-  Radio::Instance().addInput(new JoystickInput("Yaw", 6, 385, 512, 640, true));
+  Radio::Instance().addInput(new JoystickInput("Roll", 0, 385, 512, 640));
+  Radio::Instance().addInput(new JoystickInput("Pitch", 1, 385, 512, 640));
+  Radio::Instance().addInput(new JoystickInput("Throttle", 2, 385, 512, 640, true));
+  Radio::Instance().addInput(new JoystickInput("Yaw", 3, 385, 512, 640, true));
+  Radio::Instance().addInput(new PotentiometerInput("P1", 4));
+  Radio::Instance().addInput(new PotentiometerInput("P2", 5));
+  Radio::Instance().addInput(new PotentiometerInput("P3", 6));
 
   /* MIXER */
   Mixer *mixer = new Mixer("Test Mixer", NUM_CHANNELS);
@@ -73,8 +73,8 @@ void setup()
   model->setMixer(mixer);
 
   /* OUTPUT (6 channels) */
-  model->addOutput(new SerialOutput("Debug Output", 0, 8, Serial));
-  /* model->addOutput(new PPMOutput("PPM Out", 0, 5, 10)); */
+  model->addOutput(new SerialOutput("Debug Output", 0, 6, Serial));
+  /* model->addOutput(new PPMOutput("PPM Out", 0, 6, 10)); */
 
   Serial.println(Radio::Instance().setModel(model));
 }
