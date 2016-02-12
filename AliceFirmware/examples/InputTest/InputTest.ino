@@ -30,27 +30,27 @@ void setup()
   Radio::Instance().addInput(new PotentiometerInput("pot2", 5));
   Radio::Instance().addInput(new PotentiometerInput("pot3", 6));
 
-  Radio::Instance().addInput(new SwitchInput("sw1u", 29));
+  Radio::Instance().addInput(new SwitchInput("sw1u", 34));
   Radio::Instance().addInput(new SwitchInput("sw1d", 32));
 
   Radio::Instance().addInput(new SwitchInput("sw2u", 36));
   Radio::Instance().addInput(new SwitchInput("sw2d", 30));
 
-  Radio::Instance().addInput(new SwitchInput("sw3u", 26));
-  Radio::Instance().addInput(new SwitchInput("sw3d", 27));
+  Radio::Instance().addInput(new SwitchInput("sw3u", 37));
+  Radio::Instance().addInput(new SwitchInput("sw3d", 31));
 
   Radio::Instance().addInput(new SwitchInput("sw4u", 35));
   Radio::Instance().addInput(new SwitchInput("sw4d", 33));
 
-  Radio::Instance().addInput(new SwitchInput("sw5u", 22));
-  Radio::Instance().addInput(new SwitchInput("sw5d", 28));
+  Radio::Instance().addInput(new SwitchInput("sw5u", 28)); //TODO
+  Radio::Instance().addInput(new SwitchInput("sw5d", 22));
 
-  Radio::Instance().addInput(new SwitchInput("sw6u", 34));
-  Radio::Instance().addInput(new SwitchInput("sw6d", 23));
+  Radio::Instance().addInput(new SwitchInput("sw6u", 23));
+  Radio::Instance().addInput(new SwitchInput("sw6d", 29));
 
   Radio::Instance().addInput(new SwitchInput("sw7u", 24));
 
-  Radio::Instance().addInput(new SwitchInput("sw8u", 25));
+  Radio::Instance().addInput(new SwitchInput("sw8u", 27));
 }
 
 /**
