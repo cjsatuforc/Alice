@@ -1,30 +1,24 @@
-language: c
+language: python
+
+python:
+  - "2.7"
 
 sudo: false
+
+cache:
+  directories:
+    - "~/.platformio"
 
 addons:
   apt:
     packages:
       - doxygen
 
-before_install:
-  - source <(curl -SLs https://raw.githubusercontent.com/adafruit/travis-ci-arduino/master/install.sh)
-
 install:
-  - arduino --install-library "Universal Inputs"
-  - arduino --install-library "TimerThree"
-  - arduino --install-library "ArduinoUnit"
-
-  - ln -s $PWD/AliceFirmware $HOME/arduino_ide/libraries/AliceFirmware
-  - ln -s $PWD/AliceFirmwareTests $HOME/arduino_ide/libraries/AliceFirmwareTests
-
-  - git clone https://github.com/greiman/SdFat.git sdfat
-  - mv $PWD/sdfat/SdFat $HOME/arduino_ide/libraries/SdFat
-  - rm -rf sdfat
+  - pip install -U platformio
 
 script:
-  - build_platform leonardo
-  - build_platform arduino:avr:mega
+  - yes | platformio run --project-dir ./firmware
   - doxygen
 
 notifications:
