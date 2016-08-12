@@ -1,6 +1,8 @@
 /** @file */
 
-#line 2 "SDTest.ino"
+#ifdef UNIT_TEST
+
+#include <Unity.h>
 
 #include <SPI.h>
 #include <SdFat.h>
@@ -17,7 +19,7 @@
 /**
  * @brief Tests directory listing.
  */
-test(directory_list)
+void test_directory_list()
 {
   SDUtils sd;
 
@@ -28,14 +30,14 @@ test(directory_list)
   char listing[len];
   size_t n = sd.listDirectory("/SYSTEM/INPUT", listing, len);
 
-  assertEqual(n, 45);
-  assertEqual(strcmp(listing, "AIL,RUD,SW1C,POT2,POT3,POT1,SW1A,SW1B,ELE,THR"), 0);
+  TEST_ASSERT_EQUAL(n, 45);
+  TEST_ASSERT_EQUAL(strcmp(listing, "AIL,RUD,SW1C,POT2,POT3,POT1,SW1A,SW1B,ELE,THR"), 0);
 }
 
 /**
  * @brief Test gettting a list of config options.
  */
-test(config_list)
+void test_config_list()
 {
   SDUtils sd;
 
@@ -43,14 +45,14 @@ test(config_list)
   char listing[len];
   size_t n = sd.listConfigurations("/SYSTEM/INPUT/AIL", listing, len);
 
-  assertEqual(n, 13);
-  assertEqual(strcmp(listing, "name,type,pin"), 0);
+  TEST_ASSERT_EQUAL(n, 13);
+  TEST_ASSERT_EQUAL(strcmp(listing, "name,type,pin"), 0);
 }
 
 /**
  * @brief Tests getting the values of configs.
  */
-test(config_get)
+void test_config_get()
 {
   SDUtils sd;
 
@@ -58,24 +60,34 @@ test(config_get)
   char value[len];
   size_t n = sd.getConfigValue("/SYSTEM/INPUT/AIL", "type", value, len);
 
-  assertEqual(n, 5);
-  assertEqual(strcmp(value, "stick"), 0);
+  TEST_ASSERT_EQUAL(n, 5);
+  TEST_ASSERT_EQUAL(strcmp(value, "stick"), 0);
 }
 
-/**
- * @brief Setup routine.
- */
+void process()
+{
+  UNITY_BEGIN();
+  RUN_TEST(test_directory_list);
+  RUN_TEST(test_config_list;
+  RUN_TEST(test_config_get);
+  UNITY_END();
+}
+
+#ifdef ARDUINO
+#include <Arduino.h>
 void setup()
 {
-  Serial.begin(9600);
-  while (!Serial)
-    ;
+  process()
 }
-
-/**
- * @brief Test runner.
- */
 void loop()
 {
-  Test::run();
 }
+#else
+int main(int argc, char **argv)
+{
+  process();
+  return 0;
+}
+#endif
+
+#endif
